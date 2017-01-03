@@ -32,8 +32,8 @@ class Layout extends React.Component {
     return (
       <div ref={node => (this.root = node)}>
           <Sidebar/>
-          <main className={s.content}>
-            <div {...this.props} className={cx(this.props.className)} />
+          <main className={s.main}>
+            <div {...this.props} className={cx(this.props.className, s.content)} />
             <Footer />
           </main>
       </div>
