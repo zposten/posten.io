@@ -9,23 +9,27 @@
  */
 
 import React from 'react';
-import Link from '../Link/Link.jsx';
+import NavLink from '../NavLink/NavLink.jsx';
+import s from './Navigation.css';
 
 class Navigation extends React.Component {
 
   componentDidMount() {
-    window.componentHandler.upgradeElement(this.root);
+    // window.componentHandler.upgradeElement(this.root);
   }
 
   componentWillUnmount() {
-    window.componentHandler.downgradeElements(this.root);
+    // window.componentHandler.downgradeElements(this.root);
   }
 
   render() {
     return (
-      <nav className="mdl-navigation" ref={node => (this.root = node)}>
-        <Link className="mdl-navigation__link" to="/">Home</Link>
-        <Link className="mdl-navigation__link" to="/about">About</Link>
+      <nav className={s.navlist} > {/*ref={node => (this.root = node)}>*/}
+        <NavLink to="/">Home</NavLink>
+        <NavLink to="/about">About</NavLink>
+        <NavLink to="/blog">Blog</NavLink>
+        <NavLink to="/photography">Photography</NavLink>
+        <NavLink to="/apps">Applets</NavLink>
       </nav>
     );
   }

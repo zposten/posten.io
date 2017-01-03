@@ -15,10 +15,10 @@ const R = require('ramda');
 // color vars in JS are CONST_CASE, but need to be converted to hyphen-case for CSS
 const renameKeys = R.curry((renameFn, obj) => {
   return R.reduce((acc, key) => {
-    acc[renameFn(key)] = obj[key]
+    acc[renameFn(key)] = obj[key];
     return acc
   }, {}, R.keys(obj))
-})
+});
 const constCaseToHyphenCase = (str) => { return str.replace(/_/g, "-").toLowerCase() }
 const colorVars = renameKeys(constCaseToHyphenCase, require('./src/utils/colors'));
 

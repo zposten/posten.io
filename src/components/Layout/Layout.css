@@ -8,6 +8,8 @@
   flex-direction: column;
   justify-content: space-between;
   height: 100vh;
+  background-color: var(--dark);
+  color: var(--text-color);
 }
 
 .content {

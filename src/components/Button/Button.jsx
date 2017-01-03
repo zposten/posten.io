@@ -10,7 +10,7 @@
 
 import React, { PropTypes } from 'react';
 import cx from 'classnames';
-import Link from '../Link/Link';
+import Link from '../NavLink/Link';
 
 class Button extends React.Component {
 
