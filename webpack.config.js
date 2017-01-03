@@ -90,10 +90,7 @@ const config = {
       {
         test: /\.jsx?$/,
         include: [
-          path.resolve(__dirname, './src/components'),
-          path.resolve(__dirname, './src/core'),
-          path.resolve(__dirname, './src/pages'),
-          path.resolve(__dirname, './src/main.js'),
+          path.resolve(__dirname, './src'),
         ],
         loader: `babel-loader?${JSON.stringify(babelConfig)}`,
       },
