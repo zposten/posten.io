@@ -19,7 +19,7 @@ function escape(text) {
  *
  *   {
  *     "path": "/about",
- *     "page": "./pages/about"
+ *     "page": "./src/pages/about"
  *   }
  *
  * becomes
@@ -29,7 +29,7 @@ function escape(text) {
  *     pattern: /^\\/about(?:\/(?=$))?$/i,
  *     keys: [],
  *     page: './pages/about',
- *     load: function () { return new Promise(resolve => require(['./pages/about'], resolve)); }
+ *     load: function () { return new Promise(resolve => require(['./src/pages/about'], resolve)); }
  *   }
  */
 module.exports = function routesLoader(source) {

@@ -12,7 +12,9 @@ import React, { PropTypes } from 'react';
 import cx from 'classnames';
 import Sidebar from './Sidebar.jsx';
 import Footer from '../Footer/Footer.jsx';
+import TopBar from './TopBar.jsx';
 import s from './Layout.css';
+import { s as sidebarStyle } from './Sidebar.css';
 
 class Layout extends React.Component {
 
@@ -20,22 +22,20 @@ class Layout extends React.Component {
     className: PropTypes.string,
   };
 
-  componentDidMount() {
-    // window.componentHandler.upgradeElement(this.root);
-  }
-
-  componentWillUnmount() {
-    // window.componentHandler.downgradeElements(this.root);
+  toggleNav() {
+    var sidebar = document.getElementsByClassName(sidebarStyle.sidebar);
+    sidebar.classList.toggle()
   }
 
   render() {
     return (
-      <div ref={node => (this.root = node)}>
-          <Sidebar/>
-          <main className={s.main}>
-            <div {...this.props} className={cx(this.props.className, s.content)} />
-            <Footer />
-          </main>
+      <div ref={node => (this.root = node)} className={s.root}>
+        <TopBar toggleNav={this.toggleNav} />
+        <main className={s.main}>
+          <div {...this.props} className={cx(this.props.className, s.content)} />
+          <Footer />
+        </main>
+        <Sidebar/>
       </div>
     );
   }

@@ -1,10 +1,19 @@
+/*@value breakpoints from '../../utils/breakpoints.css';*/
+/*@value show-sidebar from brekapoints;*/
+
 .sidebar {
   background-color: var(--nav-color);
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
   width: 250px;
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  /*height: calc(100% + 25px);*/
+  height: 100%;
+
+  @media(min-width: 624px) {
+    display: unset;
+  }
 }
 
 .pic {
@@ -13,6 +22,11 @@
 
 .picwrapper {
   padding: 20px;
+}
+
+.sidebar-hidden {
+  composes: sidebar;
+  display: unset;
 }
 
 

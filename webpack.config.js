@@ -11,6 +11,7 @@ const babelConfig = Object.assign({}, pkg.babel, {
   cacheDirectory: useHMR,
 });
 
+/** Share colors between CSS and JS **/
 const R = require('ramda');
 // color vars in JS are CONST_CASE, but need to be converted to hyphen-case for CSS
 const renameKeys = R.curry((renameFn, obj) => {
@@ -32,8 +33,8 @@ const config = {
   // The entry point for the bundle
   entry: [
     /* Material Design Lite (https://getmdl.io) */
-    '!!style!css!react-mdl/extra/material.min.css',
-    'react-mdl/extra/material.min.js',
+    //'!!style!css!react-mdl/extra/material.min.css',
+    //'react-mdl/extra/material.min.js',
     /* The main entry point of your JavaScript application */
     './src/main.js',
   ],
@@ -154,6 +155,11 @@ const config = {
       // Postcss flexbox bug fixer
       // https://github.com/luisrudge/postcss-flexbugs-fixes
       require('postcss-flexbugs-fixes')(),
+
+      // Allows exporting of values, similar to SCSS
+      // https://github.com/css-modules/css-modules/blob/master/docs/values-variables.md
+      // Throws error for some reason?
+      //require('postcss-modules-values')(),
     ];
   },
 

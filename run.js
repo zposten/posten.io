@@ -16,9 +16,9 @@ const ejs = require('ejs');
 const webpack = require('webpack');
 
 const config = {
-  title: 'React Static Boilerplate',        // Your website title
-  url: 'https://rsb.kriasoft.com',          // Your website URL
-  project: 'react-static-boilerplate',      // Firebase project. See README.md -> How to Deploy
+  title: 'Zach Posten',                     // Your website title
+  url: 'https://www.posten.io',          // Your website URL
+  project: 'posten.io',      // Firebase project. See README.md -> How to Deploy
   trackingID: 'UA-XXXXX-Y',                 // Google Analytics Site's ID
 };
 
@@ -35,7 +35,24 @@ function run(task) {
 //
 // Clean up the output directory
 // -----------------------------------------------------------------------------
-tasks.set('clean', () => del(['public/dist/*', '!public/dist/.git'], { dot: true }));
+tasks.set('clean', () => del(['public/dist/*', '!public/dist/.git', 'public/index.html'], { dot: true }));
+
+//
+// Bundle JavaScript, CSS and image files with Webpack
+// -----------------------------------------------------------------------------
+tasks.set('bundle', () => {
+  const webpackConfig = require('./webpack.config');
+  return new Promise((resolve, reject) => {
+    webpack(webpackConfig).run((err, stats) => {
+      if (err) {
+        reject(err);
+      } else {
+        console.log(stats.toString(webpackConfig.stats));
+        resolve();
+      }
+    });
+  });
+});
 
 //
 // Copy ./index.html into the /public folder
@@ -60,23 +77,6 @@ tasks.set('sitemap', () => {
   const render = ejs.compile(template, { filename: './public/sitemap.ejs' });
   const output = render({ config, urls });
   fs.writeFileSync('public/sitemap.xml', output, 'utf8');
-});
-
-//
-// Bundle JavaScript, CSS and image files with Webpack
-// -----------------------------------------------------------------------------
-tasks.set('bundle', () => {
-  const webpackConfig = require('./webpack.config');
-  return new Promise((resolve, reject) => {
-    webpack(webpackConfig).run((err, stats) => {
-      if (err) {
-        reject(err);
-      } else {
-        console.log(stats.toString(webpackConfig.stats));
-        resolve();
-      }
-    });
-  });
 });
 
 //

@@ -6,13 +6,15 @@
   font-family: "Anton", sans-serif;
   text-decoration: none;
   width: 100%;
-  padding: 20px 40px;
+  padding: 15px 40px;
   display: inline-block;
   font-weight: 900;
 }
 
 .navlink:hover {
   background-color: var(--nav-dark);
+  text-decoration: none;
+  color: white;
 }
 
 .navlink:active {
