@@ -14,7 +14,7 @@ import Sidebar from './Sidebar.jsx';
 import Footer from '../Footer/Footer.jsx';
 import TopBar from './TopBar.jsx';
 import s from './Layout.css';
-import { s as sidebarStyle } from './Sidebar.css';
+import sidebarStyle from './Sidebar.css';
 
 class Layout extends React.Component {
 
@@ -23,8 +23,15 @@ class Layout extends React.Component {
   };
 
   toggleNav() {
-    var sidebar = document.getElementsByClassName(sidebarStyle.sidebar);
-    sidebar.classList.toggle()
+    console.log("### " + sidebarStyle.sidebar);
+    console.log("### " + sidebarStyle.hidden);
+
+    // let sidebar = document.getElementsByClassName(sidebarStyle.sidebar);
+    let sidebar = document.querySelector('.' + sidebarStyle.sidebar);
+    console.log(sidebar);
+
+    sidebar.classList.toggle(sidebarStyle.hidden);
+
   }
 
   render() {

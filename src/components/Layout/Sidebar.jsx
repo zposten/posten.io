@@ -15,7 +15,7 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className={cx(s.sidebar, s.hidden)}>
+      <div className={cx(s.sidebar)}>
         <div className={s.picwrapper}>
           <img className={s.pic} src="../../../circle-web.png"/>
         </div>

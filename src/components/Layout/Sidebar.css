@@ -24,8 +24,7 @@
   padding: 20px;
 }
 
-.sidebar-hidden {
-  composes: sidebar;
+.sidebar.hidden {
   display: unset;
 }
 

@@ -16,7 +16,7 @@ class TopBar extends React.Component {
   render() {
     return (
       <div className={s.topbar}>
-        <button onclick={this.props.toggleNav}>show</button>
+        <button onClick={this.props.toggleNav}>show</button>
       </div>
     );
   }
