@@ -1,6 +1,8 @@
 /*@value breakpoints from '../../utils/breakpoints.css';*/
 /*@value show-sidebar from brekapoints;*/
 
+.sidebar-wrapper {}
+
 .sidebar {
   background-color: var(--nav-color);
   width: 250px;
@@ -24,8 +26,24 @@
   padding: 20px;
 }
 
-.sidebar.hidden {
+.hidden .sidebar {
   display: unset;
 }
+
+.shading {
+  position: fixed;
+  left: 250px;
+  top: 0;
+  background-color: black;
+  opacity: 0.75;
+  width: calc(100% - 250px);
+  height: 100%;
+  display: none;
+}
+
+.hidden .shading {
+  display: unset;
+}
+
 
 

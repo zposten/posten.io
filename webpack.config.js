@@ -105,6 +105,7 @@ const config = {
             localIdentName: isDebug ? '[name]_[local]_[hash:base64:3]' : '[hash:base64:4]',
             // CSS Nano http://cssnano.co/options/
             minimize: !isDebug,
+            camelCase: 'dashes'
           })}`,
           'postcss-loader',
         ],

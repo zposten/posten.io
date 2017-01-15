@@ -15,11 +15,14 @@ class Header extends React.Component {
 
   render() {
     return (
-      <div className={cx(s.sidebar)}>
-        <div className={s.picwrapper}>
-          <img className={s.pic} src="../../../circle-web.png"/>
+      <div className={s.sidebarWrapper}>
+        <div className={cx(s.sidebar)}>
+          <div className={s.picwrapper}>
+            <img className={s.pic} src="../../../circle-web.png"/>
+          </div>
+          <Navigation/>
         </div>
-        <Navigation/>
+        <div className={s.shading} onClick={this.props.toggleNav}/>
       </div>
     );
   }

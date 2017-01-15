@@ -23,15 +23,8 @@ class Layout extends React.Component {
   };
 
   toggleNav() {
-    console.log("### " + sidebarStyle.sidebar);
-    console.log("### " + sidebarStyle.hidden);
-
-    // let sidebar = document.getElementsByClassName(sidebarStyle.sidebar);
-    let sidebar = document.querySelector('.' + sidebarStyle.sidebar);
-    console.log(sidebar);
-
+    let sidebar = document.querySelector('.' + sidebarStyle.sidebarWrapper);
     sidebar.classList.toggle(sidebarStyle.hidden);
-
   }
 
   render() {
@@ -42,7 +35,7 @@ class Layout extends React.Component {
           <div {...this.props} className={cx(this.props.className, s.content)} />
           <Footer />
         </main>
-        <Sidebar/>
+        <Sidebar toggleNav={this.toggleNav}/>
       </div>
     );
   }
