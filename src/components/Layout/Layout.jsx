@@ -1,7 +1,7 @@
 
 
 import React from 'react'
-import s from './App.css'
+import s from './Layout.css'
 import Sidebar from './Sidebar.jsx'
 import Footer from '../Footer/Footer.jsx'
 import TopBar from './TopBar.jsx'

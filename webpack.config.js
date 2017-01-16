@@ -32,13 +32,15 @@ const config = {
 
   // The entry point for the bundle
   entry: [
+    'react-hot-loader/patch',
+    'webpack-hot-middleware/client',
     /* The main entry point of your JavaScript application */
     './src/main.js',
   ],
 
   // Options affecting the output of the compilation
   output: {
-    path: path.resolve(__dirname, './public/dist'),
+    path: path.resolve(__dirname, './public/'),
     publicPath: '/dist/',
     filename: 'bundle.js',
   },
@@ -66,6 +68,8 @@ const config = {
   // The list of plugins for Webpack compiler
   plugins: [
     new webpack.optimize.OccurrenceOrderPlugin(),
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.NoErrorsPlugin(),
     new webpack.DefinePlugin({
       'process.env.NODE_ENV': isDebug ? '"development"' : '"production"',
       __DEV__: isDebug,

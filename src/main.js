@@ -1,42 +1,34 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-import 'babel-polyfill';
-import 'whatwg-fetch';
-
+import { AppContainer } from 'react-hot-loader';
 import React from 'react';
-import { Router, Route, hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
+import App from './core/App.jsx';
+import deepForceUpdate from 'react-deep-force-update'
 import FastClick from 'fastclick';
-import { Provider } from 'react-redux';
-import store from './core/store';
 
-import App from './components/App/App.jsx'
-import Home from './pages/home/index.js'
-import About from './pages/about/index.js'
-import Error from './pages/error/index.js'
 
-// function renderComponent(component) {
-//   ReactDOM.render(<Provider store={store}>{component}</Provider>,
-//     document.getElementById('container'));
-// }
+const rootEl = document.getElementById('app');
+let instance = ReactDOM.render(
+  <AppContainer>
+    <App />
+  </AppContainer>,
+  rootEl
+);
 
-ReactDOM.render((
-  <Router history={hashHistory}>
-    <Route path="/" component={App}>\
-      <Route path="/home" component={Home} />
-      <Route path="/about" component={About} />
-    </Route>
-    <Route path="/error" component={Error} />
-  </Router>
-), document.getElementById('app'));
+global.forceUpdate = () => deepForceUpdate(instance)
+
+if (module.hot) {
+  module.hot.accept('./core/App.jsx', () => {
+    // If you use Webpack 2 in ES modules mode, you can
+    // use <App /> here rather than require() a <NextApp />.
+    const NextApp = require('./core/App.jsx').default;
+    instance = ReactDOM.render(
+      <AppContainer>
+         <NextApp />
+      </AppContainer>,
+      rootEl
+    );
+  });
+}
 
 
 // Eliminates the 300ms delay between a physical tap
