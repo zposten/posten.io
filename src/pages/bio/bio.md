@@ -1,4 +1,9 @@
-### Recent Work
+---
+title: My Bio
+subtitle: A headfirst dash toward an unrealistic goal
+---
+
+# Recent Work
 
 Most recently, I have put a great deal of time into improving my web development skills, through creating this website. I created everything you see here using a variety of frameworks and libraries.
 
@@ -13,7 +18,7 @@ I'm using [Materialize][materialize] for a material, responsive design. I prefer
 
 I count fourteen less characters in this small example, just think of the difference that makes to an entire application!  In addition to a concise grid system, Materialize provides a number of very useful web components that require little work on the developers part to use.  For example, take a look at my [blog][blog] you'll notice the prominent use of Materialize cards as a simple means of displaying options with images to the user.
 
-I'm using [Compass][compass] for cleaner and more modular stylesheets with [SCSS][sass].  SCSS is AWESCSSOMEEE!! It's a language that gets transcompiled into readable CSS, but allows you to use variables! 
+I'm using [Compass][compass] for cleaner and more modular stylesheets with [SCSS][sass].  SCSS is AWESCSSOMEEE!! It's a language that gets transcompiled into readable CSS, but allows you to use variables!
 
 ```scss
 $primary-color: #2196F3;

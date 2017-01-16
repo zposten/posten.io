@@ -10,7 +10,7 @@ class Sidebar extends Component {
       <div className={s.sidebarWrapper}>
         <div className={cx(s.sidebar)}>
           <div className={s.picwrapper}>
-            <img className={s.pic} src="../../../zach-circle-web.png"/>
+            <img className={s.pic} src="../../../images/zach-circle-web.png"/>
           </div>
           <Navigation/>
         </div>

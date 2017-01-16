@@ -49,7 +49,7 @@ export default class Footer extends Component {
           { githubLink }
         </div>
         <div>
-          © 2017, Zach Posten.
+          © 2017 Zach Posten
         </div>
       </footer>
     );

@@ -1,16 +1,8 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-import React, { Component } from 'react';
-import s from './styles.css';
-import { title, html } from './bio.md';
+import React, { Component } from 'react'
+import cx from 'classnames'
+import s from './styles.css'
+import { title, subtitle, html } from './bio.md'
+import markdownStyle from '../../utils/markdown.css'
 
 export default class Bio extends Component {
 
@@ -20,9 +12,11 @@ export default class Bio extends Component {
 
   render() {
     return (
-      <div className={s.content}>
-        <h1>{title}</h1>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div className={cx(s.content, markdownStyle.container)}>
+        <h1 className={markdownStyle.title}>{title}</h1>
+        <h3 className={markdownStyle.subtitle}>{subtitle}</h3>
+        <div dangerouslySetInnerHTML={{ __html: html }}
+             className={ markdownStyle.markdown } />
       </div>
     );
   }

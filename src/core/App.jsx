@@ -6,6 +6,10 @@ import { Provider } from 'react-redux'
 import Layout from '../components/Layout/Layout.jsx'
 import Home from '../pages/home/index.js'
 import Bio from '../pages/bio/index.js'
+import Contact from '../pages/contact/index.js'
+import Blog from '../pages/blog/index.js'
+import Photography from '../pages/photography/index.js'
+import Applets from '../pages/applets/index.js'
 import Error from '../pages/error/index.js'
 
 // If you use React Router, make this component
@@ -23,6 +27,10 @@ class App extends Component {
           <Route path="/" component={Layout}>\
             <Route path="/home" component={Home} />
             <Route path="/bio" component={Bio} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/blog" component={Blog} />
+            <Route path="/photography" component={Photography} />
+            <Route path="/apps" component={Applets} />
           </Route>
           <Route path="/error" component={Error} />
         </Router>
