@@ -20,7 +20,7 @@ const renameKeys = R.curry((renameFn, obj) => {
     return acc
   }, {}, R.keys(obj))
 });
-const constCaseToHyphenCase = (str) => { return str.replace(/_/g, "-").toLowerCase() }
+const constCaseToHyphenCase = (str) => { return str.replace(/_/g, "-").toLowerCase() };
 const colorVars = renameKeys(constCaseToHyphenCase, require('./src/utils/colors'));
 
 // Webpack configuration (main.js => public/dist/main.{hash}.js)
@@ -32,9 +32,6 @@ const config = {
 
   // The entry point for the bundle
   entry: [
-    /* Material Design Lite (https://getmdl.io) */
-    //'!!style!css!react-mdl/extra/material.min.css',
-    //'react-mdl/extra/material.min.js',
     /* The main entry point of your JavaScript application */
     './src/main.js',
   ],
@@ -108,23 +105,6 @@ const config = {
             camelCase: 'dashes'
           })}`,
           'postcss-loader',
-        ],
-      },
-      {
-        test: /\.json$/,
-        exclude: [
-          path.resolve(__dirname, './routes.json'),
-        ],
-        loader: 'json-loader',
-      },
-      {
-        test: /\.json$/,
-        include: [
-          path.resolve(__dirname, './routes.json'),
-        ],
-        loaders: [
-          `babel-loader?${JSON.stringify(babelConfig)}`,
-          path.resolve(__dirname, './src/utils/routes-loader.js'),
         ],
       },
       {

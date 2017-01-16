@@ -12,43 +12,34 @@ import 'babel-polyfill';
 import 'whatwg-fetch';
 
 import React from 'react';
+import { Router, Route, hashHistory } from 'react-router';
 import ReactDOM from 'react-dom';
 import FastClick from 'fastclick';
 import { Provider } from 'react-redux';
-
 import store from './core/store';
-import router from './core/router';
-import history from './core/history';
 
-let routes = require('../routes.json'); // Loaded with utils/routes-loader.js
-const container = document.getElementById('container');
+import App from './components/App/App.jsx'
+import Home from './pages/home/index.js'
+import About from './pages/about/index.js'
+import Error from './pages/error/index.js'
 
-function renderComponent(component) {
-  ReactDOM.render(<Provider store={store}>{component}</Provider>, container);
-}
+// function renderComponent(component) {
+//   ReactDOM.render(<Provider store={store}>{component}</Provider>,
+//     document.getElementById('container'));
+// }
 
-// Find and render a web page matching the current URL path,
-// if such page is not found then render an error page (see ../routes.json, core/router.js)
-function render(location) {
-  router.resolve(routes, location)
-    .then(renderComponent)
-    .catch(error => router.resolve(routes, { ...location, error }).then(renderComponent));
-}
+ReactDOM.render((
+  <Router history={hashHistory}>
+    <Route path="/" component={App}>\
+      <Route path="/home" component={Home} />
+      <Route path="/about" component={About} />
+    </Route>
+    <Route path="/error" component={Error} />
+  </Router>
+), document.getElementById('container'));
 
-// Handle client-side navigation by using HTML5 History API
-// For more information visit https://github.com/ReactJSTraining/history/tree/master/docs#readme
-history.listen(render);
-render(history.getCurrentLocation());
 
 // Eliminates the 300ms delay between a physical tap
 // and the firing of a click event on mobile browsers
 // https://github.com/ftlabs/fastclick
 FastClick.attach(document.body);
-
-// Enable Hot Module Replacement (HMR)
-if (module.hot) {
-  module.hot.accept('../routes.json', () => {
-    routes = require('../routes.json'); // eslint-disable-line global-require
-    render(history.getCurrentLocation());
-  });
-}

@@ -9,7 +9,7 @@
  */
 
 import React, { PropTypes } from 'react';
-import Link from '../Link/Link.jsx';
+import { Link } from 'react-router';
 import s from './NavLink.css';
 import cx from 'classnames';
 

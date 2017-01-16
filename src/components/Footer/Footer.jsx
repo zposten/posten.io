@@ -9,7 +9,7 @@
  */
 
 import React from 'react';
-import Link from '../Link/Link.jsx';
+import { Link } from 'react-router';
 
 function Footer() {
   return (
