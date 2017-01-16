@@ -1,25 +1,28 @@
-@value medium, large, sidebar-width, show-sidebar from "../../utils/breakpoints.css";
+@value sidebar-width, show-sidebar, layout-small-padding, layout-large-padding from "../Layout/sizes.css";
+@value small, medium, large from "../../utils/breakpoints.css";
 
 .jumbotron {
   height: 400px;
   background-color: var(--primary);
-  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  width: 100vw;
-  margin: -20px;
+  margin-top: -20px;
+  margin-left: calc(-1 * layout-small-padding);
+  margin-right: calc(-1 * layout-small-padding);
+  margin-right: -10px;
   margin-bottom: 40px;
 
   @media show-sidebar {
-    width: calc(100vw - sidebar-width);
+    margin-left: calc(-1 * layout-large-padding);
+    margin-right: calc(-1 * layout-large-padding);
   }
 }
 
 .title {
   font-size: 3em;
-  font-weighT: 900;
+  font-weight: 900;
 
   @media medium {
     font-size: 5em;
@@ -27,7 +30,11 @@
 }
 
 .subtitle {
-  font-size: 25px;
+  font-size: 20px;
+
+  @media medium {
+    font-size: 25px;
+  }
 }
 
 .title, .subtitle {
