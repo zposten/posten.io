@@ -1,4 +1,4 @@
-/*@value show-sidebar from '../../utils/breakpoints.css';*/
+@value topbar-height, sidebar-width, show-sidebar from "../../utils/breakpoints.css";
 
 .main {
   width: 100%;
@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: calc(100% - 50px);
+  min-height: calc(100% - topbar-height);
   height: auto;
   background-color: var(--dark);
   color: var(--text-color);
@@ -14,8 +14,8 @@
   position: absolute;
   padding: 10px;
 
-  @media(min-width: 624px) {
-    width: calc(100% - 250px);
+  @media show-sidebar {
+    width: calc(100% - sidebar-width);
     padding: 20px;
   }
 

@@ -1,3 +1,4 @@
+@value show-large-sidebar-pic from "../../utils/breakpoints.css";
 
 .navlink {
   color: white;
@@ -6,9 +7,14 @@
   font-family: "Anton", sans-serif;
   text-decoration: none !important;
   width: 100%;
-  padding: 15px 40px;
   display: inline-block;
   font-weight: 900;
+  padding: 10px 20px;
+
+
+  @media show-large-sidebar-pic {
+    padding: 15px 40px;
+  }
 }
 
 .navlink:hover {

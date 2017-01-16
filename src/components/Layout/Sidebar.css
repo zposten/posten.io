@@ -1,29 +1,35 @@
-/*@value breakpoints from '../../utils/breakpoints.css';*/
-/*@value show-sidebar from brekapoints;*/
+@value sidebar-width, show-sidebar, show-large-sidebar-pic from "../../utils/breakpoints.css";
+
 
 .sidebar-wrapper {}
 
 .sidebar {
   background-color: var(--nav-color);
-  width: 250px;
+  width: sidebar-width;
   display: none;
   position: fixed;
   left: 0;
   top: 0;
-  /*height: calc(100% + 25px);*/
   height: 100%;
 
-  @media(min-width: 624px) {
+  @media show-sidebar {
     display: unset;
   }
 }
 
 .pic {
-  width: 100%;
+  width: 50%;
+
+  @media show-large-sidebar-pic {
+    width: 100%;
+  }
 }
 
 .picwrapper {
   padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .hidden .sidebar {
@@ -32,11 +38,11 @@
 
 .shading {
   position: fixed;
-  left: 250px;
+  left: sidebar-width;
   top: 0;
   background-color: black;
   opacity: 0.75;
-  width: calc(100% - 250px);
+  width: calc(100% - sidebar-width);
   height: 100%;
   display: none;
 }
@@ -44,6 +50,3 @@
 .hidden .shading {
   display: unset;
 }
-
-
-

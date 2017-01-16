@@ -130,7 +130,14 @@ const config = {
     return [
       // Transfer @import rule by inlining content, e.g. @import 'normalize.css'
       // https://github.com/postcss/postcss-import
-      require('postcss-import')({ addDependencyTo: bundler }),
+      // require('postcss-import')({ addDependencyTo: bundler }),
+
+      // Allows exporting of values, similar to SCSS
+      // https://github.com/css-modules/css-modules/blob/master/docs/values-variables.md
+      // Throws error for some reason?
+      // require('postcss-modules-values')(),
+
+      require('postcss-modules-values-replace')(),
       // Allow the use of modern CSS syntax without requiring browser support
       // http://cssnext.io/features/
       require('postcss-cssnext')({features: {customProperties: {variables: colorVars}}}),
@@ -138,11 +145,6 @@ const config = {
       // Postcss flexbox bug fixer
       // https://github.com/luisrudge/postcss-flexbugs-fixes
       require('postcss-flexbugs-fixes')(),
-
-      // Allows exporting of values, similar to SCSS
-      // https://github.com/css-modules/css-modules/blob/master/docs/values-variables.md
-      // Throws error for some reason?
-      //require('postcss-modules-values')(),
     ];
   },
 

@@ -1,3 +1,5 @@
+@value medium, large, sidebar-width, show-sidebar from "../../utils/breakpoints.css";
+
 .jumbotron {
   height: 400px;
   background-color: var(--primary);
@@ -10,17 +12,17 @@
   margin: -20px;
   margin-bottom: 40px;
 
-  @media(min-width: 600px) {
-    width: calc(100vw - 250px);
+  @media show-sidebar {
+    width: calc(100vw - sidebar-width);
   }
 }
 
 .title {
-  font-size: 5em;
+  font-size: 3em;
   font-weighT: 900;
 
-  @media(min-width: 600px) {
-    font-size: 3em;
+  @media medium {
+    font-size: 5em;
   }
 }
 
