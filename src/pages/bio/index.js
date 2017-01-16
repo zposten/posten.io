@@ -8,11 +8,11 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React from 'react';
+import React, { Component } from 'react';
 import s from './styles.css';
-import { title, html } from './index.md';
+import { title, html } from './bio.md';
 
-class AboutPage extends React.Component {
+export default class Bio extends Component {
 
   componentDidMount() {
     document.title = title;
@@ -28,5 +28,3 @@ class AboutPage extends React.Component {
   }
 
 }
-
-export default AboutPage;

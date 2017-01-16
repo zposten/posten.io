@@ -1,0 +1,10 @@
+@value large from "../../utils/breakpoints.css";
+
+@value show-sidebar: large;
+@value show-large-sidebar-pic: (min-height: 600px);
+
+@value topbar-height: 50px;
+@value sidebar-width: 250px;
+
+@value layout-small-padding: 10px;
+@value layout-large-padding: 20px;

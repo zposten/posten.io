@@ -1,4 +1,4 @@
-@value topbar-height, sidebar-width, show-sidebar from "../../utils/breakpoints.css";
+@value topbar-height, sidebar-width, show-sidebar from "./sizes.css";
 
 .topbar {
   width: 100%;

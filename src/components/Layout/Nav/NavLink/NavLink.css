@@ -1,4 +1,4 @@
-@value show-large-sidebar-pic from "../../utils/breakpoints.css";
+@value show-large-sidebar-pic from "../../sizes.css";
 
 .navlink {
   color: white;

@@ -1,15 +1,14 @@
 
 
-import React from 'react'
+import React, { Component } from 'react'
 import s from './Layout.css'
-import Sidebar from './Sidebar.jsx'
-import Footer from '../Footer/Footer.jsx'
+import Sidebar from './Nav/Sidebar.jsx'
+import Footer from './Footer.jsx'
 import TopBar from './TopBar.jsx'
-import sidebarStyle from './Sidebar.css'
+import sidebarStyle from './Nav/Sidebar.css'
 
-export default class App extends React.Component {
+export default class App extends Component {
   toggleNav() {
-    console.log("HEREEEEE");
     let sidebar = document.querySelector('.' + sidebarStyle.sidebarWrapper);
     sidebar.classList.toggle(sidebarStyle.hidden);
   }

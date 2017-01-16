@@ -1,4 +1,4 @@
-@value sidebar-width, show-sidebar, show-large-sidebar-pic from "../../utils/breakpoints.css";
+@value sidebar-width, show-sidebar, show-large-sidebar-pic from "../sizes.css";
 
 
 .sidebar-wrapper {}

@@ -1,17 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Navigation from './Navigation.jsx';
 import s from './Sidebar.css';
 import cx from 'classnames';
 
-class Sidebar extends React.Component {
-
-  componentDidMount() {
-    // window.componentHandler.upgradeElement(this.root);
-  }
-
-  componentWillUnmount() {
-    // window.componentHandler.downgradeElements(this.root);
-  }
+class Sidebar extends Component {
 
   render() {
     return (

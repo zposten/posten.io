@@ -1,4 +1,7 @@
-@value topbar-height, sidebar-width, show-sidebar from "../../utils/breakpoints.css";
+@value small, medium, large from "../../utils/breakpoints.css";
+@value  sidebar-width, show-sidebar  from "./sizes.css";
+@value topbar-height from "./sizes.css";
+@value layout-small-padding, layout-large-padding from "./sizes.css";
 
 .main {
   width: 100%;
@@ -12,11 +15,14 @@
   color: var(--text-color);
   right: 0;
   position: absolute;
-  padding: 10px;
+  padding: layout-small-padding;
 
   @media show-sidebar {
     width: calc(100% - sidebar-width);
-    padding: 20px;
+  }
+
+  @media large {
+    padding: layout-large-padding;
   }
 
 }

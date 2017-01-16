@@ -5,7 +5,7 @@ import { Provider } from 'react-redux'
 
 import Layout from '../components/Layout/Layout.jsx'
 import Home from '../pages/home/index.js'
-import About from '../pages/about/index.js'
+import Bio from '../pages/bio/index.js'
 import Error from '../pages/error/index.js'
 
 // If you use React Router, make this component
@@ -22,7 +22,7 @@ class App extends Component {
         <Router history={hashHistory}>
           <Route path="/" component={Layout}>\
             <Route path="/home" component={Home} />
-            <Route path="/about" component={About} />
+            <Route path="/bio" component={Bio} />
           </Route>
           <Route path="/error" component={Error} />
         </Router>
