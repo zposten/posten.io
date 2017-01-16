@@ -40,9 +40,7 @@ const config = {
   output: {
     path: path.resolve(__dirname, './public/dist'),
     publicPath: '/dist/',
-    filename: isDebug ? '[name].js?[hash]' : '[name].[hash].js',
-    chunkFilename: isDebug ? '[id].js?[chunkhash]' : '[id].[chunkhash].js',
-    sourcePrefix: '  ',
+    filename: 'bundle.js',
   },
 
   // Switch loaders to debug or release mode
@@ -155,7 +153,9 @@ if (!isDebug) {
 
 if (isDebug && useHMR) {
   babelConfig.plugins.unshift('react-hot-loader/babel');
-  config.entry.unshift('react-hot-loader/patch', 'webpack-hot-middleware/client');
+  // WebpackDevServer host and port
+  // "only" prevents reload on syntax errors
+  config.entry.unshift('webpack-dev-server/client?http://0.0.0.0:3000', 'webpack/hot/only-dev-server');
   config.plugins.push(new webpack.HotModuleReplacementPlugin());
   config.plugins.push(new webpack.NoErrorsPlugin());
 }
