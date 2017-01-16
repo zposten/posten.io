@@ -4,7 +4,7 @@
   margin: 0 auto;
   font-size: x-large;
   font-family: "Anton", sans-serif;
-  text-decoration: none;
+  text-decoration: none !important;
   width: 100%;
   padding: 15px 40px;
   display: inline-block;
@@ -17,6 +17,8 @@
   color: white;
 }
 
-.navlink:active {
-   background-color: var(--nav-light);
+.navlink.active {
+  text-decoration: none !important;
+  background-color: var(--nav-light);
+  color: white;
  }

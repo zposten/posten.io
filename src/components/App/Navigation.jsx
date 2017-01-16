@@ -25,7 +25,7 @@ class Navigation extends React.Component {
   render() {
     return (
       <nav className={s.navlist} > {/*ref={node => (this.root = node)}>*/}
-        <NavLink to="/">Home</NavLink>
+        <NavLink to="/home">Home</NavLink>
         <NavLink to="/about">About</NavLink>
         <NavLink to="/blog">Blog</NavLink>
         <NavLink to="/photography">Photography</NavLink>

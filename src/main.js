@@ -36,7 +36,7 @@ ReactDOM.render((
     </Route>
     <Route path="/error" component={Error} />
   </Router>
-), document.getElementById('container'));
+), document.getElementById('app'));
 
 
 // Eliminates the 300ms delay between a physical tap

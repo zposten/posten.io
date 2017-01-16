@@ -5,10 +5,14 @@ import s from './App.css'
 import Sidebar from './Sidebar.jsx'
 import Footer from '../Footer/Footer.jsx'
 import TopBar from './TopBar.jsx'
+import sidebarStyle from './Sidebar.css'
 
 export default class App extends React.Component {
-
-
+  toggleNav() {
+    console.log("HEREEEEE");
+    let sidebar = document.querySelector('.' + sidebarStyle.sidebarWrapper);
+    sidebar.classList.toggle(sidebarStyle.hidden);
+  }
 
   render() {
     return (

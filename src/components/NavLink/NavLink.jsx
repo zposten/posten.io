@@ -19,21 +19,11 @@ class NavLink extends React.Component {
     to: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {active: false};
-  }
-
-  toggleActive() {
-    this.setState({active: !this.state.active});
-  }
-
   render() {
-    const { to, ...props } = this.props;
-    return <Link to={to}
-                 className={cx(s.navlink, (this.state.active ? "active" : ""))}
-                 onClick={this.toggleActive}
-                 >{props.children}</Link>;
+    return <Link {...this.props}
+                 className={s.navlink}
+                 activeClassName={s.active}
+                 >{this.props.children}</Link>;
   }
 
 }

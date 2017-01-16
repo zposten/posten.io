@@ -67,19 +67,6 @@ tasks.set('html', () => {
 });
 
 //
-// Generate sitemap.xml
-// -----------------------------------------------------------------------------
-tasks.set('sitemap', () => {
-  const urls = require('./routes.json')
-    .filter(x => !x.path.includes(':'))
-    .map(x => ({ loc: x.path }));
-  const template = fs.readFileSync('./public/sitemap.ejs', 'utf8');
-  const render = ejs.compile(template, { filename: './public/sitemap.ejs' });
-  const output = render({ config, urls });
-  fs.writeFileSync('public/sitemap.xml', output, 'utf8');
-});
-
-//
 // Build website into a distributable format
 // -----------------------------------------------------------------------------
 tasks.set('build', () => {
@@ -87,8 +74,7 @@ tasks.set('build', () => {
   return Promise.resolve()
     .then(() => run('clean'))
     .then(() => run('bundle'))
-    .then(() => run('html'))
-    .then(() => run('sitemap'));
+    .then(() => run('html'));
 });
 
 //
@@ -122,29 +108,28 @@ tasks.set('start', () => {
       stats: webpackConfig.stats,
     });
     compiler.plugin('done', stats => {
-      // Generate index.html page
-      const bundle = stats.compilation.chunks.find(x => x.name === 'main').files[0];
-      const template = fs.readFileSync('./public/index.ejs', 'utf8');
-      const render = ejs.compile(template, { filename: './public/index.ejs' });
-      const output = render({ debug: true, bundle: `/dist/${bundle}`, config });
-      fs.writeFileSync('./public/index.html', output, 'utf8');
-
-      // Launch Browsersync after the initial bundling is complete
-      // For more information visit https://browsersync.io/docs/options
-      if (++count === 1) {
-        bs.init({
-          port: process.env.PORT || 3000,
-          ui: { port: Number(process.env.PORT || 3000) + 1 },
-          server: {
-            baseDir: 'public',
-            middleware: [
-              webpackDevMiddleware,
-              require('webpack-hot-middleware')(compiler),
-              require('connect-history-api-fallback')(),
-            ],
-          },
-        }, resolve);
-      }
+      Promise.resolve()
+        // Generate index.html page
+        .then(() => run('html'))
+        .then(() => {
+          // Launch Browsersync after the initial bundling is complete
+          // For more information visit https://browsersync.io/docs/options
+          if (++count === 1) {
+            let portNum = Number(process.env.PORT || 3000);
+            bs.init({
+              port: portNum,
+              ui: { port: portNum + 1 },
+              server: {
+                baseDir: 'public',
+                middleware: [
+                  webpackDevMiddleware,
+                  require('webpack-hot-middleware')(compiler),
+                  require('connect-history-api-fallback')(),
+                ],
+              },
+            }, resolve);
+          }
+        });
     });
   }));
 });

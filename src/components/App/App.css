@@ -12,19 +12,15 @@
   color: var(--text-color);
   right: 0;
   position: absolute;
+  padding: 10px;
 
   @media(min-width: 624px) {
     width: calc(100% - 250px);
+    padding: 20px;
   }
 
-}
-
-/*Use this when the sidebar is hidden*/
-.main.no-sidebar {
-  width: 100%;
 }
 
 .content {
   padding: 20px;
 }
-

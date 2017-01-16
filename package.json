@@ -67,6 +67,7 @@
     "url-loader": "^0.5.7",
     "webpack": "^1.13.1",
     "webpack-dev-middleware": "^1.6.1",
+    "webpack-dev-server": "^1.16.2",
     "webpack-hot-middleware": "^2.12.2"
   },
   "babel": {
@@ -100,6 +101,7 @@
     "build:debug": "node run build --debug",
     "publish": "node run publish",
     "publish:debug": "node run publish --debug",
-    "start": "node run"
+    "starts": "node run",
+    "start": "webpack-dev-server --inline --content-base ./public"
   }
 }
