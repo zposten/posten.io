@@ -1,0 +1,23 @@
+@value large, medium, small from "../../utils/breakpoints.css";
+@value layout-small-padding, layout-large-padding from "./sizes.css";
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  background-color: var(--light);
+  margin: calc(-1 * layout-small-padding);
+  margin-top: calc(2 * layout-small-padding);
+
+  @media large {
+    margin: calc(-1 * layout-large-padding);
+    margin-top: calc(2 * layout-large-padding);
+  }
+}
+
+.footer div {
+  /*flex-basis: 100%;
+  flex-grow: 1;*/
+}
