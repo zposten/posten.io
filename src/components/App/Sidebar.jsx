@@ -3,7 +3,7 @@ import Navigation from './Navigation.jsx';
 import s from './Sidebar.css';
 import cx from 'classnames';
 
-class Header extends React.Component {
+class Sidebar extends React.Component {
 
   componentDidMount() {
     // window.componentHandler.upgradeElement(this.root);
@@ -18,7 +18,7 @@ class Header extends React.Component {
       <div className={s.sidebarWrapper}>
         <div className={cx(s.sidebar)}>
           <div className={s.picwrapper}>
-            <img className={s.pic} src="../../../circle-web.png"/>
+            <img className={s.pic} src="../../../zach-circle-web.png"/>
           </div>
           <Navigation/>
         </div>
@@ -29,4 +29,4 @@ class Header extends React.Component {
 
 }
 
-export default Header;
+export default Sidebar;

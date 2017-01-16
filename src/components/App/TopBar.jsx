@@ -8,15 +8,19 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
-import s from './TopBar.css';
+import React, { PropTypes } from 'react'
+import s from './TopBar.css'
+import cx from 'classnames'
 
 class TopBar extends React.Component {
 
   render() {
     return (
       <div className={s.topbar}>
-        <button onClick={this.props.toggleNav}>show</button>
+        <div className={s.iconWrapper}>
+          <i className={cx("fa fa-bars fa-2x", s.menuIcon)}
+             onClick={this.props.toggleNav}></i>
+        </div>
       </div>
     );
   }

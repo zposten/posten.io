@@ -9,3 +9,18 @@
     margin-left: 250px;
   }
 }
+
+.icon-wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  @media(min-width: 624px) {
+    display: none;
+  }
+}
+
+.menu-icon {
+  color: white;
+  margin-left: 10px;
+}

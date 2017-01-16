@@ -8,9 +8,10 @@
  * LICENSE.txt file in the root directory of this source tree.
  */
 
-import React, { PropTypes } from 'react';
-import s from './styles.css';
-import { title, html } from './index.md';
+import React, { PropTypes } from 'react'
+import s from './styles.css'
+import { title, subtitle, html } from './home.md'
+import Jumbotron from '../../components/Jumbotron/Jumbotron.jsx'
 
 class HomePage extends React.Component {
 
@@ -23,8 +24,11 @@ class HomePage extends React.Component {
 
   render() {
     return (
-      <div className={s.content}>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
+      <div>
+        <Jumbotron title={title} subtitle={subtitle} />
+        <div className={s.content}>
+          <div dangerouslySetInnerHTML={{ __html: html }} />
+        </div>
       </div>
     );
   }
