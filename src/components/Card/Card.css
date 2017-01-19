@@ -1,0 +1,32 @@
+@value width: 400px;
+@value height: 300px;
+
+.wrapper {
+  margin: 20px;
+  width: width;
+  height: 100%;
+}
+
+.image-wrapper {
+  width: 100%;
+  max-height: 60%;
+  overflow: hidden;
+}
+
+img {
+  width: 100%;
+}
+
+.text-area {
+  background-color: var(--light);
+  padding: 10px;
+}
+
+.title {
+  font-weight: normal;
+  font-size: 24px;
+}
+
+.summary {
+  font-size: 18px;
+}
