@@ -2,7 +2,7 @@
 title: Scotty's French Toast
 subtitle: Back in 711, this was a Sunday of finals week tradition
 src: http://cookdiary.net/wp-content/uploads/images/Cinnamon_French_Toast_2936.jpg
-url: /blog/recipes/meals/breakfast/french-toast
+url: /blog/recipes/meals/breakfast/frenchToast
 ---
 
 [Original Recipe](http://allrecipes.com/recipe/7016/french-toast-i/)

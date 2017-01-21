@@ -2,10 +2,8 @@
 title: Crockpot BBQ chicken
 subtitle: The easiest BBQ chicken you've ever made!
 src: http://3.bp.blogspot.com/_tjk909cESSk/S9z-ZZC7R4I/AAAAAAAABPI/JEwi9mgsvSA/s1600/bbq+pork+5.jpg
-url: /blog/recipes/meals/dinner/bbq-chicken
+url: /blog/recipes/meals/dinner/bbqChicken
 ---
-
-# Crockpot BBQ Chicken
 
 [Original Recipe](http://www.familyfreshmeals.com/2014/06/best-crockpot-bbq-chicken.html)
 

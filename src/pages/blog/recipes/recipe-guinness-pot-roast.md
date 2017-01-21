@@ -1,9 +1,9 @@
 ---
 title: Guiness Gravy Pot Roast
 subtitle: As made famous by County Claire!
+url: /blog/recipes/meals/dinner/potRoast
 ---
 
-As made famous by [County Claire](http://www.countyclare-inn.com)!
 [Original Recipe](http://www.thespicehouse.com/recipes/grandma-flanigans-pot--roast-in-guinness-gravy-recipe)
 
 This recipe should make 4-6 servings.

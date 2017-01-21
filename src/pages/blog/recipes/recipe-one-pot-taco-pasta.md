@@ -2,7 +2,7 @@
 title: One Pot Taco Pasta
 subtitle: You like tacos and you like pasta, what's not to love?
 src: https://c1.staticflickr.com/8/7714/26624294184_95972edd57_k.jpg
-url: /blog/recipes/meals/dinner/one-pot-taco-pasta
+url: /blog/recipes/meals/dinner/tacoPasta
 ---
 
 #

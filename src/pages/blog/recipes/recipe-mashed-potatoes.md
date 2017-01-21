@@ -2,7 +2,7 @@
 title: Perfect Mashed Potatoes
 subtitle: You've had mashed potatoes, but you've never had THESE mashed potatoes
 src: http://tastykitchen.com/recipes/wp-content/uploads/sites/2/2009/10/Creamy-Mashed-Potatoes1-420x278.jpg
-url: /blog/recipes/meals/dinner/mashed-potatoes
+url: /blog/recipes/meals/dinner/mashedPotatoes
 ---
 
 [Original Recipe](http://thepioneerwoman.com/cooking/delicious_creamy_mashed_potatoes/)

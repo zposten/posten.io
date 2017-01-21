@@ -13,7 +13,6 @@ import Error from '../pages/error/index.js'
 import Blog from '../pages/blog/index.js'
 import BlogInitial from '../pages/blog/BlogInitial.jsx'
 import BlogMeals from '../pages/blog/BlogMeals.jsx'
-import BlogMealsDinner from '../pages/blog/BlogMealsDinner.jsx'
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
@@ -33,7 +32,8 @@ class App extends Component {
             <Route path="/blog" component={Blog}>
               <IndexRoute component={BlogInitial} />
               <Route path="/blog/recipes/meals" component={BlogMeals} />
-              <Route path="/blog/recipes/meals/dinner" component={BlogMealsDinner} />
+              <Route path="/blog/recipes/meals/:meal" component={BlogMeals} />
+              <Route path="/blog/recipes/meals/:meal/:recipe" component={BlogMeals} />
             </Route>
             <Route path="/photography" component={Photography} />
             <Route path="/apps" component={Applets} />

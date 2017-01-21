@@ -2,7 +2,21 @@ import React, {Component, PropTypes} from 'react'
 import s from './styles.css'
 import Card from '../../components/Card/Card.jsx'
 
-export default class BlogInitial extends Component {
+import * as Breakfast from './recipes/breakfast.md'
+import * as omelet from './recipes/recipe-omelet.md'
+import * as frenchToast from './recipes/recipe-french-toast.md'
+
+import * as Dinner from './recipes/dinner.md'
+import * as bbqChicken from './recipes/recipe-bbq-chicken.md'
+import * as chickenAndRice from './recipes/recipe-chicken-and-rice.md'
+import * as goulash from './recipes/recipe-goulash.md'
+import * as potRoast from './recipes/recipe-guinness-pot-roast.md'
+import * as tacoPasta from './recipes/recipe-one-pot-taco-pasta.md'
+import * as pizza from './recipes/recipe-pizza.md'
+import * as mashedPotatoes from './recipes/recipe-mashed-potatoes.md'
+
+
+export default class BlogMeals extends Component {
 
   static propTypes = {};
 
@@ -10,28 +24,59 @@ export default class BlogInitial extends Component {
     document.title = "Blog";
   }
 
+  createRecipeTree() {
+    return {
+      breakfast: {
+        index: Breakfast,
+        recipes: { omelet, frenchToast }
+      },
+      dinner: {
+        index: Dinner,
+        recipes: {
+          bbqChicken, chickenAndRice, goulash, potRoast, tacoPasta,
+          pizza, mashedPotatoes
+        }
+      }
+    };
+  }
+
   render() {
+
+    let tree = this.createRecipeTree();
+    let params = this.props.params;
+    let cards = null;
+
+    if (!params.meal) {
+      cards = [
+        tree.breakfast.index,
+        tree.dinner.index
+      ];
+    } else if (!params.recipe) {
+        cards = tree[params.meal].recipes;
+    }
+
+    if (cards) {
+      let cardsHtml = Object.values(cards).map(function(card) {
+        return (
+          <div className={s.card} key={card.url}>
+            <Card src={card.src} title={card.title} summary={card.subtitle} to={card.url} />
+          </div>
+        );
+      });
+      return ( <div className={s.cards}>{cardsHtml}</div> );
+    }
+
+    // Create the markdown for the specified recipe!
+    let recipe = tree[params.meal].recipes[params.recipe];
     return (
       <div>
-        <div className={s.cards}>
-          <div className={s.card}>
-            <Card src="http://restaurants-stlouismo.com/wp-content/uploads/2016/04/Pancake-Breakfast.jpg"
-                  title="Breakfast"
-                  summary="The most importnat meal of the day"
-                  to="/blog/recipes/meals/breakfast"
-                  />
-          </div>
-          <div className={s.card}>
-            <Card src="http://www.westportwhiskeyandwine.com/wp-content/uploads/2012/11/dinner.jpg"
-                  title="Not Breakfast"
-                  summary="The meal that you just can't wait to get home for"
-                  className={s.card}
-                  to="/blog/recipes/meals/dinner"
-                  />
-          </div>
-        </div>
+        <h1>{recipe.title}</h1>
+        <h3>{recipe.subtitle}</h3>
+        <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
       </div>
     );
+
+
   }
 
 }

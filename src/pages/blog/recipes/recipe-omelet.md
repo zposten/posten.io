@@ -2,7 +2,7 @@
 title: Mom's Omelets
 subtitle: My childhood favorite
 src: http://static.parade.com/wp-content/uploads/2012/12/potato-bacon-omelet_lucy-schaeffer1.jpg
-url: /blog/recipes/meals/breakfast/omelets
+url: /blog/recipes/meals/breakfast/omelet
 ---
 
 My mom's omelets are famous where I come from, and for good reason.  It was difficult getting her to give me measurements that didn't consist of "pinches" and "splashes" of things, but eventually I got pretty close.

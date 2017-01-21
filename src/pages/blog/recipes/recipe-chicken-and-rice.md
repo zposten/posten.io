@@ -2,7 +2,7 @@
 title: Mom's Chicken and Rice
 subtitle: You guessed it, there's chicken and there's rice, but it doesn't stop there!
 src: https://www.cscassets.com/recipes/wide_cknew/wide_24702.jpg
-url: /blog/recipes/meals/dinner/chicken-and-rice
+url: /blog/recipes/meals/dinner/chickenAndRice
 ---
 
 ## Ingredients
