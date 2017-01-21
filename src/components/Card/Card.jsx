@@ -16,14 +16,14 @@ export default class Card extends Component {
 
   render() {
     return (
-      <Link to={this.props.to}>
-        <div className={s.wrapper}>
-          <div className={s.imageWrapper}><img src={this.props.src} /></div>
+      <Link to={this.props.to} className={cx(s.wrapper, 'hvr-bob')}>
+          <div className={cx(s.imageWrapper, {[s.hidden]: !this.props.src})}>
+            <img src={this.props.src} />
+          </div>
           <div className={s.textArea}>
             <h3 className={s.title}>{this.props.title}</h3>
             <p className={s.summary}>{this.props.summary}</p>
           </div>
-        </div>
       </Link>
     );
   }

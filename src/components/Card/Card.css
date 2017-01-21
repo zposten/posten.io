@@ -2,15 +2,18 @@
 @value height: 300px;
 
 .wrapper {
-  margin: 20px;
-  width: width;
-  height: 100%;
+  width: 100%;
+  background-color: var(--light);
+  display: flex;
+  flex-direction: column;
+  color: var(--text);
 }
 
 .image-wrapper {
   width: 100%;
   max-height: 60%;
   overflow: hidden;
+  flex-grow: 0;
 }
 
 img {
@@ -18,8 +21,11 @@ img {
 }
 
 .text-area {
-  background-color: var(--light);
   padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  flex-grow: 1;
 }
 
 .title {
@@ -29,4 +35,8 @@ img {
 
 .summary {
   font-size: 18px;
+}
+
+.hidden {
+  display: none;
 }
