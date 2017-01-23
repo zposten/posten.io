@@ -1,7 +1,26 @@
 @value small, medium, large from "../../utils/breakpoints.css";
+@value medium-font, mega-font from "../../utils/text.css";
+
+
+.root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  font-size: mega-font;
+}
+
+.subtitle {
+  font-size: medium-font;
+  font-weight: normal;
+  margin-bottom: 50px;
+}
 
 .cards {
   display: flex;
+  justify-content: center;
   flex-wrap: wrap;
 }
 

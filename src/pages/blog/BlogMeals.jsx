@@ -1,5 +1,6 @@
 import React, {Component, PropTypes} from 'react'
 import s from './styles.css'
+import markdownStyle from '../../utils/markdown.css'
 import Card from '../../components/Card/Card.jsx'
 
 import * as Breakfast from './recipes/breakfast.md'
@@ -46,11 +47,16 @@ export default class BlogMeals extends Component {
     let params = this.props.params;
     let cards = null;
 
+    let title = null;
+    let subtitle = null;
+
     if (!params.meal) {
       cards = [
         tree.breakfast.index,
         tree.dinner.index
       ];
+
+      title = "Which meal are we cooking for?"
     } else if (!params.recipe) {
         cards = tree[params.meal].recipes;
     }
@@ -63,7 +69,12 @@ export default class BlogMeals extends Component {
           </div>
         );
       });
-      return ( <div className={s.cards}>{cardsHtml}</div> );
+      return (
+        <div>
+
+          <div className={s.cards}>{cardsHtml}</div>
+        </div>
+      );
     }
 
     // Create the markdown for the specified recipe!
@@ -72,7 +83,7 @@ export default class BlogMeals extends Component {
       <div>
         <h1>{recipe.title}</h1>
         <h3>{recipe.subtitle}</h3>
-        <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
+        <div className={markdownStyle.markdown} dangerouslySetInnerHTML={{ __html: recipe.html }} />
       </div>
     );
 

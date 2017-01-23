@@ -6,5 +6,5 @@
 @value topbar-height: 50px;
 @value sidebar-width: 250px;
 
-@value layout-small-padding: 10px;
-@value layout-large-padding: 20px;
+@value layout-small-side-padding: 10px;
+@value layout-large-side-padding: 100px;

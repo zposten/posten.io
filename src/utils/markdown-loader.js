@@ -1,16 +1,13 @@
-/**
- * React Static Boilerplate
- * https://github.com/kriasoft/react-static-boilerplate
- *
- * Copyright © 2015-present Kriasoft, LLC. All rights reserved.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE.txt file in the root directory of this source tree.
- */
-
-const MarkdownIt = require('markdown-it');
 const hljs = require('highlight.js');
 const fm = require('front-matter');
+
+const markdownCheckbox = require('markdown-it-checkbox');
+const MarkdownIt = require('markdown-it');/*()
+            .use(markdownCheckbox, {
+              divWrap: true,
+              divClass: 'cb',
+              idPrefix: 'cbx_'
+            });*/
 
 module.exports = function markdownLoader(source) {
   this.cacheable();

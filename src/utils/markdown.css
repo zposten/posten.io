@@ -1,33 +1,13 @@
-.container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.title {
-  font-size: 5em;
-}
-
-.subtitle {
-  font-size: 1.5em;
-  color: gray;
-}
-
-.title, .subtitle {
-  text-align: center;
-}
-
 .markdown {
   display: block;
   overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
   word-wrap: break-word;
-  background-color: $main-section-highlight-color;
-  padding: 20px;
-  @include border-radius(3px);
+  background-color: var(--nav-light);
+  border-radius: 3px;
 
   * {
-    @include box-sizing(border-box);
+    box-sizing: border-box;
   }
 
   & > *:first-child {
@@ -51,7 +31,7 @@
 
   mark {
     background: #ff0;
-    color: $font-color;
+    color: var(--text);
     font-style: italic;
     font-weight: bold;
   }
@@ -75,7 +55,7 @@
     font-weight: bold;
   }
   h1 {
-    font-size: 3.5rem;
+    font-size: 5em;
     font-weight: 900;
     border-bottom: 1px solid rgba(255, 255, 255, 0.35);
     padding-top: 15px;
@@ -92,9 +72,14 @@
     padding-bottom: 5px;
   }
   h3 {
-    font-size: 16px;
     line-height: 1.43;
+    font-size: 1.5em;
+    color: gray;
   }
+  h1, h3 {
+    text-align: center;
+  }
+
   h4 {
     font-size: 14px;
   }
@@ -152,12 +137,12 @@
 
   img {
     max-width: 100%;
-    @include box-sizing(border-box);
+    box-sizing: content-box;
     border: 0;
   }
 
   hr {
-    @include box-sizing(content-box);
+    box-sizing: content-box;
     height: 0;
   }
 
@@ -209,7 +194,7 @@
     width: 100%;
     overflow: auto;
     word-break: keep-all;
-    border-color: $nav-color;
+    border-color: var(--nav-color);
     border-collapse: collapse;
     border-spacing: 0;
 
@@ -220,14 +205,14 @@
 
     th, td {
       padding: 6px 13px;
-      border: 1px solid $nav-color;
+      border: 1px solid var(--nav-color);
     }
     th {
       font-weight: bold;
       text-align: center;
     }
     tr {
-      background-color: $main-section-color;
+      background-color: var(--dark);
     }
 
     tr:nth-child(2n) {
@@ -242,12 +227,11 @@
     margin: 0;
   }
 
-  $checkbox-size: 20px;
   input[type="checkbox"] {
     box-sizing: border-box;
     padding: 0;
-    width: $checkbox-size;
-    height: $checkbox-size;
+    width: 20px;
+    height: 20px;
     background: white;
     border-radius: 5px;
     border: 2px solid #555;
