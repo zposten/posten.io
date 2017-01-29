@@ -10,7 +10,7 @@ import Photography from '../pages/photography/index.js'
 import Applets from '../pages/applets/index.js'
 import Error from '../pages/error/index.js'
 
-import Blog from '../pages/blog/index.js'
+import Blog from '../pages/blog/index.jsx'
 import BlogInitial from '../pages/blog/BlogInitial.jsx'
 import BlogMeals from '../pages/blog/BlogMeals.jsx'
 

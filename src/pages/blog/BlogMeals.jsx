@@ -19,7 +19,9 @@ import * as mashedPotatoes from './recipes/recipe-mashed-potatoes.md'
 
 export default class BlogMeals extends Component {
 
-  static propTypes = {};
+  static propTypes = {
+    setTitle: PropTypes.func
+  };
 
   componentDidMount() {
     document.title = "Blog";
@@ -47,16 +49,12 @@ export default class BlogMeals extends Component {
     let params = this.props.params;
     let cards = null;
 
-    let title = null;
-    let subtitle = null;
-
     if (!params.meal) {
       cards = [
         tree.breakfast.index,
         tree.dinner.index
       ];
 
-      title = "Which meal are we cooking for?"
     } else if (!params.recipe) {
         cards = tree[params.meal].recipes;
     }
@@ -69,21 +67,19 @@ export default class BlogMeals extends Component {
           </div>
         );
       });
-      return (
-        <div>
 
-          <div className={s.cards}>{cardsHtml}</div>
-        </div>
+      return (
+        <div className={s.cards}>{cardsHtml}</div>
       );
     }
 
     // Create the markdown for the specified recipe!
     let recipe = tree[params.meal].recipes[params.recipe];
     return (
-      <div>
+      <div className={markdownStyle.markdown} >
         <h1>{recipe.title}</h1>
         <h3>{recipe.subtitle}</h3>
-        <div className={markdownStyle.markdown} dangerouslySetInnerHTML={{ __html: recipe.html }} />
+        <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
       </div>
     );
 

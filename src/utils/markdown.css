@@ -6,7 +6,7 @@
   background-color: var(--nav-light);
   border-radius: 3px;
 
-  * {
+  & * {
     box-sizing: border-box;
   }
 
@@ -18,144 +18,148 @@
     margin-bottom: 0 !important;
   }
 
-  a:active, a:hover {
+  & a:active, & a:hover {
     outline: 0;
   }
-   a:hover, a:focus, a:active {
+  & a:hover, & a:focus, & a:active {
     text-decoration: underline;
   }
 
-  b, strong {
+  & b, & strong {
     font-weight: bold;
   }
 
-  mark {
+  & mark {
     background: #ff0;
     color: var(--text);
     font-style: italic;
     font-weight: bold;
   }
 
-  sub, sup {
+  & sub, & sup {
     font-size: 75%;
     line-height: 0;
     position: relative;
     vertical-align: baseline;
   }
-  sup {
+  & sup {
     top: -0.5em;
   }
-  sub {
+  & sub {
     bottom: -0.25em;
   }
 
-  h1, h2, h3, h4, h5, h6 {
+  & h1, & h2, & h3, & h4, & h5, & h6 {
     margin-top: 15px;
     position: relative;
     font-weight: bold;
   }
-  h1 {
+  & h1 {
     font-size: 5em;
     font-weight: 900;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.35);
     padding-top: 15px;
     padding-bottom: 10px;
     line-height: 1.2;
     margin-bottom: 20px;
-
   }
-  h2 {
+  & h2 {
     font-size: 21px;
     border-bottom: 1px solid rgba(255, 255, 255, 0.15);
     line-height: 1.225;
     padding-top: 10px;
     padding-bottom: 5px;
   }
-  h3 {
+  & h3 {
     line-height: 1.43;
     font-size: 1.5em;
     color: gray;
   }
-  h1, h3 {
+  & h1,
+  & h1 + h3 {
     text-align: center;
+    margin-top: -20px;
+    margin-bottom: 30px;
   }
 
-  h4 {
+  & h4 {
     font-size: 14px;
   }
-  h5 {
+  & h5 {
     font-size: 12px;
   }
-  h6 {
+  & h6 {
     font-size: 11px;
   }
 
-
-  // LISTS
-  ul {
+  /*****************************
+   * LISTS
+   *****************************/
+  & ul {
     padding-left: 40px;
 
-    li { list-style-type: disc; }
-    ul li { list-style-type: circle; }
+    & li {
+      list-style-type: disc;
+    }
+    & ul li { list-style-type: circle; }
   }
 
-  ol ol,
-  ul ol {
+  & ol ol,
+  & ul ol {
     list-style-type: lower-roman;
   }
-  ul ul ol,
-  ul ol ol,
-  ol ul ol,
-  ol ol ol {
+  & ul ol ol,
+  & ul ul ol,
+  & ol ul ol,
+  & ol ol ol {
     list-style-type: lower-alpha;
   }
-  ul, ol {
+  & ul, & ol {
     padding: 0 0 0 2em;
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  ul ul,
-  ul ol,
-  ol ol,
-  ol ul {
+  & ul ul,
+  & ul ol,
+  & ol ol,
+  & ol ul {
     margin-top: 0;
     margin-bottom: 0;
   }
 
 
-  li > p {
+  & li > p {
     margin-top: 16px;
     margin-bottom: 0;
   }
 
-  p, blockquote, ul, ol, dl, table {
+  & p, & blockquote, & ul, & ol, & dl, & table {
     margin-top: 0;
     margin-bottom: 16px;
   }
 
 
-  img {
+  & img {
     max-width: 100%;
     box-sizing: content-box;
     border: 0;
   }
 
-  hr {
+  & hr {
     box-sizing: content-box;
     height: 0;
   }
 
-  table {
+  & table {
     border-collapse: collapse;
     border-spacing: 0;
   }
 
-  td, th {
+  & td, & th {
     padding: 0;
   }
 
-  hr {
+  & hr {
     overflow: hidden;
     background: transparent;
     border: 0;
@@ -175,7 +179,7 @@
     }
   }
 
-  blockquote {
+  & blockquote {
     margin: 0;
     padding: 0 15px;
     color: #777;
@@ -189,7 +193,7 @@
     }
   }
 
-  table {
+  & table {
     display: block;
     width: 100%;
     overflow: auto;
@@ -198,36 +202,36 @@
     border-collapse: collapse;
     border-spacing: 0;
 
-    hr {
+    & hr {
       box-sizing: content-box;
       height: 0;
     }
 
-    th, td {
+    & th, & td {
       padding: 6px 13px;
       border: 1px solid var(--nav-color);
     }
-    th {
+    & th {
       font-weight: bold;
       text-align: center;
     }
-    tr {
+    & tr {
       background-color: var(--dark);
     }
 
-    tr:nth-child(2n) {
+    & tr:nth-child(2n) {
       background-color: rgba(65, 65, 66, 0.7);
     }
   }
 
-  input {
+  & input {
     font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: normal;
     color: inherit;
     margin: 0;
   }
 
-  input[type="checkbox"] {
+  & input[type="checkbox"] {
     box-sizing: border-box;
     padding: 0;
     width: 20px;
@@ -235,11 +239,12 @@
     background: white;
     border-radius: 5px;
     border: 2px solid #555;
+    margin-right: 5px;
   }
-  input[type='checkbox']:checked {
+  & input[type='checkbox']:checked {
     background: #abd;
   }
-  input[disabled] {
+  & input[disabled] {
     cursor: default;
   }
 

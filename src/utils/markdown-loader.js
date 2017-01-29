@@ -1,13 +1,8 @@
 const hljs = require('highlight.js');
 const fm = require('front-matter');
 
-const markdownCheckbox = require('markdown-it-checkbox');
-const MarkdownIt = require('markdown-it');/*()
-            .use(markdownCheckbox, {
-              divWrap: true,
-              divClass: 'cb',
-              idPrefix: 'cbx_'
-            });*/
+const MarkdownIt = require('markdown-it');
+var taskLists = require('markdown-it-task-lists');
 
 module.exports = function markdownLoader(source) {
   this.cacheable();
@@ -29,6 +24,8 @@ module.exports = function markdownLoader(source) {
       return '';
     },
   });
+
+  md.use(taskLists, {enabled: true});
 
   const frontmatter = fm(source);
   frontmatter.attributes.html = md.render(frontmatter.body);

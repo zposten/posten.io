@@ -2,6 +2,8 @@
 @value  sidebar-width, show-sidebar  from "./sizes.css";
 @value topbar-height from "./sizes.css";
 @value layout-small-side-padding, layout-large-side-padding from "./sizes.css";
+@value layout-top-bottom-padding from "./sizes.css";
+
 
 .main {
   width: 100%;
@@ -15,14 +17,14 @@
   color: var(--text);
   right: 0;
   position: absolute;
-  padding: 20px layout-small-padding;
+  padding: layout-top-bottom-padding layout-small-side-padding;
 
   @media show-sidebar {
     width: calc(100% - sidebar-width);
   }
 
   @media large {
-    padding: 20px layout-large-side-padding;
+    padding: layout-top-bottom-padding layout-large-side-padding;
   }
 
 }

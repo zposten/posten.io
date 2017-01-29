@@ -6,6 +6,14 @@ export default class BlogInitial extends Component {
 
   static propTypes = {};
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      title: "The Blog",
+      subtitle: "My thoughts, views, and opinions on technical and non-technical matters"
+    }
+  }
+
   componentDidMount() {
     document.title = "Blog";
   }
@@ -13,6 +21,9 @@ export default class BlogInitial extends Component {
   render() {
     return (
       <div>
+        <h1 className={s.title}>{this.state.title}</h1>
+        <h3 className={s.subtitle}>{this.state.subtitle}</h3>
+
         <div className={s.cards}>
           <div className={s.card}>
             <Card src="http://wupy101.com/wp-content/uploads/sites/61/t1larg.recipes.jpg"
