@@ -48,8 +48,10 @@ pre {
 
 a {
   background-color: transparent;
+  color: #2196f3;
   -webkit-text-decoration-skip: objects;
 }
+a:visited { color: #1845af; }
 
 a:active,
 a:hover {

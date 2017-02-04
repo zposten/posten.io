@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react'
 import s from './styles.css'
 
-export default class Photo extends Component {
+export default class Thumbnail extends Component {
   static propTypes = {
     index: React.PropTypes.number.isRequired,
     size: React.PropTypes.string.isRequired,
-    title: React.PropTypes.string.isRequired,
+    caption: React.PropTypes.string.isRequired,
     largeImageUrl: React.PropTypes.string.isRequired,
     smallImageUrl: React.PropTypes.string.isRequired,
     onClick: React.PropTypes.func.isRequired,
@@ -27,10 +27,10 @@ export default class Photo extends Component {
            itemProp="contentUrl"
            className={s.link}>
           <img src={this.props.smallImageUrl}
-               alt={this.props.title}
+               alt={this.props.caption}
                itemProp="thumbnail"
                className={s.image}
-               />
+               ></img>
         </a>
       </figure>
     );

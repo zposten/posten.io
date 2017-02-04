@@ -17,6 +17,10 @@
   }
 }
 
+.navlink:visited {
+  color: white;
+}
+
 .navlink:hover {
   background-color: var(--nav-dark);
   text-decoration: none;

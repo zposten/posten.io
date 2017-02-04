@@ -1,6 +1,4 @@
-
-
-let photos = [
+module.exports = [
   {
     src: 'https://farm6.staticflickr.com/5789/22569131534_3df0b04b96_k.jpg',
     size: '2048x1612',
@@ -254,11 +252,3 @@ let photos = [
     caption: 'Hills'
   }
 ];
-
-for(let photo of photos) {
-  let size = photo.size.split('x');
-  photo.w = size[0];
-  photo.h = size[1];
-}
-
-module.exports = photos;
