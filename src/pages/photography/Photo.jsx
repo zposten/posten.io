@@ -3,11 +3,12 @@ import s from './styles.css'
 
 export default class Photo extends Component {
   static propTypes = {
-    index: React.PropTypes.number,
-    size: React.PropTypes.string,
-    title: React.PropTypes.string,
-    largeImageUrl: React.PropTypes.string,
-    smallImageUrl: React.PropTypes.string
+    index: React.PropTypes.number.isRequired,
+    size: React.PropTypes.string.isRequired,
+    title: React.PropTypes.string.isRequired,
+    largeImageUrl: React.PropTypes.string.isRequired,
+    smallImageUrl: React.PropTypes.string.isRequired,
+    onClick: React.PropTypes.func.isRequired,
   };
 
   render() {
@@ -16,16 +17,13 @@ export default class Photo extends Component {
     let height = tokens[1];
 
     return (
-      <figure data-index={this.props.index}
-              style={{width: "${200 * width / height}px"}}
+      <figure style={{width: 200 * width / height}}
               itemProp="associatedMedia"
               itemScope=""
               itemType="http://schema.org/ImageObject"
               className={s.wrapper}
-              onClick={(e) => this.props.onMyClick(e, this.props.index)}>
+              onClick={(e) => this.props.onClick(e, this.props.index)}>
         <a href={this.props.largeImageUrl}
-           data-size={this.props.size}
-           data-index={this.props.index}
            itemProp="contentUrl"
            className={s.link}>
           <img src={this.props.smallImageUrl}

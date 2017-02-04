@@ -34,7 +34,7 @@ export default class PhotographyPage extends Component {
                title={photo.caption}
                largeImageUrl={photo.src}
                smallImageUrl={photo.msrc}
-               onMyClick={this.openPhotoswipe} />
+               onClick={this.openPhotoswipe} />
       );
     }, this);
 
