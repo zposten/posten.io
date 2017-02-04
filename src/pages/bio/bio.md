@@ -3,7 +3,7 @@ title: My Bio
 subtitle: A headfirst dash toward an unrealistic goal
 ---
 
-# Recent Work
+## Recent Work
 
 Most recently, I have put a great deal of time into improving my web development skills, through creating this website. I created everything you see here using a variety of frameworks and libraries.
 
