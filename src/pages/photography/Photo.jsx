@@ -17,11 +17,12 @@ export default class Photo extends Component {
 
     return (
       <figure data-index={this.props.index}
-              style={{width: 200 * width / height}}
+              style={{width: "${200 * width / height}px"}}
               itemProp="associatedMedia"
               itemScope=""
               itemType="http://schema.org/ImageObject"
-              className={s.wrapper}>
+              className={s.wrapper}
+              onClick={(e) => this.props.onMyClick(e, this.props.index)}>
         <a href={this.props.largeImageUrl}
            data-size={this.props.size}
            data-index={this.props.index}
@@ -30,7 +31,8 @@ export default class Photo extends Component {
           <img src={this.props.smallImageUrl}
                alt={this.props.title}
                itemProp="thumbnail"
-               className={s.image}/>
+               className={s.image}
+               />
         </a>
       </figure>
     );

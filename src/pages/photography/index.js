@@ -13,10 +13,16 @@ export default class PhotographyPage extends Component {
 
   componentDidMount() {
     document.title = "Photos";
+  }
+
+  openPhotoswipe(e, zindex) {
+    // Don't navigate to the url on the anchor tag to go to flicker
+    e.preventDefault();
 
     let pswpElement = document.querySelectorAll('.pswp')[0];
-    let gallery = new Photoswipe(pswpElement, PhotoswipeUI_Default, PhotoObjects);
-    // gallery.init()
+    var options = {index: zindex};
+    let gallery = new Photoswipe(pswpElement, PhotoswipeUI_Default, PhotoObjects, options);
+    gallery.init();
   }
 
   render() {
@@ -27,9 +33,10 @@ export default class PhotographyPage extends Component {
                size={photo.size}
                title={photo.caption}
                largeImageUrl={photo.src}
-               smallImageUrl={photo.msrc} />
+               smallImageUrl={photo.msrc}
+               onMyClick={this.openPhotoswipe} />
       );
-    });
+    }, this);
 
     return (
       <div>
