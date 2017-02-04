@@ -36,6 +36,7 @@ class App extends Component {
               <Route path="/blog/recipes/meals/:meal/:recipe" component={BlogMeals} />
             </Route>
             <Route path="/photography" component={Photography} />
+            <Route path="/photography&gid=:gid&pid=:pid" component={Photography} />
             <Route path="/apps" component={Applets} />
           </Route>
           <Route path="/error" component={Error} />
