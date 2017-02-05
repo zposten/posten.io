@@ -2,28 +2,25 @@
 @value medium-font, large-font, mega-font from "../../utils/text.css";
 
 
-.root {
+/*.root {
   composes: text-column from "../../utils/text.css";
-  /*display: flex;
-  align-items: center;
-  flex-direction: column;*/
-}
+}*/
 
 .wrapper {
   width: 100%;
 }
 
 .title {
-  composes: jumbo-title from "../../utils/text.css";
+  composes: jumbo-title text-column from "../../utils/text.css";
 }
 
 .subtitle {
-  composes: subtitle from "../../utils/text.css";
+  composes: subtitle text-column from "../../utils/text.css";
 }
 
-.title-wrapper {
+/*.title-wrapper {
   composes: text-column from "../../utils/text.css";
-}
+}*/
 
 .title-image {
   width: 100%;

@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import s from './styles.css'
+import s from './blog-styles.css'
 import Card from '../../components/Card/Card.jsx'
 
 export default class BlogInitial extends Component {

@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react'
 import cx from 'classnames'
 
-import s from './styles.css'
+import s from './blog-styles.css'
 import mds from '../../utils/markdown.css'
 import Card from '../../components/Card/Card.jsx'
 
@@ -83,10 +83,8 @@ export default class BlogMeals extends Component {
     let recipe = tree[params.meal].recipes[params.recipe];
     return (
       <div className={s.wrapper}>
-        <div className={s.titleWrapper}>
-          <h1 className={s.title}>{recipe.title}</h1>
-          <h3 className={s.subtitle}>{recipe.subtitle}</h3>
-        </div>
+        <h1 className={s.title}>{recipe.title}</h1>
+        <h3 className={s.subtitle}>{recipe.subtitle}</h3>
         <div className={s.titleImage} style={{'backgroundImage': `url(${recipe.src})`}}></div>
 
         <div className={cx(mds.markdown, s.markdown)}>

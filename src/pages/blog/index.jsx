@@ -1,5 +1,5 @@
 import React, {Component, PropTypes} from 'react'
-import s from './styles.css'
+import s from './blog-styles.css'
 import Card from '../../components/Card/Card.jsx'
 
 export default class BlogPage extends Component {
@@ -8,7 +8,7 @@ export default class BlogPage extends Component {
 
   render() {
     return (
-      <div className={s.root}>
+      <div>
         { this.props.children }
       </div>
     );
