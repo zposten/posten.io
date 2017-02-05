@@ -1,13 +1,18 @@
-/*! normalize.css v5.0.0 | MIT License | github.com/necolas/normalize.css */
+* {
+	margin: 0;
+}
+
 html {
   font-family: sans-serif;
   line-height: 1.15;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  height: 100%;
 }
 
 body {
   margin: 0;
+  height: 100%;
 }
 
 article,
@@ -456,30 +461,3 @@ output {
 [hidden] {
   display: none !important;
 }
-
-
-/* Mostly: http://ryanfait.com/sticky-footer/ */
-
-* {
-	margin: 0;
-}
-html, body {
-	height: 100%;
-}
-.page-wrap {
-  min-height: 100%;
-  /* equal to footer height */
-	margin-bottom: -142px;
-}
-.page-wrap:after {
-  content: "";
-  display: block;
-}
-.site-footer, .page-wrap:after {
-  /* .push must be the same height as footer */
-	height: 142px;
-}
-.site-footer {
-  background: orange;
-}
-/*# sourceMappingURL=bootstrap-reboot.css.map */

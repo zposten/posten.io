@@ -3,6 +3,7 @@
 @value topbar-height from "./sizes.css";
 @value layout-small-side-padding, layout-large-side-padding from "./sizes.css";
 @value layout-top-bottom-padding from "./sizes.css";
+@value footer-height from "./sizes.css";
 
 
 .main {
@@ -33,4 +34,17 @@
 
 .content {
   padding: 20px;
+}
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */
+	margin-bottom: -142px;
+
+  &:after {
+    content: "";
+    display: block;
+    /* .push must be the same height as footer */
+    height: footer-height;
+  }
 }

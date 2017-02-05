@@ -43,7 +43,7 @@ export default class Footer extends Component {
     );
 
     return (
-      <footer className={s.footer, 'site-footer'}>
+      <footer className={s.footer}>
         <div>
           { twitterLink }
           { githubLink }

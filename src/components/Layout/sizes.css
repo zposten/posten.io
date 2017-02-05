@@ -5,6 +5,7 @@
 
 @value topbar-height: 50px;
 @value sidebar-width: 250px;
+@value footer-height: 100px;
 
 @value layout-small-side-padding: 10px;
 @value layout-large-side-padding: 100px;
