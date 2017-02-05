@@ -18,6 +18,7 @@
   right: 0;
   position: absolute;
   padding: layout-top-bottom-padding layout-small-side-padding;
+  padding-bottom: 0;
 
   @media show-sidebar {
     width: calc(100% - sidebar-width);
@@ -25,6 +26,7 @@
 
   @media large {
     padding: layout-top-bottom-padding layout-large-side-padding;
+    padding-bottom: 0;
   }
 
 }

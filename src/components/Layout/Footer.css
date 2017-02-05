@@ -12,7 +12,7 @@
   margin-left: calc(-1 * layout-small-side-padding);
   margin-right: calc(-1 * layout-small-side-padding);
   margin-top: calc(2 * layout-small-side-padding);
-  margin-bottom: calc(-1 * layout-top-bottom-padding);
+  /*margin-bottom: calc(-1 * layout-top-bottom-padding);*/
 
   @media large {
     margin: calc(-1 * layout-large-side-padding);

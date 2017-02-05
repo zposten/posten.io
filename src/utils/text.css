@@ -2,5 +2,27 @@
 @value large-font: 4em;
 @value medium-font: 1.5em;
 
-
 @value subtitle-color: #999;
+
+.center-title {
+  text-align: center;
+  margin-top: -20px;
+  margin-bottom: 30px;
+}
+
+.jumbo-title {
+  compoese: center-title;
+  font-size: mega-font;
+  font-weight: 900;
+  padding-top: 15px;
+  padding-bottom: 10px;
+  line-height: 1.2;
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  compoese: center-title;
+  line-height: 1.43;
+  font-size: 1.5em;
+  color: gray;
+}

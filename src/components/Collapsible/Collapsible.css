@@ -1,0 +1,27 @@
+.margin {
+  margin: 5px;
+}
+
+.wrapper {
+  composes: margin;
+  background: var(--light);
+  overflow-y: hidden;
+}
+
+.header {
+  composes: margin;
+}
+
+.content {
+  composes: margin;
+  padding-top: 10px;
+  border-top: 1px solid var(--dark);
+
+
+  &.hidden {
+    border-top: 0;
+    padding: 0;
+    margin: 0;
+    height: 0;
+  }
+}

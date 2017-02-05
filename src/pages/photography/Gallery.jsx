@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import Photoswipe from 'photoswipe'
 import PhotoswipeUI_Default from './photoswipe/photoswipe-ui-default'
-import PhotoViewer from './photoswipe/PhotoViewer.jsx'
 import Thumbnail from './Thumbnail.jsx'
 import s from './styles.css'
 
@@ -44,10 +43,7 @@ export default class Gallery extends Component {
     }, this);
 
     return (
-      <div>
         <div className={s.gallery}>{photos}</div>
-        <PhotoViewer />
-      </div>
     );
   }
 
