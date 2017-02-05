@@ -18,7 +18,9 @@ export default class App extends Component {
       <div className={s.root}>
         <TopBar toggleNav={this.toggleNav} />
         <main className={s.main}>
-          {this.props.children}
+          <div className={'page-wrap'}>
+            {this.props.children}
+          </div>
           <Footer />
         </main>
         <Sidebar toggleNav={this.toggleNav}/>
