@@ -1,3 +1,7 @@
+.root {
+  composes: text-column from "../../utils/text.css";
+}
+
 .gallery {
   display: flex;
   flex-direction: row;

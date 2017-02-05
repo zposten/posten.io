@@ -20,7 +20,7 @@ export default class BlogInitial extends Component {
 
   render() {
     return (
-      <div>
+      <div className={s.root}>
         <h1 className={s.title}>{this.state.title}</h1>
         <h3 className={s.subtitle}>{this.state.subtitle}</h3>
 

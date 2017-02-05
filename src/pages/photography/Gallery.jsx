@@ -15,10 +15,12 @@ export default class Gallery extends Component {
     // Don't navigate to the url on the anchor tag to go to flicker
     e.preventDefault();
 
+    console.log("### " + index);
+
     let pswpElement = document.querySelectorAll('.pswp')[0];
     let options = {index, galleryUID: this.props.gid};
     let gallery = new Photoswipe(pswpElement, PhotoswipeUI_Default,
-                                 this.props.slides, index);
+                                 this.props.slides, options);
     gallery.init();
   }
 

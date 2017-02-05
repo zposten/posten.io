@@ -1,3 +1,6 @@
+@value layout-small-side-padding from "../components/Layout/sizes.css";
+@value layout-large-side-padding from "../components/Layout/sizes.css";
+
 .markdown {
   display: block;
   overflow: hidden;

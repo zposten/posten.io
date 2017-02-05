@@ -9,7 +9,7 @@ export default class Collapsible extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {isOpen: false};
+    this.state = {isOpen: true};
   }
 
   toggle() {
@@ -19,8 +19,13 @@ export default class Collapsible extends Component {
   render() {
     return (
       <div className={s.wrapper}>
-        <h1 className={s.header}
-             onClick={() => this.toggle()}>{this.props.title}</h1>
+        <div className={s.header} onClick={() => this.toggle()}>
+          <h1>{this.props.title}</h1>
+          <i className={cx({'fa'              : true,
+                            'fa-chevron-right': !this.state.isOpen,
+                            'fa-chevron-down' :  this.state.isOpen})}
+              ariaHidden="true"></i>
+        </div>
         <div className={cx(s.content, {[s.hidden]: !this.state.isOpen})}>
           {this.props.children}
         </div>

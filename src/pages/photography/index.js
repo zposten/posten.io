@@ -14,7 +14,7 @@ export default class PhotographyPage extends Component {
 
   render() {
     return (
-      <div>
+      <div className={s.root}>
         <Collapsible title="2016">
           <Gallery slides={Slides2016} gid={1} />
         </Collapsible>

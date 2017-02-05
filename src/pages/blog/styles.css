@@ -1,21 +1,38 @@
 @value small, medium, large from "../../utils/breakpoints.css";
-@value medium-font, mega-font from "../../utils/text.css";
+@value medium-font, large-font, mega-font from "../../utils/text.css";
 
 
 .root {
-  display: flex;
+  composes: text-column from "../../utils/text.css";
+  /*display: flex;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column;*/
+}
+
+.wrapper {
+  width: 100%;
 }
 
 .title {
-  font-size: mega-font;
+  composes: jumbo-title from "../../utils/text.css";
 }
 
 .subtitle {
-  font-size: medium-font;
-  font-weight: normal;
-  margin-bottom: 50px;
+  composes: subtitle from "../../utils/text.css";
+}
+
+.title-wrapper {
+  composes: text-column from "../../utils/text.css";
+}
+
+.title-image {
+  width: 100%;
+  height: 300px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  position: relative;
+  margin-bottom: 30px;
 }
 
 .cards {
@@ -32,4 +49,8 @@
 
   @media medium { width: 50%; }
   @media large { width: 33.3%; }
+}
+
+.markdown {
+  composes: text-column from "../../utils/text.css";
 }

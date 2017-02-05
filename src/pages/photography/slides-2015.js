@@ -245,10 +245,4 @@ module.exports = [
     msrc: 'https://farm1.staticflickr.com/5760/23039809719_32046ce5a1_n.jpg',
     caption: 'Sparklers'
   },
-  {
-    src: 'https://farm6.staticflickr.com/5664/22569126454_55fd8c781b_k.jpg',
-    size: '1365x2048',
-    msrc: 'https://farm6.staticflickr.com/5664/22569126454_bdcf19817e_n.jpg',
-    caption: 'Hills'
-  }
 ];

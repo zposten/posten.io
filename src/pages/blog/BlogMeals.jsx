@@ -1,6 +1,8 @@
 import React, {Component, PropTypes} from 'react'
+import cx from 'classnames'
+
 import s from './styles.css'
-import markdownStyle from '../../utils/markdown.css'
+import mds from '../../utils/markdown.css'
 import Card from '../../components/Card/Card.jsx'
 
 import * as Breakfast from './recipes/breakfast.md'
@@ -48,18 +50,19 @@ export default class BlogMeals extends Component {
     let tree = this.createRecipeTree();
     let params = this.props.params;
     let cards = null;
+    let titleText = "Which meal are we cooking for?";
 
     if (!params.meal) {
       cards = [
         tree.breakfast.index,
         tree.dinner.index
       ];
-
     } else if (!params.recipe) {
+        titleText = "What are we cooking?";
         cards = tree[params.meal].recipes;
     }
 
-    if (cards) {
+    if (!params.meal || !params.recipe) {
       let cardsHtml = Object.values(cards).map(function(card) {
         return (
           <div className={s.card} key={card.url}>
@@ -69,17 +72,26 @@ export default class BlogMeals extends Component {
       });
 
       return (
-        <div className={s.cards}>{cardsHtml}</div>
+        <div>
+          <h1 className={s.title}>{titleText}</h1>
+          <div className={s.cards}>{cardsHtml}</div>
+        </div>
       );
     }
 
     // Create the markdown for the specified recipe!
     let recipe = tree[params.meal].recipes[params.recipe];
     return (
-      <div className={markdownStyle.markdown} >
-        <h1>{recipe.title}</h1>
-        <h3>{recipe.subtitle}</h3>
-        <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
+      <div className={s.wrapper}>
+        <div className={s.titleWrapper}>
+          <h1 className={s.title}>{recipe.title}</h1>
+          <h3 className={s.subtitle}>{recipe.subtitle}</h3>
+        </div>
+        <div className={s.titleImage} style={{'backgroundImage': `url(${recipe.src})`}}></div>
+
+        <div className={cx(mds.markdown, s.markdown)}>
+          <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
+        </div>
       </div>
     );
 

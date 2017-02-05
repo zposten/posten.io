@@ -18,7 +18,8 @@
   color: var(--text);
   right: 0;
   position: absolute;
-  padding: layout-top-bottom-padding layout-small-side-padding;
+  /*padding: layout-top-bottom-padding layout-small-side-padding;*/
+  padding-top: layout-top-bottom-padding;
   padding-bottom: 0;
 
   @media show-sidebar {
@@ -26,7 +27,8 @@
   }
 
   @media large {
-    padding: layout-top-bottom-padding layout-large-side-padding;
+    /*padding: layout-top-bottom-padding layout-large-side-padding;*/
+    padding-top: layout-top-bottom-padding;
     padding-bottom: 0;
   }
 
@@ -38,13 +40,10 @@
 
 .page-wrap {
   min-height: 100%;
-  /* equal to footer height */
-	margin-bottom: -142px;
 
   &:after {
     content: "";
     display: block;
-    /* .push must be the same height as footer */
     height: footer-height;
   }
 }
