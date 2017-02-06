@@ -1,0 +1,3 @@
+.content {
+  composes: text-column from "../../utils/text.css";
+}

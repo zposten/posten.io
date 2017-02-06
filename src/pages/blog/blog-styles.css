@@ -16,6 +16,7 @@
 
 .subtitle {
   composes: subtitle text-column from "../../utils/text.css";
+  margin-bottom: 20px;
 }
 
 /*.title-wrapper {
