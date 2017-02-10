@@ -2,6 +2,7 @@
 @value layout-small-side-padding, layout-large-side-padding from "./sizes.css";
 @value layout-top-bottom-padding from "./sizes.css";
 @value footer-height from "./sizes.css";
+@value show-sidebar, sidebar-width "../../utils/sizes.css";
 
 .footer {
   display: flex;
@@ -10,14 +11,9 @@
   align-items: center;
   height: footer-height;
   background-color: var(--light);
-  margin-left: calc(-1 * layout-small-side-padding);
-  margin-right: calc(-1 * layout-small-side-padding);
   margin-top: calc(2 * layout-small-side-padding);
 
-  /*margin-bottom: calc(-1 * layout-top-bottom-padding);*/
-
   @media large {
-    margin: calc(-1 * layout-large-side-padding);
     margin-top: calc(2 * layout-large-side-padding);
   }
 }

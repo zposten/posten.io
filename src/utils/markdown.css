@@ -148,6 +148,10 @@
     border: 0;
   }
 
+  /*****************************
+   * TABLES
+   *****************************/
+
   & hr {
     box-sizing: content-box;
     height: 0;
@@ -227,6 +231,10 @@
     }
   }
 
+  /*****************************
+   * INPUTS
+   *****************************/
+
   & input {
     font: 13px Helvetica, arial, freesans, clean, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol";
     line-height: normal;
@@ -249,6 +257,46 @@
   }
   & input[disabled] {
     cursor: default;
+  }
+
+  /*****************************
+   * CODE
+   *****************************/
+
+  & pre {
+    background-color: var(--light);
+    margin: 10px;
+    padding: 10px;
+    overflow: auto;
+    max-height: 500px;
+
+    &::-webkit-scrollbar-track {
+      background-color: var(--light);
+    }
+    &::-webkit-scrollbar {
+      width: 5px;
+      height: 5px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #151515;
+      opacity: 0.6;
+      border-radius: 5px;
+    }
+
+    &::-webkit-scrollbar-corner {
+      background-color: var(--light);
+    }
+
+    & code[class] {
+      &:after {
+       content: attr(class);
+       display: block;
+       text-align: right;
+       font-size: smaller;
+       padding-top: 5px;
+     }
+    }
   }
 
 }

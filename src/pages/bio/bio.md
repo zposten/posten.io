@@ -14,6 +14,29 @@ I'm using [Materialize][materialize] for a material, responsive design. I prefer
 ```html
 <div class="col-lg-3 col-md-6 col-sm-12"></div>
 <div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div>
+<div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div><div class="col l3 m6 s12"></div>s
 ```
 
 I count fourteen less characters in this small example, just think of the difference that makes to an entire application!  In addition to a concise grid system, Materialize provides a number of very useful web components that require little work on the developers part to use.  For example, take a look at my [blog][blog] you'll notice the prominent use of Materialize cards as a simple means of displaying options with images to the user.

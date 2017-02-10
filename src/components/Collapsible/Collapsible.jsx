@@ -24,7 +24,7 @@ export default class Collapsible extends Component {
           <i className={cx({'fa'              : true,
                             'fa-chevron-right': !this.state.isOpen,
                             'fa-chevron-down' :  this.state.isOpen})}
-              ariaHidden="true"></i>
+              ></i>
         </div>
         <div className={cx(s.content, {[s.hidden]: !this.state.isOpen})}>
           {this.props.children}
