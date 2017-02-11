@@ -1,0 +1,73 @@
+$default-color: $main-blue;
+$hover-color: red;
+
+--default-color: var(--primary);
+--hover-color: red;
+--diameter: 20px;
+--border-radius: var(--diameter) * 1    / 0.75;
+--bar-width:     var(--diameter) * 0.45 / 0.75;
+--bar-height:    var(--diameter) * 0.1  / 0.75;
+--bar-top:       var(--diameter) * 0.33 / 0.75;
+--bar-left:      var(--diameter) / 0.7;
+
+
+.close {
+  background: $default-color;
+  color: black;
+  display: inline-block;
+  width:  $diameter;
+  height: $diameter;
+  position: relative;
+  border: none;
+  box-sizing: content-box;
+  border-radius: var(--border-radius);
+  text-overflow: clip;
+  transform: rotateZ(471.54426539266757deg);
+}
+
+.close:hover {
+  background: $hover-color;
+
+  --trans-rate-of-change: cubic-bezier(0.42, 0, 0.58, 1);
+  transition:
+            background 350ms var(--trans-rate-of-change) 10ms,
+            all 200ms var(--trans-rate-of-change) 10ms;
+  );
+  transform: rotateX(-1.7188733853924696deg) rotateZ(19.48056503444799deg);
+}
+
+.close:active {
+  box-shadow: 2px 2px 9px 1px rgba(0,0,0,0.5) inset;
+  transition: none;
+  transform: rotateZ(471.54426539266757deg);
+}
+
+.close::before,
+.close::after {
+  position: absolute;
+  display: inline-block;
+  width:  var(--bar-width);
+  height: var(--bar-height);
+  top:    var(--bar-top);
+  left:   var(--bar-left);
+  content: "";
+  border: none;
+  color: black;
+  background: white;
+  box-sizing: content-box;
+  text-overflow: clip;
+}
+
+.close::before {
+  transform: rotateZ(24.064227395494576deg);
+}
+
+.close::after {
+  transform: rotateZ(-66.46310423517549deg);
+}
+
+.close-wrapper {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}

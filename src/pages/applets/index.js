@@ -12,9 +12,7 @@ export default class AppletsPage extends Component {
 
   render() {
     return (
-      <div>
-        Applets here
-      </div>
+      <div>{this.props.children}</div>
     );
   }
 

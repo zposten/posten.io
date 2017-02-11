@@ -1,0 +1,15 @@
+.course {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.floatingLabelStyle {
+  color: purple;
+}
+
+.floatingLabelFocusStyle {
+  color: var(--primary);
+}
