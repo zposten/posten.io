@@ -14,14 +14,13 @@ export default class Course extends Component {
     let domSections = this.props.sections.map(function(s, index) {
       return (
         <Section key={s.key}
-                 id={s.key}
                  number={s.number}
                  setSectionNumber={(num) => this.props.setSectionNumber(index, num)}
                  addSection={() => this.props.addSection(index)}
                  removeSection={() => this.props.removeSection(index)}
                  times={s.times}
                  addTime={(tIndex) => this.props.addTime(index, tIndex)}
-                 removeTime={(tIndex) => this.props.removetime(index, tIndex)}
+                 removeTime={(tIndex) => this.props.removeTime(index, tIndex)}
                  setStartTime={(tId, time) => this.props.setStartTime(index, tId, time)}
                  setEndTime={(tId, time) => this.props.setEndTime(index, tId, time)}
                  setDay={(tId, day, isPresent) => this.props.setDay(index, tId, day, isPresent)}

@@ -22,20 +22,7 @@ export default class Scheduler extends Component {
   }
   removeCourse(cId) {
     if (this.state.courses.length == 1) return;
-    console.log("removing course at cId");
-    console.log(cId);
-
-    this.setCourseAttr((courses) => {
-      let strs = ["one", "two", "three"];
-      console.log("before");
-      console.log(courses);
-      console.log(strs);
-      courses.splice(cId, 1);
-      strs.splice(cId, 1);
-      console.log("after");
-      console.log(courses);
-      console.log(strs);
-    });
+    this.setCourseAttr((courses) => strs.splice(cId, 1));
   }
 
   addSection(cId, sId) {
@@ -52,8 +39,8 @@ export default class Scheduler extends Component {
   }
   removeTime(cId, sId, tId) {
     if (this.state.courses[cId].sections[sId].times.length == 1) return;
-    this.setCourseAttr((courses) =>
-      courses[cId].sections[sId].times.splice(tId, 1));
+    console.log(`Removing course at ${cId}, ${sId}, ${tId}`);
+    this.setCourseAttr((courses) => courses[cId].sections[sId].times.splice(tId, 1));
   }
 
   generateCourse() {
@@ -107,7 +94,6 @@ export default class Scheduler extends Component {
     let domCourses = this.state.courses.map(function(c, index) {
       return (
         <Course key={c.key}
-                id={c.key}
                 setName={(name) => c.name = name}
                 addCourse={() => this.addCourse(index)}
                 removeCourse={() => this.removeCourse(index)}
@@ -116,7 +102,7 @@ export default class Scheduler extends Component {
                 addSection={(sIndex) => this.addSection(index, sIndex)}
                 removeSection={(sIndex) => this.removeSection(index, sIndex)}
                 addTime={(sIndex, tIndex) => this.addTime(index, sIndex, tIndex)}
-                removeTime={(sIndex, tIndex) => this.removetime(index, sIndex, tIndex)}
+                removeTime={(sIndex, tIndex) => this.removeTime(index, sIndex, tIndex)}
                 setStartTime={(sId, tId, time) => this.setStartTime(index, sId, tId, time)}
                 setEndTime={(sId, tId, time) => this.setEndTime(index, sId, tId, time)}
                 setDay={(sId, tId, day, isPresent) => this.setDay(index, sId, tId, day, isPresent)}

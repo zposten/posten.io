@@ -15,8 +15,7 @@ export default class Section extends Component {
   render() {
     let domTimes = this.props.times.map(function(t, index) {
       return (
-        <Time key={index}
-              id={index}
+        <Time key={t.key}
               start={t.start}
               end={t.end}
               days={t.days}
