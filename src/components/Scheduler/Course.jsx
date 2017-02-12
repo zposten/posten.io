@@ -12,53 +12,30 @@ export default class Course extends Component {
     remove: PropTypes.func.isRequired,
   }
 
-  id() {return this.props.id}
-
-  constructor(props) {
-    super(props);
-    this.state = {
-      sections: [],
-      sectionsCreated: 0,
-    };
-  }
-
-  addSection(index) {
-    console.log("addSection");
-    let s = this.state.sections;
-    if (index == undefined) index = s.length;
-
-    // Insert at index, deleting 0 items first
-    s.splice(index, 0,
-      <Section key={this.state.sectionsCreated}
-               remove={(toRemove) => this.removeSection(toRemove)}
-               add={() => this.addSection(index + 1)}
-               />
-    );
-    this.setState({
-      sections: s,
-      sectionsCreated: this.state.sectionsCreated + 1,
-    });
-  }
-
-  removeSection(toRemove) {
-    let index = this.state.sections.indexOf(toRemove);
-    console.log("Removing section at index: " + index);
-    this.setState({sections: this.state.sections.splice(index, 1)})
-  }
-
-  componentDidMount() {
-    this.addSection();
-  }
-
   render() {
+    let domSections = this.props.sections.map(function(s, index) {
+      return (
+        <Section key={index}
+                 id={index}
+                 number={s.number}
+                 setSectionNumber={(num) => this.props.setSectionNumber(index, num)}
+                 addSection={() => this.props.addSection(index)}
+                 removeSection={() => this.props.removeSection(index)}
+                 times={s.times}
+                 addTime={(tIndex) => this.props.addTime(index, tIndex)}
+                 removeTime={(tIndex) => this.props.removetime(index, tIndex)}
+                 />
+      );
+    }, this);
+
     return (
       <div className={s.course}>
         <TextBox label="Course #"/>
         <div className={s.sectionWrapper}>
-          {this.state.sections}
+          {domSections}
         </div>
-        <AddButton onClick={this.props.add}/>
-        <Close onClick={() => this.props.remove(this.props.id)}/>
+        <AddButton onClick={() => this.props.addCourse()}/>
+        <Close onClick={() => this.props.removeCourse()}/>
       </div>
     );
 

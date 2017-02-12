@@ -11,44 +11,60 @@ export default class Scheduler extends Component {
     super(props);
     this.state = {
       courses: [],
-      coursesCreated: 0,
     };
   }
 
   addCourse(index) {
-    console.log("addCourse");
     let c = this.state.courses;
     if (index == undefined) index = c.length;
 
-    console.log("Adding course with key: " + this.state.coursesCreated);
-    // Insert at index, deleting 0 items first
-    c.splice(index, 0,
-      <Course key={this.state.coursesCreated}
-              id={this.state.coursesCreated}
-              remove={(toRemove) => this.removeCourse(toRemove)}
-              add={() => this.addCourse(index + 1)}
-              />
-    );
-    this.setState({
-      courses: c,
-      coursesCreated: this.state.coursesCreated + 1,
-    });
+    c.splice(index, 0, generateCourse());
+    this.setState({courses: c});
+  }
+  removeCourse(index) {
+    this.setState({courses: this.state.courses.splice(index, 1)})
   }
 
-  removeCourse(idToRemove) {
-    console.log("trying to remove id: " + idToRemove);
+  addSection(courseIndex, sectionIndex) {
+    let c = this.state.courses[courseIndex];
+    c.sections.splice(sectionIndex + 1, 0, generateSection());
+  }
+  removeSection(courseIndex, sectionIndex) {
+    let c = this.state.courses[courseIndex];
+    c.sections.splice(sectionIndex, 1);
+    this.setState(this.state);
+  }
 
-    for (let i=0; i<this.state.courses.length; ++i) {
-      let course = this.state.courses[i];
-      console.log(course);
-      console.log("found id: " + course.props.id);
+  addTime(courseIndex, sectionIndex, timeIndex) {
+    let c = this.state.courses[courseIndex];
+    let s = c.sections[sectionIndex];
+    s.times.splice(timeIndex + 1, 0, generateTime());
+  }
+  removeTime(courseIndex, sectionIndex, timeIndex) {
+    let c = this.state.courses[courseIndex];
+    let s = c.sections[sectionIndex];
+    s.times.splice(timeIndex, 1);
+    this.setState(this.state);
+  }
 
-      if (course.props.id == idToRemove) {
-        console.log("removeing course at index " + i + " with id " + course.props.id);
-        this.setState({courses: this.state.courses.splice(i, 1)})
-        break;
-      }
+  generateCourse() {
+    return {
+      name: undefined,
+      sections: [generateSection()],
     }
+  }
+  generateSection() {
+    return {
+      number: undefined,
+      times: [generateTime()],
+    }
+  }
+  generateTime() {
+    return {
+      days: {m:0, t:0, w:0, r:0, f:0},
+      start: undefined,
+      end: undefined,
+    };
   }
 
   componentDidMount() {
@@ -56,12 +72,29 @@ export default class Scheduler extends Component {
   }
 
   render() {
+    let domCourses = this.state.courses.map(function(c, index) {
+      return (
+        <Course key={index}
+                id={index}
+                setName={(name) => c.name = name}
+                addCourse={() => this.addCourse(index)}
+                removeCourse={() => this.removeCourse(index)}
+                sections={c.sections}
+                setSectionNumber={(sIndex, num) => c.sections[sIndex].number = num}
+                addSection={(sIndex) => this.addSection(index, sIndex)}
+                removeSection={(sIndex) => this.removeSection(index, sIndex)}
+                addTime={(sIndex, tIndex) => this.addTime(index, sIndex, tIndex)}
+                removeTime={(sIndex, tIndex) => this.removetime(index, sIndex, tIndex)}
+                />
+      );
+    }, this);
+
     return (
       <div className={s.pageWrapper}>
         <h1 className={s.title}>{title}</h1>
         <p className={s.subtitle}>{subtitle}</p>
         <div className={s.scheduler}>
-          {this.state.courses}
+          {domCourses}
         </div>
       </div>
     );
