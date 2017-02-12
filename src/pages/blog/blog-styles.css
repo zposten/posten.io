@@ -2,10 +2,6 @@
 @value medium-font, large-font, mega-font from "../../utils/text.css";
 
 
-/*.root {
-  composes: text-column from "../../utils/text.css";
-}*/
-
 .wrapper {
   width: 100%;
 }
@@ -18,10 +14,6 @@
   composes: subtitle text-column from "../../utils/text.css";
   margin-bottom: 20px;
 }
-
-/*.title-wrapper {
-  composes: text-column from "../../utils/text.css";
-}*/
 
 .title-image {
   width: 100%;
@@ -47,8 +39,4 @@
 
   @media medium { width: 50%; }
   @media large { width: 33.3%; }
-}
-
-.markdown {
-  composes: text-column from "../../utils/text.css";
 }

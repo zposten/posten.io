@@ -36,10 +36,18 @@
   padding-left: layout-small-side-padding;
   padding-right: layout-small-side-padding;
 }
+.text-margin-column {
+  margin-left: layout-small-side-padding;
+  margin-right: layout-small-side-padding;
+}
 
 @media large {
   .text-column {
     padding-left: layout-large-side-padding;
     padding-right: layout-large-side-padding;
+  }
+  .text-margin-column {
+    margin-left: layout-large-side-padding;
+    margin-right: layout-large-side-padding;
   }
 }

@@ -11,6 +11,7 @@ export default class Scheduler extends Component {
     super(props);
     this.state = {
       courses: [],
+      count: 0,
     };
   }
 
@@ -21,7 +22,20 @@ export default class Scheduler extends Component {
   }
   removeCourse(cId) {
     if (this.state.courses.length == 1) return;
-    this.setState({courses: this.state.courses.splice(cId, 1)})
+    console.log("removing course at cId");
+    console.log(cId);
+
+    this.setCourseAttr((courses) => {
+      let strs = ["one", "two", "three"];
+      console.log("before");
+      console.log(courses);
+      console.log(strs);
+      courses.splice(cId, 1);
+      strs.splice(cId, 1);
+      console.log("after");
+      console.log(courses);
+      console.log(strs);
+    });
   }
 
   addSection(cId, sId) {
@@ -44,18 +58,21 @@ export default class Scheduler extends Component {
 
   generateCourse() {
     return {
+      key: this.state.count++,
       name: undefined,
       sections: [this.generateSection()],
     }
   }
   generateSection() {
     return {
+      key: this.state.count++,
       number: undefined,
       times: [this.generateTime()],
     }
   }
   generateTime() {
     return {
+      key: this.state.count++,
       days: {M:false, T:false, W:false, R:false, F:false},
       start: undefined,
       end: undefined,
@@ -78,7 +95,7 @@ export default class Scheduler extends Component {
 
   setCourseAttr(callback) {
     let newState = { courses: [ ...this.state.courses ] };
-    callback(newState.courses );
+    callback(newState.courses);
     this.setState(newState);
   }
 
@@ -89,8 +106,8 @@ export default class Scheduler extends Component {
   render() {
     let domCourses = this.state.courses.map(function(c, index) {
       return (
-        <Course key={index}
-                id={index}
+        <Course key={c.key}
+                id={c.key}
                 setName={(name) => c.name = name}
                 addCourse={() => this.addCourse(index)}
                 removeCourse={() => this.removeCourse(index)}

@@ -6,8 +6,10 @@
   overflow: hidden;
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
   word-wrap: break-word;
-  background-color: var(--nav-light);
+  background-color: var(--light);
   border-radius: 3px;
+  padding: 20px;
+  composes: text-margin-column from "./text.css";
 
   & * {
     box-sizing: border-box;

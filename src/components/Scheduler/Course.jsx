@@ -13,8 +13,8 @@ export default class Course extends Component {
   render() {
     let domSections = this.props.sections.map(function(s, index) {
       return (
-        <Section key={index}
-                 id={index}
+        <Section key={s.key}
+                 id={s.key}
                  number={s.number}
                  setSectionNumber={(num) => this.props.setSectionNumber(index, num)}
                  addSection={() => this.props.addSection(index)}
