@@ -8,8 +8,6 @@ import Section from './Section.jsx'
 
 export default class Course extends Component {
   static propTypes = {
-    add: PropTypes.func.isRequired,
-    remove: PropTypes.func.isRequired,
   }
 
   render() {
@@ -24,6 +22,9 @@ export default class Course extends Component {
                  times={s.times}
                  addTime={(tIndex) => this.props.addTime(index, tIndex)}
                  removeTime={(tIndex) => this.props.removetime(index, tIndex)}
+                 setStartTime={(tId, time) => this.props.setStartTime(index, tId, time)}
+                 setEndTime={(tId, time) => this.props.setEndTime(index, tId, time)}
+                 setDay={(tId, day, isPresent) => this.props.setDay(index, tId, day, isPresent)}
                  />
       );
     }, this);

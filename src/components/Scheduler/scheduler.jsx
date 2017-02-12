@@ -18,53 +18,73 @@ export default class Scheduler extends Component {
     let c = this.state.courses;
     if (index == undefined) index = c.length;
 
-    c.splice(index, 0, generateCourse());
+    c.splice(index, 0, this.generateCourse());
     this.setState({courses: c});
   }
   removeCourse(index) {
     this.setState({courses: this.state.courses.splice(index, 1)})
   }
 
-  addSection(courseIndex, sectionIndex) {
-    let c = this.state.courses[courseIndex];
-    c.sections.splice(sectionIndex + 1, 0, generateSection());
+  addSection(cId, sId) {
+    this.setCourseAttr((courses) => courses.sections.splice(sId + 1, 0, this.generateSection()));
   }
-  removeSection(courseIndex, sectionIndex) {
-    let c = this.state.courses[courseIndex];
-    c.sections.splice(sectionIndex, 1);
-    this.setState(this.state);
+  removeSection(cId, sId) {
+    this.setCourseAttr((courses) => courses[cId].sections.splice(sId, 1));
   }
 
-  addTime(courseIndex, sectionIndex, timeIndex) {
-    let c = this.state.courses[courseIndex];
-    let s = c.sections[sectionIndex];
-    s.times.splice(timeIndex + 1, 0, generateTime());
+  addTime(cId, sId, tId) {
+    this.setCourseAttr((courses) =>
+      courses[cId].sections[sId].times.splice(tId + 1, 0, this.generateTime()));
   }
-  removeTime(courseIndex, sectionIndex, timeIndex) {
-    let c = this.state.courses[courseIndex];
-    let s = c.sections[sectionIndex];
-    s.times.splice(timeIndex, 1);
-    this.setState(this.state);
+  removeTime(cId, sId, tId) {
+    this.setCourseAttr((courses) =>
+      courses[cId].sections[sId].times.splice(tId, 1));
   }
 
   generateCourse() {
     return {
       name: undefined,
-      sections: [generateSection()],
+      sections: [this.generateSection()],
     }
   }
   generateSection() {
     return {
       number: undefined,
-      times: [generateTime()],
+      times: [this.generateTime()],
     }
   }
   generateTime() {
     return {
-      days: {m:0, t:0, w:0, r:0, f:0},
+      days: {M:false, T:false, W:false, R:false, F:false},
       start: undefined,
       end: undefined,
     };
+  }
+
+  setStartTime(cId, sId, tId, time) {
+    this.setCourseAttr((courses) =>
+      courses[cId].sections[sId].times[tId].start = time);
+  }
+  setEndTime(cId, sId, tId, time) {
+    this.setCourseAttr((courses) =>
+      courses[cId].sections[sId].times[tId].end = time);
+  }
+  setDay(cId, sId, tId, day, isPresent) {
+    console.log("cId");
+    console.log(cId);
+    this.setCourseAttr((courses) =>{
+      console.log("courses");
+      console.log(courses);
+      courses[cId].sections[sId].times[tId].days[day] = isPresent;
+    });
+    console.log("this.state");
+    console.log(this.state);
+  }
+
+  setCourseAttr(callback) {
+    let newCourses = { courses: [ ...this.state.courses ] };
+    callback(newCourses.courses );
+    this.setState(newCourses);
   }
 
   componentDidMount() {
@@ -85,6 +105,9 @@ export default class Scheduler extends Component {
                 removeSection={(sIndex) => this.removeSection(index, sIndex)}
                 addTime={(sIndex, tIndex) => this.addTime(index, sIndex, tIndex)}
                 removeTime={(sIndex, tIndex) => this.removetime(index, sIndex, tIndex)}
+                setStartTime={(sId, tId, time) => this.setStartTime(index, sId, tId, time)}
+                setEndTime={(sId, tId, time) => this.setEndTime(index, sId, tId, time)}
+                setDay={(sId, tId, day, isPresent) => this.setDay(index, sId, tId, day, isPresent)}
                 />
       );
     }, this);

@@ -12,8 +12,6 @@ import Checkbox from 'material-ui/Checkbox'
 export default class Time extends Component {
 
   static propTypes = {
-    add: PropTypes.func.isRequired,
-    remove: PropTypes.func.isRequired,
   }
 
   constructor(props) {
@@ -26,27 +24,28 @@ export default class Time extends Component {
   }
 
   render() {
-    let downChecks = ['M', 'T', 'W', 'R', 'F'].map(function(day) {
+    let domChecks = ['M', 'T', 'W', 'R', 'F'].map(function(day) {
       return (
         <div className={s.day} key={day}>
           <Checkbox label={day}
                     iconStyle={{color: colors.TEXT}}
                     labelStyle={{color: colors.TEXT}}
+                    onCheck={(e, checked) => this.props.setDay(day, checked)}
                     />
         </div>
       );
-    })
+    }, this)
 
     return (
       <div className={s.time}>
-        <div className={cx(s.row, s.days)}>{downChecks}</div>
+        <div className={cx(s.row, s.days)}>{domChecks}</div>
         <div className={cx(s.row, s.pickers)}>
           <TimePicker label="Start Time"
                       style={{marginRight: '20px'}}
-                      onChange={(isNull, date) => this.setState({startTime: date})}
+                      onChange={(isNull, date) => this.props.setStartTime(date)}
                       />
           <TimePicker label="End Time"
-                      onChange={(isNull, date) => this.setState({endTime: date})}
+                      onChange={(isNull, date) => this.props.setEndTime(date)}
                       />
         </div>
         <div className={s.row}>

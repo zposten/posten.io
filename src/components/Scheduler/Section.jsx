@@ -10,20 +10,34 @@ import Time from './Time/Time.jsx'
 
 export default class Section extends Component {
   static propTypes = {
-    add: PropTypes.func.isRequired,
-    remove: PropTypes.func.isRequired,
   }
 
   render() {
-    let domTimes = this.props.times.map(functi)
+    let domTimes = this.props.times.map(function(t, index) {
+      return (
+        <Time key={index}
+              id={index}
+              start={t.start}
+              end={t.end}
+              days={t.days}
+              addTime={() => this.props.addTime(index)}
+              removeTime={() => this.props.removeTime(index)}
+              setStartTime={(time) => this.props.setStartTime(time)}
+              setEndTime={(time) => this.props.setEndTime(time)}
+              setDay={(day, isPresent) => this.props.setDay(index, day, isPresent)}
+              ></Time>
+      );
+    }, this);
 
     return (
       <div className={s.section}>
         <div className={s.row}>
           <TextBox label="Section #" className={s.sectionNum} fullWidth={true}/>
-          <div className={s.times}>{this.state.times}</div>
+          <div className={s.times}>{domTimes}</div>
         </div>
-        <div className={s.row}><AddButton onClick={this.props.add}/></div>
+        <div className={s.row}>
+          <AddButton onClick={this.props.add}/>
+        </div>
 
         <Close onClick={() => this.props.remove(this)}/>
       </div>
