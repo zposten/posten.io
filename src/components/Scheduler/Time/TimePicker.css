@@ -1,0 +1,13 @@
+.picker {
+  & input[type=text] {
+    color: var(--text) !important;
+  }
+  & div {
+    color: gray !important;
+  }
+
+  & > div > div {
+    width: 100% !important;
+    max-width: 256px;
+  }
+}

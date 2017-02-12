@@ -4,7 +4,7 @@ import { title, subtitle } from './Scheduler.md'
 
 import Course from './Course.jsx'
 import Section from './Section.jsx'
-import Time from './Time.jsx'
+import Time from './Time/Time.jsx'
 
 
 export default class Scheduler extends Component {
