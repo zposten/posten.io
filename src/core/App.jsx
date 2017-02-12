@@ -47,7 +47,7 @@ class App extends Component {
             <Route path="/photography" component={Photography} />
             <Route path="/photography&gid=:gid&pid=:pid" component={Photography} />
             <Route path="/apps" component={Applets}>
-              <IndexRoute path="/apps/scheduler" component={Scheduler} />
+              <IndexRoute component={Scheduler} />
             </Route>
           </Route>
           <Route path="/error" component={Error} />
