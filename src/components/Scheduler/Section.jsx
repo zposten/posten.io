@@ -13,17 +13,17 @@ export default class Section extends Component {
   }
 
   render() {
-    let domTimes = this.props.times.map(function(t, index) {
+    let domTimes = this.props.times.map(function(t, tId) {
       return (
         <Time key={t.key}
               start={t.start}
               end={t.end}
               days={t.days}
-              addTime={() => this.props.addTime(index)}
-              removeTime={() => this.props.removeTime(index)}
-              setStartTime={(time) => this.props.setStartTime(time)}
-              setEndTime={(time) => this.props.setEndTime(time)}
-              setDay={(day, isPresent) => this.props.setDay(index, day, isPresent)}
+              addTime={() => this.props.addTime(tId)}
+              removeTime={() => this.props.removeTime(tId)}
+              setStartTime={(time) => this.props.setStartTime(tId, time)}
+              setEndTime={(time) => this.props.setEndTime(tId, time)}
+              setDay={(day, isPresent) => this.props.setDay(tId, day, isPresent)}
               ></Time>
       );
     }, this);
@@ -31,7 +31,10 @@ export default class Section extends Component {
     return (
       <div className={s.section}>
         <div className={s.row}>
-          <TextBox label="Section #" className={s.sectionNum} fullWidth={true}/>
+          <TextBox label="Section #"
+                   className={s.sectionNum}
+                   fullWidth={true}
+                   onChange={(e, val) => this.props.setSectionNumber(val)}/>
           <div className={s.times}>{domTimes}</div>
         </div>
         <div className={s.row}>

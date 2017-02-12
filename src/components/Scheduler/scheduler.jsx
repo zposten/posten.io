@@ -22,7 +22,7 @@ export default class Scheduler extends Component {
   }
   removeCourse(cId) {
     if (this.state.courses.length == 1) return;
-    this.setCourseAttr((courses) => strs.splice(cId, 1));
+    this.setCourseAttr((courses) => courses.splice(cId, 1));
   }
 
   addSection(cId, sId) {
@@ -66,6 +66,12 @@ export default class Scheduler extends Component {
     };
   }
 
+  setCourseName(cId, name) {
+    this.setCourseAttr((courses) => courses[cId].name = name);
+  }
+  setSectionNumber(cId, sId, secNum) {
+    this.setCourseAttr((courses) => courses[cId].sections[sId].number = secNum);
+  }
   setStartTime(cId, sId, tId, time) {
     this.setCourseAttr((courses) =>
       courses[cId].sections[sId].times[tId].start = time);
@@ -91,21 +97,21 @@ export default class Scheduler extends Component {
   }
 
   render() {
-    let domCourses = this.state.courses.map(function(c, index) {
+    let domCourses = this.state.courses.map(function(c, cId) {
       return (
         <Course key={c.key}
-                setName={(name) => c.name = name}
-                addCourse={() => this.addCourse(index)}
-                removeCourse={() => this.removeCourse(index)}
+                setCourseName={(name) => this.setCourseName(cId, name)}
+                addCourse={() => this.addCourse(cId)}
+                removeCourse={() => this.removeCourse(cId)}
                 sections={c.sections}
-                setSectionNumber={(sIndex, num) => c.sections[sIndex].number = num}
-                addSection={(sIndex) => this.addSection(index, sIndex)}
-                removeSection={(sIndex) => this.removeSection(index, sIndex)}
-                addTime={(sIndex, tIndex) => this.addTime(index, sIndex, tIndex)}
-                removeTime={(sIndex, tIndex) => this.removeTime(index, sIndex, tIndex)}
-                setStartTime={(sId, tId, time) => this.setStartTime(index, sId, tId, time)}
-                setEndTime={(sId, tId, time) => this.setEndTime(index, sId, tId, time)}
-                setDay={(sId, tId, day, isPresent) => this.setDay(index, sId, tId, day, isPresent)}
+                setSectionNumber={(sId, num) => this.setSectionNumber(cId, sId, num)}
+                addSection={(sId) => this.addSection(cId, sId)}
+                removeSection={(sId) => this.removeSection(cId, sId)}
+                addTime={(sId, tId) => this.addTime(cId, sId, tId)}
+                removeTime={(sIndex, tId) => this.removeTime(cId, sIndex, tId)}
+                setStartTime={(sId, tId, time) => this.setStartTime(cId, sId, tId, time)}
+                setEndTime={(sId, tId, time) => this.setEndTime(cId, sId, tId, time)}
+                setDay={(sId, tId, day, isPresent) => this.setDay(cId, sId, tId, day, isPresent)}
                 />
       );
     }, this);

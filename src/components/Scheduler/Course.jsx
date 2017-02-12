@@ -11,26 +11,26 @@ export default class Course extends Component {
   }
 
   render() {
-    let domSections = this.props.sections.map(function(s, index) {
+    let domSections = this.props.sections.map(function(s, sId) {
       return (
         <Section key={s.key}
                  number={s.number}
-                 setSectionNumber={(num) => this.props.setSectionNumber(index, num)}
-                 addSection={() => this.props.addSection(index)}
-                 removeSection={() => this.props.removeSection(index)}
+                 setSectionNumber={(num) => this.props.setSectionNumber(sId, num)}
+                 addSection={() => this.props.addSection(sId)}
+                 removeSection={() => this.props.removeSection(sId)}
                  times={s.times}
-                 addTime={(tIndex) => this.props.addTime(index, tIndex)}
-                 removeTime={(tIndex) => this.props.removeTime(index, tIndex)}
-                 setStartTime={(tId, time) => this.props.setStartTime(index, tId, time)}
-                 setEndTime={(tId, time) => this.props.setEndTime(index, tId, time)}
-                 setDay={(tId, day, isPresent) => this.props.setDay(index, tId, day, isPresent)}
-                 />
+                 addTime={(tIndex) => this.props.addTime(sId, tIndex)}
+                 removeTime={(tIndex) => this.props.removeTime(sId, tIndex)}
+                 setStartTime={(tId, time) => this.props.setStartTime(sId, tId, time)}
+                 setEndTime={(tId, time) => this.props.setEndTime(sId, tId, time)}
+                 setDay={(tId, day, isPresent) => this.props.setDay(sId, tId, day, isPresent)}
+                 ></Section>
       );
     }, this);
 
     return (
       <div className={s.course}>
-        <TextBox label="Course #"/>
+        <TextBox label="Course #" onChange={(e, val) => this.props.setCourseName(val)}/>
         <div className={s.sectionWrapper}>
           {domSections}
         </div>

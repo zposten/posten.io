@@ -17,6 +17,7 @@ export default class TimePicker extends Component {
                             autoOk={true}
                             textFieldStyle={{color: colors.TEXT}}
                             pedantic={true}
+                            {...this.props}
                             />
       </div>
     );
