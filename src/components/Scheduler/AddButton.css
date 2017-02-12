@@ -1,0 +1,26 @@
+.button {
+  width: 80px;
+  height: 36px;
+  background: var(--primary);
+  border-color: var(--primary);
+  border-radius: 5px;
+  color: var(--text);
+  border: none;
+  border-radius: 2px;
+  line-height: 36px;
+  text-transform: uppercase;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  justify-content: center;
+
+  &:before {
+    content: "\f067";
+    color: var(--text);
+    right: 0;
+    position: absolute;
+    left: 50%;
+    width: 10px;
+    margin-left: -5px;
+
+  }
+}

@@ -27,6 +27,9 @@ export default class TextBox extends Component {
       floatingLabelFocusStyle: {
         color: colors.PRIMARY,
       },
+      inputStyle: {
+        color: colors.TEXT,
+      },
     };
 
     return (
@@ -35,6 +38,8 @@ export default class TextBox extends Component {
                     floatingLabelFocusStyle={styles.floatingLabelFocusStyle}
                     underlineStyle={styles.underlineStyle}
                     underlineFocusStyle={styles.underlineFocusStyle}
+                    inputStyle={styles.inputStyle}
+                    {...this.props}
                     />
     );
   }

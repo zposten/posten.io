@@ -24,10 +24,12 @@ import Scheduler from '../components/Scheduler/Scheduler.jsx'
 // You can ignore this warning. For details, see:
 // https://github.com/reactjs/react-router/issues/2182
 
-// Fast click library used by material-ui
-injectTapEventPlugin();
-
 class App extends Component {
+  componentWillMount() {
+    // Fast click library used by material-ui
+    injectTapEventPlugin();
+  }
+
   render() {
     return (
       <MuiThemeProvider store={store}>
@@ -45,7 +47,7 @@ class App extends Component {
             <Route path="/photography" component={Photography} />
             <Route path="/photography&gid=:gid&pid=:pid" component={Photography} />
             <Route path="/apps" component={Applets}>
-              <Route path="/apps/scheduler" component={Scheduler} />
+              <IndexRoute path="/apps/scheduler" component={Scheduler} />
             </Route>
           </Route>
           <Route path="/error" component={Error} />

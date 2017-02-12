@@ -1,22 +1,20 @@
-$default-color: $main-blue;
-$hover-color: red;
-
---default-color: var(--primary);
---hover-color: red;
---diameter: 20px;
---border-radius: var(--diameter) * 1    / 0.75;
---bar-width:     var(--diameter) * 0.45 / 0.75;
---bar-height:    var(--diameter) * 0.1  / 0.75;
---bar-top:       var(--diameter) * 0.33 / 0.75;
---bar-left:      var(--diameter) / 0.7;
-
+:root {
+  --default-color: var(--primary);
+  --hover-color: red;
+  --diameter: 20px;
+  --border-radius: calc(var(--diameter) * 1    / 0.75);
+  --bar-width:     calc(var(--diameter) * 0.45 / 0.75);
+  --bar-height:    calc(var(--diameter) * 0.1  / 0.75);
+  --bar-top:       calc(var(--diameter) * 0.33 / 0.75);
+  --bar-left:      calc(var(--diameter) / 0.7);
+}
 
 .close {
-  background: $default-color;
+  background: var(--default-color);
   color: black;
   display: inline-block;
-  width:  $diameter;
-  height: $diameter;
+  width:  var(--diameter);
+  height: var(--diameter);
   position: relative;
   border: none;
   box-sizing: content-box;
@@ -32,7 +30,6 @@ $hover-color: red;
   transition:
             background 350ms var(--trans-rate-of-change) 10ms,
             all 200ms var(--trans-rate-of-change) 10ms;
-  );
   transform: rotateX(-1.7188733853924696deg) rotateZ(19.48056503444799deg);
 }
 
@@ -48,8 +45,8 @@ $hover-color: red;
   display: inline-block;
   width:  var(--bar-width);
   height: var(--bar-height);
-  top:    var(--bar-top);
-  left:   var(--bar-left);
+  top:    8px;
+  left:   4px;
   content: "";
   border: none;
   color: black;

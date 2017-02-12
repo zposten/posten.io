@@ -1,15 +1,16 @@
 import React, { Component } from 'react'
 import s from './AddButton.css'
+import cx from 'classnames'
 
 
 export default class AddButton extends Component {
 
 
   render() {
-
-    <a class="btn btn-primary" href="#">
-      <i class="fa fa-plus"></i>
-    </a>
-
+    return (
+      <div>
+        <a className={cx(s.button, 'hvr-icon-bounce')}></a>
+      </div>
+    );
   }
 }
