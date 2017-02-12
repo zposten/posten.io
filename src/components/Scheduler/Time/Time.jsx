@@ -49,9 +49,9 @@ export default class Time extends Component {
                       />
         </div>
         <div className={s.row}>
-          <AddButton onClick={this.props.add}/>
+          <AddButton onClick={() => this.props.addTime()}/>
         </div>
-        <Close onClick={() => this.props.remove(this)}/>
+        <Close onClick={() => this.props.removeTime()}/>
       </div>
     );
   }

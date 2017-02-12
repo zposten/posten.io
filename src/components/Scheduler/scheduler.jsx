@@ -14,21 +14,21 @@ export default class Scheduler extends Component {
     };
   }
 
-  addCourse(index) {
-    let c = this.state.courses;
-    if (index == undefined) index = c.length;
-
-    c.splice(index, 0, this.generateCourse());
-    this.setState({courses: c});
+  addCourse(cId) {
+    this.setCourseAttr((courses) =>
+      courses.splice(cId + 1, 0, this.generateCourse())
+    );
   }
-  removeCourse(index) {
-    this.setState({courses: this.state.courses.splice(index, 1)})
+  removeCourse(cId) {
+    if (this.state.courses.length == 1) return;
+    this.setState({courses: this.state.courses.splice(cId, 1)})
   }
 
   addSection(cId, sId) {
-    this.setCourseAttr((courses) => courses.sections.splice(sId + 1, 0, this.generateSection()));
+    this.setCourseAttr((courses) => courses[cId].sections.splice(sId + 1, 0, this.generateSection()));
   }
   removeSection(cId, sId) {
+    if (this.state.courses[cId].sections.length == 1) return;
     this.setCourseAttr((courses) => courses[cId].sections.splice(sId, 1));
   }
 
@@ -37,6 +37,7 @@ export default class Scheduler extends Component {
       courses[cId].sections[sId].times.splice(tId + 1, 0, this.generateTime()));
   }
   removeTime(cId, sId, tId) {
+    if (this.state.courses[cId].sections[sId].times.length == 1) return;
     this.setCourseAttr((courses) =>
       courses[cId].sections[sId].times.splice(tId, 1));
   }
@@ -70,21 +71,15 @@ export default class Scheduler extends Component {
       courses[cId].sections[sId].times[tId].end = time);
   }
   setDay(cId, sId, tId, day, isPresent) {
-    console.log("cId");
-    console.log(cId);
-    this.setCourseAttr((courses) =>{
-      console.log("courses");
-      console.log(courses);
-      courses[cId].sections[sId].times[tId].days[day] = isPresent;
-    });
-    console.log("this.state");
-    console.log(this.state);
+    this.setCourseAttr((courses) =>
+      courses[cId].sections[sId].times[tId].days[day] = isPresent
+    );
   }
 
   setCourseAttr(callback) {
-    let newCourses = { courses: [ ...this.state.courses ] };
-    callback(newCourses.courses );
-    this.setState(newCourses);
+    let newState = { courses: [ ...this.state.courses ] };
+    callback(newState.courses );
+    this.setState(newState);
   }
 
   componentDidMount() {

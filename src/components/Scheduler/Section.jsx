@@ -36,10 +36,10 @@ export default class Section extends Component {
           <div className={s.times}>{domTimes}</div>
         </div>
         <div className={s.row}>
-          <AddButton onClick={this.props.add}/>
+          <AddButton onClick={() => this.props.addSection()}/>
         </div>
 
-        <Close onClick={() => this.props.remove(this)}/>
+        <Close onClick={() => this.props.removeSection()}/>
       </div>
     );
 
