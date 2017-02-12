@@ -8,26 +8,46 @@ import Section from './Section.jsx'
 
 export default class Course extends Component {
   static propTypes = {
-    remove: PropTypes.func.isRequired
+    add: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired,
   }
+
+  id() {return this.props.id}
 
   constructor(props) {
     super(props);
-    this.state = {sections: [<Section key={0} />]};
+    this.state = {
+      sections: [],
+      sectionsCreated: 0,
+    };
   }
 
-  addSection() {
+  addSection(index) {
+    console.log("addSection");
     let s = this.state.sections;
-    s.push(
-      <Section key={s.length}
-               remove={() => this.removeSection(s.length)}
+    if (index == undefined) index = s.length;
+
+    // Insert at index, deleting 0 items first
+    s.splice(index, 0,
+      <Section key={this.state.sectionsCreated}
+               remove={(toRemove) => this.removeSection(toRemove)}
+               add={() => this.addSection(index + 1)}
                />
     );
-    this.setState({sections: s});
+    this.setState({
+      sections: s,
+      sectionsCreated: this.state.sectionsCreated + 1,
+    });
   }
 
-  removeSection(index) {
+  removeSection(toRemove) {
+    let index = this.state.sections.indexOf(toRemove);
+    console.log("Removing section at index: " + index);
     this.setState({sections: this.state.sections.splice(index, 1)})
+  }
+
+  componentDidMount() {
+    this.addSection();
   }
 
   render() {
@@ -37,8 +57,8 @@ export default class Course extends Component {
         <div className={s.sectionWrapper}>
           {this.state.sections}
         </div>
-        <AddButton />
-        <Close />
+        <AddButton onClick={this.props.add}/>
+        <Close onClick={() => this.props.remove(this.props.id)}/>
       </div>
     );
 

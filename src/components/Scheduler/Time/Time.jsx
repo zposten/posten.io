@@ -11,6 +11,11 @@ import Checkbox from 'material-ui/Checkbox'
 
 export default class Time extends Component {
 
+  static propTypes = {
+    add: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired,
+  }
+
   constructor(props) {
     super(props);
     this.state = {
@@ -44,8 +49,10 @@ export default class Time extends Component {
                       onChange={(isNull, date) => this.setState({endTime: date})}
                       />
         </div>
-        <div className={s.row}><AddButton /></div>
-        <Close />
+        <div className={s.row}>
+          <AddButton onClick={this.props.add}/>
+        </div>
+        <Close onClick={() => this.props.remove(this)}/>
       </div>
     );
   }
