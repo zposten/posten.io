@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import s from './Scheduler.css'
 import { title, subtitle } from './Scheduler.md'
-
 import Course from './Course.jsx'
+import RaisedButton from 'material-ui/RaisedButton'
+
 
 
 export default class Scheduler extends Component {
@@ -86,6 +87,11 @@ export default class Scheduler extends Component {
     );
   }
 
+  /**
+   * Create a copy of the courses array in state, supply it to
+   * a ballback for manipulation, and then set the state with the
+   * manipulated object.
+   */
   setCourseAttr(callback) {
     let newState = { courses: [ ...this.state.courses ] };
     callback(newState.courses);
@@ -122,6 +128,7 @@ export default class Scheduler extends Component {
         <p className={s.subtitle}>{subtitle}</p>
         <div className={s.scheduler}>
           {domCourses}
+          <RaisedButton label="Make Schedules!" primary={true} />
         </div>
       </div>
     );
