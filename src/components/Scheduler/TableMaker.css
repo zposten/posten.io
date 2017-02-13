@@ -1,0 +1,160 @@
+:root {
+  --font-size: 13px;
+
+  --total-row-height: 50px;
+  --border-height: 1px;
+  --dow-total-row-height: 25px;
+  --dow-row-padding: 5px;
+  --dow-line-height: calc(var(--dow-total-row-height) - 2*var(--dow-row-padding));
+  --width: 650px;
+  --time-col-width: 70px;
+  --dow-col-width: calc((var(--width) - var(--time-col-width)) / 5);
+}
+
+
+
+.schedule {
+  width: var(--width);
+  margin: 0 0 40px 0;
+  padding: 0;
+  font-family: "HelveticaMedium", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: var(--schd-font-size);
+  line-height: var(--dow-line-height);
+  color: var(--light-black);
+  background-color: white;
+}
+
+.schedule-table {
+  position: relative;
+  margin-top: 20px;
+
+  & table {
+    width: var(--width);
+    table-layout: fixed;
+    max-width: 100%;
+    background-color: transparent;
+    border-collapse: collapse;
+    border-spacing: 0;
+    margin-bottom: 0;
+  }
+
+  & td, & th {
+    padding: 0;
+    box-sizing: border-box;
+    line-height: var(--dow-line-height);
+    text-align: left;
+    vertical-align: top;
+  }
+
+  & thead th {
+    width: var(--dow-col-width);
+    padding: var(--dow-row-padding);
+    background: var(--off-black);
+    color: white;
+    text-align: center;
+    vertical-align: bottom;
+    -webkit-print-color-adjust: exact;
+    border-radius: 0;
+  }
+
+  & thead th.time {
+    width: var(--time-col-width);
+  }
+
+  & tbody {
+    & td, & th {
+      border-bottom: var(--border-height) solid var(--fifty-percent-gray);
+      border-right: var(--border-height) solid var(--fifty-percent-gray);
+    }
+
+    & td {
+      background: var(--schd-back-color);
+    }
+
+    & th {
+      line-height: var(--total-row-height) - var(--border-height);
+      height: var(--total-row-height) - var(--border-height);
+      text-align: center;
+      background: var(--schd-left-color);
+      white-space: nowrap;
+      border-left: var(--border-height) solid var(--fifty-percent-gray);
+      font-weight: normal;
+    }
+  }
+
+  & .course-name {
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: var(--dow-col-width) - 1;
+    display: inline-block;
+  }
+
+  & .course-text {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  & .dayM, & .dayT, & .dayW, & .dayR, & .dayF {
+    position: absolute;
+    width: var(--dow-col-width) + 1;
+    top: 0;
+    text-align: center;
+    box-sizing: border-box;
+    display: table;
+  }
+
+  @mixin day-left(var(--day-num)) {
+    left: var(--time-col-width) + (var(--day-num) - 1)*var(--dow-col-width);
+  }
+
+  & .dayM {  @include day-left(1);  }
+  & .dayT {  @include day-left(2);  }
+  & .dayW {  @include day-left(3);  }
+  & .dayR {  @include day-left(4);  }
+  & .dayF {  @include day-left(5);  }
+
+  & .color0 {
+    border: var(--border-height) solid color("blue", "darken-4");
+    background-color: color("blue", "base");
+    color: var(--light-white);
+  }
+  & .color1 {
+    border: var(--border-height) solid color("amber", "darken-4");
+    background-color: color("amber", "base");
+    color: var(--light-black);
+  }
+  & .color2 {
+    border: var(--border-height) solid color("red", "darken-4");;
+    background-color: color("red", "base");;
+    color: var(--light-white);
+  }
+  & .color3 {
+    border: var(--border-height) solid color("green", "darken-4");
+    background-color: color("green", "base");
+    color: var(--light-black);
+  }
+  & .color4 {
+    border: var(--border-height) solid color("purple", "darken-4");;
+    background-color: color("purple", "base");
+    color: var(--light-white);
+  }
+  & .color5 {
+    border: var(--border-height) solid color("teal", "darken-4");
+    background-color: color("teal", "base");
+    color: var(--light-white);
+  }
+  & .color6 {
+    border: var(--border-height) solid color("pink", "darken-4");
+    background-color: color("pink", "base");
+    color: var(--light-white);
+  }
+}
+
+.schedule-table thead tr > th:first-child {
+  border-left: 1px solid #292929;
+}
+
+.schedule-table thead tr > th:last-child {
+  border-right: 1px solid #292929;
+}
