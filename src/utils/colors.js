@@ -11,4 +11,23 @@ module.exports = {
   "TEXT": "#cecfd5",
   "HEADING_COLOR": "#dfe0e6",
   "SUBTITLE_COLOR": "#999",
+
+  // Material colors
+  "RED": "#F44336",
+  "PINK": "#9C27B0",
+  "PURPLE": "#673AB7",
+  "INDIGO": "#3F51B5",
+  "BLUE": "#2196F3",
+  "CYAN": "#00BCD4",
+  "TEAL": "#009688",
+  "GREEN": "#4CAF50",
+  "LIME": "#CDDC39",
+  "YELLOW": "#FFEB3B",
+  "AMBER": "#FFC107",
+  "ORANGE": "#FF9800",
+  "DEEP_ORANGE": "#FF5722",
+  "BROWN": "#795548",
+  "BLUE_GRAY": "#607D8B",
+  "GRAY": "#9E9E9E",
+  "BLACK": "#212121",
 };

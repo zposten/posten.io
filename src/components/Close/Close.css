@@ -24,7 +24,7 @@
 }
 
 .close:hover {
-  background: $hover-color;
+  background: var(--hover-color)x;
 
   --trans-rate-of-change: cubic-bezier(0.42, 0, 0.58, 1);
   transition:

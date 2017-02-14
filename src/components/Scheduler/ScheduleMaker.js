@@ -9,7 +9,7 @@ export default class ScheduleMaker {
       return 'No courses supplied';
     }
 
-    let schedules = combine();
+    let schedules = this.combine();
     if (schedules.length == 0) {
       return 'No schedules could be generated';
     }
@@ -19,12 +19,12 @@ export default class ScheduleMaker {
 
   combine() {
     let schedules = [];
-    recursiveCombine(this.courses, [], schedules);
+    this.recursiveCombine(this.courses, [], schedules);
     return schedules;
   }
 
   recursiveCombine(courses, chosenSections, schedules) {
-    if (chosenSections.length === Object.size(courses)) {
+    if (chosenSections.length === Object.keys(courses).length) {
       schedules.push([...chosenSections]);
       return;
     }
@@ -32,9 +32,10 @@ export default class ScheduleMaker {
     let next = chosenSections.length;
     let course = courses[next];
     for (let section of course.sections) {
-      if (fitsInSchedule(section, chosenSections)) {
+      section.courseName = course.name;
+      if (this.fitsInSchedule(section, chosenSections)) {
         chosenSections.push(section);
-        recursiveCombine(courses, chosenSections, schedules);
+        this.recursiveCombine(courses, chosenSections, schedules);
         chosenSections.pop();
       }
     }
@@ -42,7 +43,7 @@ export default class ScheduleMaker {
 
   fitsInSchedule(newSection, schedule) {
     for (let existingSection of schedule) {
-      if (sectionsOverlap(existingSection, newSection)) return false;
+      if (this.sectionsOverlap(existingSection, newSection)) return false;
     }
     return true;
   }
@@ -51,14 +52,14 @@ export default class ScheduleMaker {
     let overlap = false;
     for (let timeA of secA) {
       for (let timeB of secB) {
-        if (timesOverlap(timeA, timeB)) return true;
+        if (this.timesOverlap(timeA, timeB)) return true;
       }
     }
     return false;
   }
 
   timesOverlap(timeA, timeB) {
-    if (!daysOverlap(timeA.days, timeB.days)) return false;
+    if (!this.daysOverlap(timeA.days, timeB.days)) return false;
 
     let aStartsBeforeBEnds = timeA.start < timeB.end;
     let aEndsAfterBStarts = timeA.end > timeB.start;

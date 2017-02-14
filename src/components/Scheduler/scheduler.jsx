@@ -2,6 +2,9 @@ import React, { Component } from 'react'
 import s from './Scheduler.css'
 import { title, subtitle } from './Scheduler.md'
 import Course from './Course.jsx'
+import ScheduleMaker from './ScheduleMaker'
+import TableMaker from './TableMaker.jsx'
+
 import RaisedButton from 'material-ui/RaisedButton'
 
 
@@ -87,6 +90,15 @@ export default class Scheduler extends Component {
     );
   }
 
+  makeSchedules() {
+    let sm = new ScheduleMaker(this.state.courses);
+    let schedules = sm.make();
+    let tm = new TableMaker(schedules);
+    let html = tm.makeHtml();
+    
+    this.setState({schedules: html});
+  }
+
   /**
    * Create a copy of the courses array in state, supply it to
    * a ballback for manipulation, and then set the state with the
@@ -128,8 +140,9 @@ export default class Scheduler extends Component {
         <p className={s.subtitle}>{subtitle}</p>
         <div className={s.scheduler}>
           {domCourses}
-          <RaisedButton label="Make Schedules!" primary={true} />
+          <RaisedButton label="Make Schedules!" primary={true} onClick={() => this.makeSchedules()}/>
         </div>
+        <div className={s.outputWrapper}>{this.state.schedules}</div>
       </div>
     );
 

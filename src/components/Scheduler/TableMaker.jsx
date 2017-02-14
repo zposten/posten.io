@@ -1,19 +1,25 @@
+import React from 'react'
+import cx from 'classnames'
+import s from './TableMaker.css'
+
 export default class TableMaker {
   constructor(schedules) {
     this.schedules = schedules;
 
     // 50 pixels tall dividev by 60 mins/hour
-    this.pixelHeightOfOneMin = return 50 / 60;
+    this.pixelHeightOfOneMin = 50 / 60;
     this.titleBarHeight = 25; // px
   }
 
   makeHtml() {
     let tables = [];
-    for (let sechedule of schedules) {
+    for (let i=0; i<this.schedules.length; ++i) {
+      let schedule = this.schedules[i];
       let table = this.makeScheduleTableHtml(schedule);
       let classes = this.makeHtmlClasses(schedule);
+
       tables.push(
-        <div className={s.schedule}>
+        <div className={s.schedule} key={i}>
           <div className={s.scheduleTable}>
             {table}
             {classes}
@@ -21,13 +27,14 @@ export default class TableMaker {
         </div>
       );
     }
+    return tables;
   }
 
   makeScheduleTableHtml(schedule) {
     let tHead = (
       <thead>
         <tr>
-          <th className={'time'}>Time</th>
+          <th className={s.time}>Time</th>
           <th>Monday</th>
           <th>Tuesday</th>
           <th>Wednesday</th>
@@ -40,7 +47,7 @@ export default class TableMaker {
     this.tableTimeRange = this.getTimeRange(schedule);
     let rows = this.tableTimeRange.map(function(hour) {
       return (
-        <tr>
+        <tr key={hour}>
           <th>{this.formatHour(hour)}</th>
           <td></td>
           <td></td>
@@ -49,7 +56,7 @@ export default class TableMaker {
           <td></td>
         </tr>
       );
-    });
+    }, this);
 
     return (
       <table>
@@ -65,14 +72,12 @@ export default class TableMaker {
     let earliestTime = null;
     let latestTime = null;
 
-    for (let course of schedule) {
-      for (let section of course.sections) {
-        for (let time of section.times) {
-          if (!earliestTime || time.start < earliestTime)
-            sectionEarliestTime = time.start;
-          if (!latestTime || time.end > latestTime)
-            sectionLatestTime = time.end;
-        }
+    for (let section of schedule) {
+      for (let time of section.times) {
+        if (!earliestTime || time.start < earliestTime)
+          earliestTime = time.start;
+        if (!latestTime || time.end > latestTime)
+          latestTime = time.end;
       }
     }
 
@@ -83,7 +88,7 @@ export default class TableMaker {
 
     // Create a buffer of one hour to each side
     startHour--;
-    endHoru++;
+    endHour++;
 
     return this.range(startHour, endHour);
   }
@@ -117,17 +122,15 @@ export default class TableMaker {
     tableStartTime.setMinutes(0);
 
     let sectionIndex = 0;
-    for (let course of schedule) {
-      for (let sectionIndex = 0; sectionIndex < course.sections.length; ++sectionIndex) {
-        let section = course.sections[sectionIndex];
-        for (let time of section.times) {
-          for (let day of Object.keys(time.days)) {
-            if (!time.days[day]) continue;
-            classes.push(this.makeHtmlClass(
-              course.name, section.number, day, sectionIndex, time.start,
-              this.lengthInMinutes(time.start, time.end), tableStartTime
-            ));
-          }
+    for (let sectionIndex = 0; sectionIndex < schedule.length; ++sectionIndex) {
+      let section = schedule[sectionIndex];
+      for (let time of section.times) {
+        for (let day of Object.keys(time.days)) {
+          if (!time.days[day]) continue;
+          classes.push(this.makeHtmlClass(
+            section.courseName, section.number, day, sectionIndex, time.start,
+            this.lengthInMinutes(time.start, time.end), tableStartTime
+          ));
         }
       }
     }
@@ -144,7 +147,7 @@ export default class TableMaker {
     let height = this.calcHeight(classLengthInMins);
 
     return (
-      <div className={cx(s['day' + dow], s['color' + (colorIndex % numAvailColors)])}
+      <div className={cx(s['day' + day], s['color' + (colorIndex % numAvailColors)])}
            style={{
              height: height + 'px',
              top: this.calcTopMargin(classStartTime, tableStartTime) + 'px',
@@ -164,8 +167,8 @@ export default class TableMaker {
   }
 
   calcTopMargin(classStartTime, tableStartTime) {
-    hourOffset = classStartTime.getHours() - tableStartTime.getHours();
-    minuteOffset = (hourOffset * 60) + classStartTime.getMinutes() - tableStartTime.getMinutes();
+    let hourOffset = classStartTime.getHours() - tableStartTime.getHours();
+    let minuteOffset = (hourOffset * 60) + classStartTime.getMinutes() - tableStartTime.getMinutes();
     return this.titleBarHeight + (this.pixelHeightOfOneMin * minuteOffset);
   }
 
@@ -174,7 +177,4 @@ export default class TableMaker {
     let minutes = end.getMinutes() - start.getMinutes();
     return (hours * 60) + minutes;
   }
-
-
-
 }

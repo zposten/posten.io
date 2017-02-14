@@ -135,8 +135,6 @@ const config = {
       // Allows exporting of values, similar to SCSS
       // https://github.com/css-modules/css-modules/blob/master/docs/values-variables.md
       // Throws error for some reason?
-      // require('postcss-modules-values')(),
-
       require('postcss-modules-values-replace')(),
       // Allow the use of modern CSS syntax without requiring browser support
       // http://cssnext.io/features/
@@ -145,6 +143,11 @@ const config = {
       // Postcss flexbox bug fixer
       // https://github.com/luisrudge/postcss-flexbugs-fixes
       require('postcss-flexbugs-fixes')(),
+
+      // Allows creation of @mixins with @define-mixin
+      require('postcss-mixins')(),
+      // Allows SCSS like variables
+      require('postcss-simple-vars')(),
     ];
   },
 
