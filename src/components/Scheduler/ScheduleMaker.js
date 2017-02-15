@@ -33,14 +33,17 @@ export default class ScheduleMaker {
 
     let next = chosenSections.length;
     let course = courses[next];
+    let courseAdded = false;
     for (let section of course.sections) {
       section.courseName = course.name;
       if (this.fitsInSchedule(section, chosenSections)) {
+        courseAdded = true;
         chosenSections.push(section);
         this.recursiveCombine(courses, chosenSections, schedules);
         chosenSections.pop();
       }
     }
+    if (!courseAdded) throw new Error("No schedules could be formed");
   }
 
   deepCopy(obj) {

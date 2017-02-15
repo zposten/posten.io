@@ -6,8 +6,8 @@ export default class TableMaker {
   constructor(schedules) {
     this.schedules = schedules;
 
-    // 50 pixels tall dividev by 60 mins/hour
-    this.pixelHeightOfOneMin = 50 / 60;
+    // 50ish pixels tall divided by 60 mins per hour
+    this.pixelHeightOfOneMin = 49.15 / 60;
     this.titleBarHeight = 25; // px
   }
 
@@ -165,13 +165,13 @@ export default class TableMaker {
 
   calcHeight(lengthInMins) {
     const minClassLength = 25;
-    return Math.max(lengthInMins, minClassLength) * this.pixelHeightOfOneMin;
+    return Math.max(lengthInMins, minClassLength) * this.pixelHeightOfOneMin ;
   }
 
   calcTopMargin(classStartTime, tableStartTime) {
     let hourOffset = classStartTime.getHours() - tableStartTime.getHours();
     let minuteOffset = (hourOffset * 60) + classStartTime.getMinutes() - tableStartTime.getMinutes();
-    return this.titleBarHeight + (this.pixelHeightOfOneMin * minuteOffset) - 2;
+    return this.titleBarHeight + (this.pixelHeightOfOneMin * minuteOffset);
   }
 
   lengthInMinutes(start, end) {
