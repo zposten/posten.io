@@ -43,7 +43,6 @@ export default class Scheduler extends Component {
   }
   removeTime(cId, sId, tId) {
     if (this.state.courses[cId].sections[sId].times.length == 1) return;
-    console.log(`Removing course at ${cId}, ${sId}, ${tId}`);
     this.setCourseAttr((courses) => courses[cId].sections[sId].times.splice(tId, 1));
   }
 
@@ -91,12 +90,11 @@ export default class Scheduler extends Component {
   }
 
   makeSchedules() {
+    console.log("Forming schedules with data: " + JSON.stringify(this.state.courses));
+
     let sm = new ScheduleMaker(this.state.courses);
-    let schedules = sm.make();
-    let tm = new TableMaker(schedules);
-    let html = tm.makeHtml();
-    
-    this.setState({schedules: html});
+    let tm = new TableMaker(sm.make());
+    this.setState({schedules: tm.makeHtml()});
   }
 
   /**

@@ -179,13 +179,13 @@ $back-color: #e5e5e5;
         color: $text;
       }
     }
-    @mixin color 0, deep-orange {}
-    @mixin color 1, purple {}
-    @mixin color 2, indigo {}
-    @mixin color 3, red {}
-    @mixin color 4, teal {}
-    @mixin color 5, green {}
-    @mixin color 6, amber {}*/
+    @mixin color 0, deep-orange;
+    @mixin color 1, purple;
+    @mixin color 2, indigo;
+    @mixin color 3, red;
+    @mixin color 4, teal;
+    @mixin color 5, green;
+    @mixin color 6, amber;*/
   }
 
 

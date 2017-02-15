@@ -25,8 +25,6 @@ export default class ScheduleMaker {
 
   recursiveCombine(courses, chosenSections, schedules) {
     if (chosenSections.length === Object.keys(courses).length) {
-      console.log("pushing schedule");
-      console.log(this.deepCopy(chosenSections));
       schedules.push(this.deepCopy(chosenSections));
       return;
     }

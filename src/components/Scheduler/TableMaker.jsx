@@ -69,8 +69,6 @@ export default class TableMaker {
   }
 
   getTimeRange(schedule) {
-    console.log("getTimeRange");
-    console.log(schedule);
     let earliestTime = schedule[0].times[0].start;
     let latestTime = schedule[0].times[0].end;
 
