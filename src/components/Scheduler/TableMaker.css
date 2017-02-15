@@ -7,9 +7,9 @@ $dow-row-padding: 5px;
 $dow-line-height: calc($dow-total-row-height - 2*$dow-row-padding);
 $width: 650px;
 $time-col-width: 70px;
-$dow-col-width: calc(($width - time-col-width)) / 5);
+$dow-col-width: calc(($width - $time-col-width) / 5);
 $font-size: 13px;
-$back-color: gray;
+$back-color: #e5e5e5;
 
 
 
@@ -63,8 +63,8 @@ $back-color: gray;
 
   & tbody {
     & td, & th {
-      border-bottom: $border-height solid var(--gray);
-      border-right: $border-height solid var(--gray);
+      border-bottom: $border-height solid var(--dark);
+      border-right: $border-height solid var(--dark);
     }
 
     & td {
@@ -72,12 +72,12 @@ $back-color: gray;
     }
 
     & th {
-      line-height: $total-row-height - $border-height;
-      height: $total-row-height - $border-height;
+      line-height: calc($total-row-height - $border-height);
+      height: calc($total-row-height - $border-height);
       text-align: center;
-      background: var(--black);
+      background: #c7c7c7;
       white-space: nowrap;
-      border-left: $border-height solid var(--gray);
+      border-left: $border-height solid var(--dark);
       font-weight: normal;
     }
   }
@@ -86,7 +86,7 @@ $back-color: gray;
     font-weight: bold;
     overflow: hidden;
     text-overflow: ellipsis;
-    width: $dow-col-width - 1;
+    width: calc($dow-col-width - 1px);
     display: inline-block;
   }
 
@@ -95,44 +95,55 @@ $back-color: gray;
     vertical-align: middle;
   }
 
-  /*& .dayM, & .dayT, & .dayW, & .dayR, & .dayF {
+  & .dayM, & .dayT, & .dayW, & .dayR, & .dayF {
     position: absolute;
-    width: $dow-col-width + 1;
+    width: calc($dow-col-width - 1px);
     top: 0;
     text-align: center;
     box-sizing: border-box;
     display: table;
   }
 
-  @define-mixin dayLeft $day, $index {
-    & .day$(day) {
-      left: calc(
-        $time-col-width
-        + $day
-        * $dow-col-width
-      );
-    }
-  }
-  @mixin dayLeft-left M, 0 {};
-  @mixin dayLeft-left T, 1 {};
-  @mixin dayLeft-left W, 2 {};
-  @mixin dayLeft-left R, 3 {};
-  @mixin dayLeft-left F, 4 {};
+& .dayM { left: calc($time-col-width + 0 * $dow-col-width); }
+& .dayT { left: calc($time-col-width + 1 * $dow-col-width); }
+& .dayW { left: calc($time-col-width + 2 * $dow-col-width); }
+& .dayR { left: calc($time-col-width + 3 * $dow-col-width); }
+& .dayF { left: calc($time-col-width + 4 * $dow-col-width); }
 
-  @define-mixin color $index, $color {
-    & .color$(index) {
-      border: $border-height solid $$color;
-      background-color: $$color
-      color: $text;
-    }
-  }
-  @mixin color 0, deep-orange {}
-  @mixin color 1, purple {}
-  @mixin color 2, indigo {}
-  @mixin color 3, red {}
-  @mixin color 4, teal {}
-  @mixin color 5, green {}
-  @mixin color 6, amber {}*/
+& .color0 {
+  border: $border-height solid var(--green);
+  background-color: var(--green);
+  color: var(--text);
+}
+& .color1 {
+  border: $border-height solid var(--deep-orange);
+  background-color: var(--deep-orange);
+  color: var(--text);
+}
+& .color2 {
+  border: $border-height solid var(--puple);
+  background-color: var(--purple);
+  color: var(--text);
+}
+& .color3 {
+  border: $border-height solid var(--indigo);
+  background-color: var(--indigo);
+  color: var(--text);
+}
+& .color4 {
+  border: $border-height solid var(--red);
+  background-color: var(--red);
+  color: var(--text);
+}
+& .color5 {
+  border: $border-height solid var(--teal);
+  background-color: var(--teal);
+  color: var(--text);
+}
+& .color6 {
+  border: $border-height solid var(--amber);
+  background-color: var(--amber);
+  color: var(--text);
 }
 
 .schedule-table thead tr > th:first-child {
@@ -141,4 +152,41 @@ $back-color: gray;
 
 .schedule-table thead tr > th:last-child {
   border-right: 1px solid #292929;
+}
+
+
+.test {
+  /*
+    @define-mixin dayLeft $day, $index {
+      & .day$(day) {
+        left: calc(
+          $time-col-width
+          + $day
+          * $dow-col-width
+        );
+      }
+    }
+    @mixin dayLeft-left M, 0 {};
+    @mixin dayLeft-left T, 1 {};
+    @mixin dayLeft-left W, 2 {};
+    @mixin dayLeft-left R, 3 {};
+    @mixin dayLeft-left F, 4 {};
+
+    @define-mixin color $index, $color {
+      & .color$(index) {
+        border: $border-height solid $$color;
+        background-color: $$color
+        color: $text;
+      }
+    }
+    @mixin color 0, deep-orange {}
+    @mixin color 1, purple {}
+    @mixin color 2, indigo {}
+    @mixin color 3, red {}
+    @mixin color 4, teal {}
+    @mixin color 5, green {}
+    @mixin color 6, amber {}*/
+  }
+
+
 }

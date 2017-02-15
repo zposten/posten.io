@@ -69,8 +69,10 @@ export default class TableMaker {
   }
 
   getTimeRange(schedule) {
-    let earliestTime = null;
-    let latestTime = null;
+    console.log("getTimeRange");
+    console.log(schedule);
+    let earliestTime = schedule[0].times[0].start;
+    let latestTime = schedule[0].times[0].end;
 
     for (let section of schedule) {
       for (let time of section.times) {
@@ -169,7 +171,7 @@ export default class TableMaker {
   calcTopMargin(classStartTime, tableStartTime) {
     let hourOffset = classStartTime.getHours() - tableStartTime.getHours();
     let minuteOffset = (hourOffset * 60) + classStartTime.getMinutes() - tableStartTime.getMinutes();
-    return this.titleBarHeight + (this.pixelHeightOfOneMin * minuteOffset);
+    return this.titleBarHeight + (this.pixelHeightOfOneMin * minuteOffset) - 2;
   }
 
   lengthInMinutes(start, end) {

@@ -23,6 +23,20 @@ export default class Time extends Component {
     };
   }
 
+  componentWillMount() {
+    let d1 = new Date();
+    d1.setHours(8);
+    d1.setMinutes(0);
+    let d2 = new Date();
+    d2.setHours(9);
+    d2.setMinutes(0);
+    this.props.setStartTime(d1);
+    this.props.setEndTime(d2);
+
+    this.d1 = d1;
+    this.d2 = d2;
+  }
+
   render() {
     let domChecks = ['M', 'T', 'W', 'R', 'F'].map(function(day) {
       return (
@@ -43,9 +57,11 @@ export default class Time extends Component {
           <TimePicker label="Start Time"
                       style={{marginRight: '20px'}}
                       onChange={(isNull, date) => this.props.setStartTime(date)}
+                      defaultTime={this.d1}
                       />
           <TimePicker label="End Time"
                       onChange={(isNull, date) => this.props.setEndTime(date)}
+                      defaultTime={this.d2}
                       />
         </div>
         <div className={s.row}>

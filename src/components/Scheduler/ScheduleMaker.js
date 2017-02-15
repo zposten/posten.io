@@ -25,7 +25,9 @@ export default class ScheduleMaker {
 
   recursiveCombine(courses, chosenSections, schedules) {
     if (chosenSections.length === Object.keys(courses).length) {
-      schedules.push([...chosenSections]);
+      console.log("pushing schedule");
+      console.log(this.deepCopy(chosenSections));
+      schedules.push(this.deepCopy(chosenSections));
       return;
     }
 
@@ -41,6 +43,40 @@ export default class ScheduleMaker {
     }
   }
 
+  deepCopy(obj) {
+    var copy;
+
+    // Handle the 3 simple types, and null or undefined
+    if (null == obj || "object" != typeof obj) return obj;
+
+    // Handle Date
+    if (obj instanceof Date) {
+        copy = new Date();
+        copy.setTime(obj.getTime());
+        return copy;
+    }
+
+    // Handle Array
+    if (obj instanceof Array) {
+        copy = [];
+        for (var i = 0, len = obj.length; i < len; i++) {
+            copy[i] = this.deepCopy(obj[i]);
+        }
+        return copy;
+    }
+
+    // Handle Object
+    if (obj instanceof Object) {
+        copy = {};
+        for (var attr in obj) {
+            if (obj.hasOwnProperty(attr)) copy[attr] = this.deepCopy(obj[attr]);
+        }
+        return copy;
+    }
+
+    throw new Error("Unable to copy obj! Its type isn't supported.");
+  }
+
   fitsInSchedule(newSection, schedule) {
     for (let existingSection of schedule) {
       if (this.sectionsOverlap(existingSection, newSection)) return false;
@@ -50,8 +86,8 @@ export default class ScheduleMaker {
 
   sectionsOverlap(secA, secB) {
     let overlap = false;
-    for (let timeA of secA) {
-      for (let timeB of secB) {
+    for (let timeA of secA.times) {
+      for (let timeB of secB.times) {
         if (this.timesOverlap(timeA, timeB)) return true;
       }
     }
