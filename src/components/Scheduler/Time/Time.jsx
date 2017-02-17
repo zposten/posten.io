@@ -52,16 +52,18 @@ export default class Time extends Component {
 
     return (
       <div className={s.time}>
-        <div className={cx(s.row, s.days)}>{domChecks}</div>
+        <div className={cx(s.row, s.days, {[s.error]: this.props.dayError})}>{domChecks}</div>
         <div className={cx(s.row, s.pickers)}>
           <TimePicker label="Start Time"
                       style={{marginRight: '20px'}}
                       onChange={(isNull, date) => this.props.setStartTime(date)}
                       defaultTime={this.d1}
+                      error={this.props.startError}
                       />
           <TimePicker label="End Time"
                       onChange={(isNull, date) => this.props.setEndTime(date)}
                       defaultTime={this.d2}
+                      error={this.props.endError}
                       />
         </div>
         <div className={s.row}>

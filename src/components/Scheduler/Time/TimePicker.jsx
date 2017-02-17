@@ -12,7 +12,7 @@ export default class TimePicker extends Component {
 
   render() {
     return (
-      <div className={s.picker} style={this.props.style}>
+      <div className={cx(s.picker, {[s.error]: this.props.error})} style={this.props.style}>
         <MaterialTimePicker hintText={this.props.label}
                             autoOk={true}
                             textFieldStyle={{color: colors.TEXT}}

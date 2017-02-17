@@ -6,6 +6,8 @@ import ScheduleMaker from './ScheduleMaker'
 import TableMaker from './TableMaker.jsx'
 
 import RaisedButton from 'material-ui/RaisedButton'
+import FontIcon from 'material-ui/FontIcon';
+import {blue500, red500, greenA200} from 'material-ui/styles/colors';
 
 
 
@@ -70,26 +72,47 @@ export default class Scheduler extends Component {
   }
 
   setCourseName(cId, name) {
-    this.setCourseAttr((courses) => courses[cId].name = name);
+    this.setCourseAttr((courses) => {
+      courses[cId].name = name;
+      if (name) courses[cId].error = undefined;
+    });
   }
   setSectionNumber(cId, sId, secNum) {
-    this.setCourseAttr((courses) => courses[cId].sections[sId].number = secNum);
+    this.setCourseAttr((courses) => {
+      let section = courses[cId].sections[sId];
+      section.number = secNum;
+      if (secNum) section.error = undefined;
+    });
   }
-  setStartTime(cId, sId, tId, time) {
-    this.setCourseAttr((courses) =>
-      courses[cId].sections[sId].times[tId].start = time);
+  setStartTime(cId, sId, tId, date) {
+    this.setCourseAttr((courses) => {
+      let time = courses[cId].sections[sId].times[tId];
+      time.start = date;
+      if (date) time.startError = undefined;
+    });
   }
-  setEndTime(cId, sId, tId, time) {
-    this.setCourseAttr((courses) =>
-      courses[cId].sections[sId].times[tId].end = time);
+  setEndTime(cId, sId, tId, date) {
+    this.setCourseAttr((courses) => {
+      let time = courses[cId].sections[sId].times[tId];
+      time.end = date;
+      if (date) {
+        if (time.start && time.end < time.start) return;
+        time.endError = undefined;
+      }
+    });
   }
   setDay(cId, sId, tId, day, isPresent) {
-    this.setCourseAttr((courses) =>
-      courses[cId].sections[sId].times[tId].days[day] = isPresent
-    );
+    this.setCourseAttr((courses) => {
+      let time = courses[cId].sections[sId].times[tId];
+      time.days[day] = isPresent;
+      if (isPresent) time.dayError = undefined;
+    });
   }
 
   makeSchedules() {
+    let hasError = this.validate();
+    if (hasError) return;
+
     console.log("Forming schedules with data: " + JSON.stringify(this.state.courses));
 
     let sm = new ScheduleMaker(this.state.courses);
@@ -112,6 +135,55 @@ export default class Scheduler extends Component {
     this.addCourse();
   }
 
+  validate() {
+    let error = "This field is required";
+    let foundError = false;
+
+    this.setCourseAttr((courses) => {
+      for (let course of courses) {
+        if (!course.name) {
+          course.error = "Please supply a course name!";
+          foundError = true;
+        } else {
+          course.error = undefined;
+        }
+
+        for (let section of course.sections) {
+          if (!section.number) {
+            section.error = "Missing section #!";
+            foundError = true;
+          } else {
+            section.error = undefined;
+          }
+
+          for (let time of section.times) {
+            let days = time.days;
+            let oneDaySelected = (days.M || days.T || days.W || days.R || days.F);
+            if (!oneDaySelected) {
+              time.dayError = "Please choose a day!";
+              foundError = true;
+            }
+            if (!time.start) {
+              time.startError = "Missing start time!"
+              foundError = true;
+            }
+            if (!time.end) {
+              time.endError = "Missing end time!"
+              foundError = true;
+            }
+            if (time.start && time.end && time.end < time.start) {
+              time.endError = "End time can't be before start time"
+              foundError = true;
+            }
+          }
+        }
+      }
+    });
+
+    if (foundError) this.setState({schedules: undefined, error: true});
+    return foundError;
+  }
+
   render() {
     let domCourses = this.state.courses.map(function(c, cId) {
       return (
@@ -128,9 +200,21 @@ export default class Scheduler extends Component {
                 setStartTime={(sId, tId, time) => this.setStartTime(cId, sId, tId, time)}
                 setEndTime={(sId, tId, time) => this.setEndTime(cId, sId, tId, time)}
                 setDay={(sId, tId, day, isPresent) => this.setDay(cId, sId, tId, day, isPresent)}
+                error={c.error}
                 />
       );
     }, this);
+
+    let errorText = (function(context) {
+      if (context.state.error)
+        return <p className={s.errorText}>See highlighted errors above</p>;
+    })(this);
+
+    console.log("BLUE500");
+    console.log(blue500);
+
+    let rightArrowIcon = (
+      <FontIcon className="fa fa-arrow-right hvr-icon-wobble-horizontal" color={"white"} />);
 
     return (
       <div className={s.pageWrapper}>
@@ -138,7 +222,16 @@ export default class Scheduler extends Component {
         <p className={s.subtitle}>{subtitle}</p>
         <div className={s.scheduler}>
           {domCourses}
-          <RaisedButton label="Make Schedules!" primary={true} onClick={() => this.makeSchedules()}/>
+          {errorText}
+
+          <RaisedButton
+            label="Make Schedules!"
+            labelPosition="before"
+            primary={true}
+            icon={rightArrowIcon}
+            style={{backgroundColor: 'orange'}}
+            onClick={() => this.makeSchedules()}
+          />
         </div>
         <div className={s.outputWrapper}>{this.state.schedules}</div>
       </div>

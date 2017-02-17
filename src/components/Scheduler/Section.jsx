@@ -24,6 +24,9 @@ export default class Section extends Component {
               setStartTime={(time) => this.props.setStartTime(tId, time)}
               setEndTime={(time) => this.props.setEndTime(tId, time)}
               setDay={(day, isPresent) => this.props.setDay(tId, day, isPresent)}
+              dayError={t.dayError}
+              startError={t.startError}
+              endError={t.endError}
               ></Time>
       );
     }, this);
@@ -34,7 +37,8 @@ export default class Section extends Component {
           <TextBox label="Section #"
                    className={s.sectionNum}
                    fullWidth={true}
-                   onChange={(e, val) => this.props.setSectionNumber(val)}/>
+                   onChange={(e, val) => this.props.setSectionNumber(val)}
+                   errorText={this.props.error}/>
           <div className={s.times}>{domTimes}</div>
         </div>
         <div className={s.row}>

@@ -11,3 +11,7 @@
     max-width: 256px;
   }
 }
+
+.error {
+  background: var(--red);
+}

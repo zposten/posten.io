@@ -24,13 +24,16 @@ export default class Course extends Component {
                  setStartTime={(tId, time) => this.props.setStartTime(sId, tId, time)}
                  setEndTime={(tId, time) => this.props.setEndTime(sId, tId, time)}
                  setDay={(tId, day, isPresent) => this.props.setDay(sId, tId, day, isPresent)}
+                 error={s.error}
                  ></Section>
       );
     }, this);
 
     return (
       <div className={s.course}>
-        <TextBox label="Course #" onChange={(e, val) => this.props.setCourseName(val)}/>
+        <TextBox label="Course #"
+                 onChange={(e, val) => this.props.setCourseName(val)}
+                 errorText={this.props.error}/>
         <div className={s.sectionWrapper}>
           {domSections}
         </div>
