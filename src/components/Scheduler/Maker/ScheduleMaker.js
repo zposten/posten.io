@@ -41,7 +41,15 @@ export default class ScheduleMaker {
         chosenSections.pop();
       }
     }
-    if (!courseAdded) throw new Error("No schedules could be formed");
+
+    let errorText = 'No schedules could be fored with the supplied data.  ' +
+      'This means that all the sections of (at least) two of your courses ' +
+      'completely overlap with each other such that they cannot both fit ' +
+      'in any schedule.  Because Scheduler will only form schedules that ' +
+      'contain all of the courses that you enter, no schedules are shown.  ' +
+      'Try to look through your courses and either remove one of the ' +
+      'conflicting, or add additional sections.';
+    if (!courseAdded) throw new Error(errorText);
   }
 
   deepCopy(obj) {

@@ -15,7 +15,7 @@ import BlogInitial from '../pages/blog/BlogInitial.jsx'
 import BlogMeals from '../pages/blog/BlogMeals.jsx'
 
 import Applets from '../pages/applets/index.js'
-import Scheduler from '../components/Scheduler/Scheduler.jsx'
+import Scheduler from '../pages/applets/Scheduler/SchedulerPage.jsx'
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,

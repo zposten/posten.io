@@ -40,7 +40,8 @@
 }
 
 .error {
-  background: var(--red);
+  border: 3px solid var(--red);
+  border-radius: 5px;
 }
 
 

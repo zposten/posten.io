@@ -1,13 +1,11 @@
 import React, { Component } from 'react'
 import s from './Scheduler.css'
-import { title, subtitle } from './Scheduler.md'
 import Course from './Course.jsx'
-import ScheduleMaker from './ScheduleMaker'
-import TableMaker from './TableMaker.jsx'
+import ScheduleMaker from './Maker/ScheduleMaker'
+import TableMaker from './Maker/TableMaker.jsx'
 
 import RaisedButton from 'material-ui/RaisedButton'
 import FontIcon from 'material-ui/FontIcon';
-import {blue500, red500, greenA200} from 'material-ui/styles/colors';
 
 
 
@@ -115,9 +113,14 @@ export default class Scheduler extends Component {
 
     console.log("Forming schedules with data: " + JSON.stringify(this.state.courses));
 
-    let sm = new ScheduleMaker(this.state.courses);
-    let tm = new TableMaker(sm.make());
-    this.setState({schedules: tm.makeHtml()});
+    try {
+      let sm = new ScheduleMaker(this.state.courses);
+      let tm = new TableMaker(sm.make());
+      this.setState({schedules: tm.makeHtml()});
+    } catch(e) {
+      console.log(e);
+      this.setError(e.message)
+    }
   }
 
   /**
@@ -180,8 +183,16 @@ export default class Scheduler extends Component {
       }
     });
 
-    if (foundError) this.setState({schedules: undefined, error: true});
+    if (foundError) this.setError('See highlighted errors above');
     return foundError;
+  }
+
+  setError(text) {
+    this.setState({
+      schedules: undefined,
+      error: true,
+      errorText: text,
+    });
   }
 
   render() {
@@ -205,37 +216,28 @@ export default class Scheduler extends Component {
       );
     }, this);
 
-    let errorText = (function(context) {
-      if (context.state.error)
-        return <p className={s.errorText}>See highlighted errors above</p>;
-    })(this);
-
-    console.log("BLUE500");
-    console.log(blue500);
+    let errorText = (this.state.error)
+      ? <p className={s.errorText}>{this.state.errorText}</p>
+      : undefined;
 
     let rightArrowIcon = (
       <FontIcon className="fa fa-arrow-right hvr-icon-wobble-horizontal" color={"white"} />);
 
     return (
-      <div className={s.pageWrapper}>
-        <h1 className={s.title}>{title}</h1>
-        <p className={s.subtitle}>{subtitle}</p>
-        <div className={s.scheduler}>
-          {domCourses}
-          {errorText}
+      <div className={s.scheduler}>
+        {domCourses}
+        {errorText}
 
-          <RaisedButton
-            label="Make Schedules!"
-            labelPosition="before"
-            primary={true}
-            icon={rightArrowIcon}
-            style={{backgroundColor: 'orange'}}
-            onClick={() => this.makeSchedules()}
-          />
-        </div>
+        <RaisedButton
+          label="Make Schedules!"
+          labelPosition="before"
+          primary={true}
+          icon={rightArrowIcon}
+          style={{backgroundColor: 'orange'}}
+          onClick={() => this.makeSchedules()}
+        />
         <div className={s.outputWrapper}>{this.state.schedules}</div>
       </div>
     );
-
   }
 }
