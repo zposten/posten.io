@@ -1,8 +1,8 @@
 import React, { Component, PropTypes } from 'react'
 import PhotoViewer from './photoswipe/PhotoViewer.jsx'
 import Gallery from './Gallery.jsx'
-import Slides2015 from './slides-2015'
-import Slides2016 from './slides-2016'
+import Slides2015 from './slides/slides-2015'
+import Slides2016 from './slides/slides-2016'
 import s from './styles.css'
 import Collapsible from '../../components/Collapsible/Collapsible.jsx'
 
