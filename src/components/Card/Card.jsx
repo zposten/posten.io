@@ -18,7 +18,7 @@ export default class Card extends Component {
     return (
       <Link to={this.props.to} className={cx(s.wrapper, 'hvr-bob')}>
           <div className={cx(s.imageWrapper, {[s.hidden]: !this.props.src})}>
-            <img src={this.props.src} />
+            <img src={this.props.src} className={s.image} />
           </div>
           <div className={s.textArea}>
             <h3 className={s.title}>{this.props.title}</h3>

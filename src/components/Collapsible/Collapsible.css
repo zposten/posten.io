@@ -1,0 +1,33 @@
+.margin {
+  margin: 5px;
+}
+
+.wrapper {
+  composes: margin;
+  background: var(--light);
+  overflow-y: hidden;
+  margin-bottom: 30px;
+}
+
+.header {
+  composes: margin;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.content {
+  composes: margin;
+  padding-top: 10px;
+  border-top: 1px solid var(--dark);
+
+
+  &.hidden {
+    border-top: 0;
+    padding: 0;
+    margin: 0;
+    height: 0;
+  }
+}

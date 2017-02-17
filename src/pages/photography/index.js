@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react'
+import PhotoViewer from './photoswipe/PhotoViewer.jsx'
+import Gallery from './Gallery.jsx'
+import Slides2015 from './slides/slides-2015'
+import Slides2016 from './slides/slides-2016'
 import s from './styles.css'
+import Collapsible from '../../components/Collapsible/Collapsible.jsx'
 
 export default class PhotographyPage extends Component {
-
-  static propTypes = {
-  };
 
   componentDidMount() {
     document.title = "Photos";
@@ -12,8 +14,15 @@ export default class PhotographyPage extends Component {
 
   render() {
     return (
-      <div>
-        Photography page
+      <div className={s.root}>
+        <Collapsible title="2016">
+          <Gallery slides={Slides2016} gid={1} />
+        </Collapsible>
+        <Collapsible title="2015">
+          <Gallery slides={Slides2015} gid={2} />
+        </Collapsible>
+
+        <PhotoViewer />
       </div>
     );
   }

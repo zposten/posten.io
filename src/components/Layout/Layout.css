@@ -3,12 +3,13 @@
 @value topbar-height from "./sizes.css";
 @value layout-small-side-padding, layout-large-side-padding from "./sizes.css";
 @value layout-top-bottom-padding from "./sizes.css";
+@value footer-height from "./sizes.css";
 
 
 .main {
   width: 100%;
   margin: 0;
-  display: flex;
+  display: -webkit-box;
   flex-direction: column;
   justify-content: space-between;
   min-height: calc(100% - topbar-height);
@@ -17,18 +18,32 @@
   color: var(--text);
   right: 0;
   position: absolute;
-  padding: layout-top-bottom-padding layout-small-side-padding;
+  /*padding: layout-top-bottom-padding layout-small-side-padding;*/
+  padding-top: layout-top-bottom-padding;
+  padding-bottom: 0;
 
   @media show-sidebar {
     width: calc(100% - sidebar-width);
   }
 
   @media large {
-    padding: layout-top-bottom-padding layout-large-side-padding;
+    /*padding: layout-top-bottom-padding layout-large-side-padding;*/
+    padding-top: layout-top-bottom-padding;
+    padding-bottom: 0;
   }
 
 }
 
 .content {
   padding: 20px;
+}
+
+.page-wrap {
+  min-height: 100%;
+
+  &:after {
+    content: "";
+    display: block;
+    height: footer-height;
+  }
 }

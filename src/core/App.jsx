@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Router, Route, hashHistory, IndexRoute } from 'react-router'
+import { Router, Route, hashHistory, IndexRoute, IndexRedirect } from 'react-router'
 import store from './store'
 import { Provider } from 'react-redux'
 
@@ -27,6 +27,7 @@ class App extends Component {
       <Provider store={store}>
         <Router history={hashHistory}>
           <Route path="/" component={Layout}>
+            <IndexRedirect to="/home" />
             <Route path="/home" component={Home} />
             <Route path="/bio" component={Bio} />
             <Route path="/blog" component={Blog}>
@@ -36,6 +37,7 @@ class App extends Component {
               <Route path="/blog/recipes/meals/:meal/:recipe" component={BlogMeals} />
             </Route>
             <Route path="/photography" component={Photography} />
+            <Route path="/photography&gid=:gid&pid=:pid" component={Photography} />
             <Route path="/apps" component={Applets} />
           </Route>
           <Route path="/error" component={Error} />
