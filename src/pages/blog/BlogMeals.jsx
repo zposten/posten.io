@@ -71,6 +71,7 @@ export default class BlogMeals extends Component {
         );
       });
 
+      // Render the meal selection screen
       return (
         <div>
           <h1 className={s.title}>{titleText}</h1>
@@ -87,7 +88,7 @@ export default class BlogMeals extends Component {
         <h3 className={s.subtitle}>{recipe.subtitle}</h3>
         <div className={s.titleImage} style={{'backgroundImage': `url(${recipe.src})`}}></div>
 
-        <div className={cx(mds.markdown, s.markdown)}>
+        <div className={cx(mds.markdown)}>
           <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
         </div>
       </div>

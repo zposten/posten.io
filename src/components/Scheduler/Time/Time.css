@@ -1,0 +1,55 @@
+@value small, medium, large from "../../../utils/breakpoints.css";
+
+.time {
+  background-color: var(--light);
+  padding: 20px;
+
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 100%;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.row {
+  display: flex;
+}
+
+.days {
+  flex-wrap: wrap;
+}
+
+.day {
+  width: auto;
+  margin-right: 10px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  & svg {
+    fill: var(--primary) !important;
+
+    &:first-child {
+      fill: gray !important;
+    }
+  }
+}
+
+.error {
+  border: 3px solid var(--red);
+  border-radius: 5px;
+}
+
+
+.pickers {
+  display: flex;
+  margin-bottom: 10px;
+
+  @media small {
+    flex-direction: column;
+  }
+}

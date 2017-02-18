@@ -16,9 +16,7 @@
 }
 
 .jumbo-title {
-  compoese: center-title;
   font-size: mega-font;
-  font-weight: 900;
   padding-top: 15px;
   padding-bottom: 10px;
   line-height: 1.2;
@@ -36,10 +34,18 @@
   padding-left: layout-small-side-padding;
   padding-right: layout-small-side-padding;
 }
+.text-margin-column {
+  margin-left: layout-small-side-padding;
+  margin-right: layout-small-side-padding;
+}
 
 @media large {
   .text-column {
     padding-left: layout-large-side-padding;
     padding-right: layout-large-side-padding;
+  }
+  .text-margin-column {
+    margin-left: layout-large-side-padding;
+    margin-right: layout-large-side-padding;
   }
 }

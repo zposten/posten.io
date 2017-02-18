@@ -1,18 +1,22 @@
 import React, { Component } from 'react';
 import { Router, Route, hashHistory, IndexRoute, IndexRedirect } from 'react-router'
 import store from './store'
-import { Provider } from 'react-redux'
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import Layout from '../components/Layout/Layout.jsx'
 import Home from '../pages/home/index.js'
 import Bio from '../pages/bio/index.js'
 import Photography from '../pages/photography/index.js'
-import Applets from '../pages/applets/index.js'
 import Error from '../pages/error/index.js'
 
 import Blog from '../pages/blog/index.jsx'
 import BlogInitial from '../pages/blog/BlogInitial.jsx'
 import BlogMeals from '../pages/blog/BlogMeals.jsx'
+
+import Applets from '../pages/applets/Apps.jsx'
+import AppChooser from '../pages/applets/AppChooser.jsx'
+import Scheduler from '../pages/applets/Scheduler/SchedulerPage.jsx'
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
@@ -22,9 +26,14 @@ import BlogMeals from '../pages/blog/BlogMeals.jsx'
 // https://github.com/reactjs/react-router/issues/2182
 
 class App extends Component {
+  componentWillMount() {
+    // Fast click library used by material-ui
+    injectTapEventPlugin();
+  }
+
   render() {
     return (
-      <Provider store={store}>
+      <MuiThemeProvider store={store}>
         <Router history={hashHistory}>
           <Route path="/" component={Layout}>
             <IndexRedirect to="/home" />
@@ -38,11 +47,14 @@ class App extends Component {
             </Route>
             <Route path="/photography" component={Photography} />
             <Route path="/photography&gid=:gid&pid=:pid" component={Photography} />
-            <Route path="/apps" component={Applets} />
+            <Route path="/apps" component={Applets}>
+              <IndexRoute component={AppChooser} />
+              <Route path="/apps/scheduler" component={Scheduler}/>
+            </Route>
           </Route>
           <Route path="/error" component={Error} />
         </Router>
-      </Provider>
+      </MuiThemeProvider>
     );
   }
 }

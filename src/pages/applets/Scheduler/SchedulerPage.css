@@ -1,0 +1,8 @@
+.page-wrapper {
+  composes: text-column from "../../../utils/text.css";;
+}
+
+.title { composes: jumbo-title from "../../../utils/text.css";}
+.subtitle {
+  margin-bottom: 20px;
+}
