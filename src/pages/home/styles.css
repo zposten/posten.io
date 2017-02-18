@@ -1,3 +1,8 @@
+@value small, medium, large from "../../utils/breakpoints.css";
+
 .content {
   composes: text-column from "../../utils/text.css";
+  font-size: 16px;
+
+  @media medium { font-size: 20px; }
 }

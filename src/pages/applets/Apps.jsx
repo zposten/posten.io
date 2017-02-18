@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react'
-import s from './styles.css'
+import s from './Apps.css'
 
 export default class AppletsPage extends Component {
 

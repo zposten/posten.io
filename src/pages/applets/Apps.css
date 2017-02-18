@@ -1,0 +1,17 @@
+@value small, medium, large from "../../utils/breakpoints.css";
+
+.cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+.card {
+  display: flex;
+  width: 100%;
+  padding: 10px;
+
+  @media medium { width: 50%; }
+  @media large { width: 33.3%; }
+}

@@ -14,7 +14,8 @@ import Blog from '../pages/blog/index.jsx'
 import BlogInitial from '../pages/blog/BlogInitial.jsx'
 import BlogMeals from '../pages/blog/BlogMeals.jsx'
 
-import Applets from '../pages/applets/index.js'
+import Applets from '../pages/applets/Apps.jsx'
+import AppChooser from '../pages/applets/AppChooser.jsx'
 import Scheduler from '../pages/applets/Scheduler/SchedulerPage.jsx'
 
 // If you use React Router, make this component
@@ -47,7 +48,8 @@ class App extends Component {
             <Route path="/photography" component={Photography} />
             <Route path="/photography&gid=:gid&pid=:pid" component={Photography} />
             <Route path="/apps" component={Applets}>
-              <IndexRoute component={Scheduler} />
+              <IndexRoute component={AppChooser} />
+              <Route path="/apps/scheduler" component={Scheduler}/>
             </Route>
           </Route>
           <Route path="/error" component={Error} />
