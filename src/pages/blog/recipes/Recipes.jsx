@@ -1,22 +1,22 @@
 import React, {Component, PropTypes} from 'react'
 import cx from 'classnames'
 
-import s from './blog-styles.css'
-import mds from '../../utils/markdown.css'
-import Card from '../../components/Card/Card.jsx'
+import s from '../Blog.css'
+import mds from '../../../utils/markdown.css'
+import Card from '../../../components/Card/Card.jsx'
 
-import * as Breakfast from './recipes/breakfast.md'
-import * as omelet from './recipes/recipe-omelet.md'
-import * as frenchToast from './recipes/recipe-french-toast.md'
+import * as Breakfast from './markdown/breakfast.md'
+import * as omelet from './markdown/recipe-omelet.md'
+import * as frenchToast from './markdown/recipe-french-toast.md'
 
-import * as Dinner from './recipes/dinner.md'
-import * as bbqChicken from './recipes/recipe-bbq-chicken.md'
-import * as chickenAndRice from './recipes/recipe-chicken-and-rice.md'
-import * as goulash from './recipes/recipe-goulash.md'
-import * as potRoast from './recipes/recipe-guinness-pot-roast.md'
-import * as tacoPasta from './recipes/recipe-one-pot-taco-pasta.md'
-import * as pizza from './recipes/recipe-pizza.md'
-import * as mashedPotatoes from './recipes/recipe-mashed-potatoes.md'
+import * as Dinner from './markdown/dinner.md'
+import * as bbqChicken from './markdown/recipe-bbq-chicken.md'
+import * as chickenAndRice from './markdown/recipe-chicken-and-rice.md'
+import * as goulash from './markdown/recipe-goulash.md'
+import * as potRoast from './markdown/recipe-guinness-pot-roast.md'
+import * as tacoPasta from './markdown/recipe-one-pot-taco-pasta.md'
+import * as pizza from './markdown/recipe-pizza.md'
+import * as mashedPotatoes from './markdown/recipe-mashed-potatoes.md'
 
 
 export default class BlogMeals extends Component {

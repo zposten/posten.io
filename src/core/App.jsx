@@ -10,11 +10,10 @@ import Bio from '../pages/bio/index.js'
 import Photography from '../pages/photography/index.js'
 import Error from '../pages/error/index.js'
 
-import Blog from '../pages/blog/index.jsx'
-import BlogInitial from '../pages/blog/BlogInitial.jsx'
-import BlogMeals from '../pages/blog/BlogMeals.jsx'
+import BlogIndex from '../pages/blog/index.jsx'
+import Recipes from '../pages/blog/recipes/Recipes.jsx'
+import RecentPosts from '../pages/blog/tech/RecentPosts.jsx'
 
-import Applets from '../pages/applets/Apps.jsx'
 import AppChooser from '../pages/applets/AppChooser.jsx'
 import Scheduler from '../pages/applets/Scheduler/SchedulerPage.jsx'
 
@@ -39,15 +38,18 @@ class App extends Component {
             <IndexRedirect to="/home" />
             <Route path="/home" component={Home} />
             <Route path="/bio" component={Bio} />
-            <Route path="/blog" component={Blog}>
-              <IndexRoute component={BlogInitial} />
-              <Route path="/blog/recipes/meals" component={BlogMeals} />
-              <Route path="/blog/recipes/meals/:meal" component={BlogMeals} />
-              <Route path="/blog/recipes/meals/:meal/:recipe" component={BlogMeals} />
+            <Route path="/blog">
+              <IndexRoute component={BlogIndex} />
+              <Route path="/blog/recipes/meals" component={Recipes} />
+              <Route path="/blog/recipes/meals/:meal" component={Recipes} />
+              <Route path="/blog/recipes/meals/:meal/:recipe" component={Recipes} />
+              <Route path="/blog/tech">
+                <IndexRoute component={RecentPosts} />
+              </Route>
             </Route>
             <Route path="/photography" component={Photography} />
             <Route path="/photography&gid=:gid&pid=:pid" component={Photography} />
-            <Route path="/apps" component={Applets}>
+            <Route path="/apps">
               <IndexRoute component={AppChooser} />
               <Route path="/apps/scheduler" component={Scheduler}/>
             </Route>
