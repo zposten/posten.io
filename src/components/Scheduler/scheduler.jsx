@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import s from './Scheduler.css'
+import cx from 'classnames'
+
 import Course from './Course.jsx'
 import ScheduleMaker from './Maker/ScheduleMaker'
 import TableMaker from './Maker/TableMaker.jsx'
@@ -183,15 +185,18 @@ export default class Scheduler extends Component {
       }
     });
 
-    if (foundError) this.setError('See highlighted errors above');
+    this.setError(foundError ? 'See highlighted errors above' : false);
     return foundError;
   }
 
   setError(text) {
+    let error = text;
+    let errorText = text ? text : undefined;
+
     this.setState({
       schedules: undefined,
-      error: true,
-      errorText: text,
+      error: error,
+      errorText: errorText,
     });
   }
 
@@ -220,22 +225,15 @@ export default class Scheduler extends Component {
       ? <p className={s.errorText}>{this.state.errorText}</p>
       : undefined;
 
-    let rightArrowIcon = (
-      <FontIcon className="fa fa-arrow-right hvr-icon-wobble-horizontal" color={"white"} />);
-
     return (
       <div className={s.scheduler}>
         {domCourses}
         {errorText}
 
-        <RaisedButton
-          label="Make Schedules!"
-          labelPosition="before"
-          primary={true}
-          icon={rightArrowIcon}
-          style={{backgroundColor: 'orange'}}
-          onClick={() => this.makeSchedules()}
-        />
+        <div>
+          <a className={cx(s.submit, 'hvr-icon-wobble-horizontal')}
+             onClick={() => this.makeSchedules()}>Make Schedules!</a>
+        </div>
         <div className={s.outputWrapper}>{this.state.schedules}</div>
       </div>
     );

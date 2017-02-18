@@ -2,3 +2,32 @@
   font-size: 20px;
   color: var(--red)
 }
+
+
+.submit {
+  width: 200px;
+  height: 50px;
+  background: var(--deep-orange);
+  border: 0;
+  border-radius: 2px;
+  color: white;
+  vertical-align: middle;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  font-size: 20px;
+  font-weight: bold;
+  cursor: default;
+
+  &:hover {
+    background: var(--orange);
+  }
+
+  &:before {
+    content: "\f061";
+    color: var(--text);
+    position: absolute;
+    width: 10px;
+    right: 15px;
+  }
+}
