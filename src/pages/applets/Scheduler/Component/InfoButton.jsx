@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
-import colors from '../../utils/colors'
+import colors from '../../../../utils/colors'
 import Popover from 'material-ui/Popover'
 import FontIcon from 'material-ui/FontIcon'
 

@@ -1,10 +1,10 @@
 import React, {Component, PropTypes} from 'react'
 import s from './Time.css'
-import colors from '../../../utils/colors'
+import colors from '../../../../../utils/colors'
 import cx from 'classnames'
 
 import AddButton from '../AddButton.jsx'
-import Close from '../../Close/Close.jsx'
+import Close from '../../../../../components/Close/Close.jsx'
 import TimePicker from './TimePicker.jsx'
 
 import Checkbox from 'material-ui/Checkbox'

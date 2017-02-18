@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import s from './Section.css'
 
-import TextBox from '../TextBox/TextBox.jsx'
+import TextBox from '../../../../components/TextBox/TextBox.jsx'
 import AddButton from './AddButton.jsx'
-import Close from '../Close/Close.jsx'
+import Close from '../../../../components/Close/Close.jsx'
 import Time from './Time/Time.jsx'
 
 

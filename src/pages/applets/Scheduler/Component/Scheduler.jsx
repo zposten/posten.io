@@ -6,7 +6,7 @@ import Course from './Course.jsx'
 import InfoButton from './InfoButton.jsx'
 import ScheduleMaker from './Maker/ScheduleMaker'
 import TableMaker from './Maker/TableMaker.jsx'
-import TextBox from '../TextBox/TextBox.jsx';
+import TextBox from '../../../../components/TextBox/TextBox.jsx';
 
 
 

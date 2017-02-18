@@ -1,4 +1,4 @@
-@value small, medium, large from "../../../utils/breakpoints.css";
+@value small, medium, large from "../../../../../utils/breakpoints.css";
 
 .time {
   background-color: var(--light);
