@@ -38,13 +38,14 @@ export default class Time extends Component {
   }
 
   render() {
-    let domChecks = ['M', 'T', 'W', 'R', 'F'].map(function(day) {
+    let domChecks = Object.keys(this.props.days).map(function(day) {
       return (
         <div className={s.day} key={day}>
           <Checkbox label={day}
                     iconStyle={{color: colors.TEXT}}
                     labelStyle={{color: colors.TEXT}}
                     onCheck={(e, checked) => this.props.setDay(day, checked)}
+                    checked={this.props.days[day]}
                     />
         </div>
       );
@@ -59,11 +60,13 @@ export default class Time extends Component {
                       onChange={(isNull, date) => this.props.setStartTime(date)}
                       defaultTime={this.d1}
                       error={this.props.startError}
+                      value={this.props.start}
                       />
           <TimePicker label="End Time"
                       onChange={(isNull, date) => this.props.setEndTime(date)}
                       defaultTime={this.d2}
                       error={this.props.endError}
+                      value={this.props.end}
                       />
         </div>
         <div className={s.row}>

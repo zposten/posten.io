@@ -38,7 +38,8 @@ export default class Section extends Component {
                    className={s.sectionNum}
                    fullWidth={true}
                    onChange={(e, val) => this.props.setSectionNumber(val)}
-                   errorText={this.props.error}/>
+                   errorText={this.props.error}
+                   value={this.props.number} />
           <div className={s.times}>{domTimes}</div>
         </div>
         <div className={s.row}>

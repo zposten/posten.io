@@ -33,7 +33,8 @@ export default class Course extends Component {
       <div className={s.course}>
         <TextBox label="Course #"
                  onChange={(e, val) => this.props.setCourseName(val)}
-                 errorText={this.props.error}/>
+                 errorText={this.props.error}
+                 value={this.props.name} />
         <div className={s.sectionWrapper}>
           {domSections}
         </div>

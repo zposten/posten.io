@@ -3,11 +3,10 @@ import s from './Scheduler.css'
 import cx from 'classnames'
 
 import Course from './Course.jsx'
+import InfoButton from './InfoButton.jsx'
 import ScheduleMaker from './Maker/ScheduleMaker'
 import TableMaker from './Maker/TableMaker.jsx'
-
-import RaisedButton from 'material-ui/RaisedButton'
-import FontIcon from 'material-ui/FontIcon';
+import TextBox from '../TextBox/TextBox.jsx';
 
 
 
@@ -127,7 +126,7 @@ export default class Scheduler extends Component {
 
   /**
    * Create a copy of the courses array in state, supply it to
-   * a ballback for manipulation, and then set the state with the
+   * a callback for manipulation, and then set the state with the
    * manipulated object.
    */
   setCourseAttr(callback) {
@@ -200,10 +199,72 @@ export default class Scheduler extends Component {
     });
   }
 
+  parseJson(json) {
+    let keys = {};
+    try {
+      let courses = JSON.parse(json);
+
+      validate(courses instanceof Array);
+      for (let course of courses) {
+        addKey(course.key);
+        validate(course.sections, course.sections instanceof Array);
+        for (let section of course.sections) {
+          addKey(section.key);
+          validate(section.times, section.times instanceof Array);
+          for (let time of section.times) {
+            addKey(time.key);
+            validate(time.days, time.days instanceof Object);
+            for (let day of ['M', 'T', 'W', 'R', 'F']) validate(day in time.days);
+            let start = new Date(time.start);
+            let end = new Date(time.end);
+            validate(start, end);
+            time.start = start;
+            time.end = end;
+          }
+        }
+      }
+
+      for (let key in keys) {
+        if (keys[key] > 1) {
+          throw new Error(`Duplicate key '${key}' found`);
+        }
+      }
+      console.log("validation passed!");
+      console.log(courses);
+      return courses;
+
+    } catch(e) {
+      console.log('cought error: ' + e.message);
+      console.log(e.stack);
+      return false;
+    }
+
+    function addKey(key) {
+      if (!(key in keys)) keys[key] = 0;
+      keys[key]++;
+    }
+
+    function validate(...args) {
+      for (let arg of args) {
+        if (!arg) {
+          console.log("validation failed");
+          throw new Error('Validation failed for ' + arg);
+        }
+      }
+    }
+  }
+
+  setStateFromJson(json) {
+    let courses = this.parseJson(json);
+    if (!courses) return;
+    this.setState({courses: courses});
+  }
+
   render() {
     let domCourses = this.state.courses.map(function(c, cId) {
       return (
         <Course key={c.key}
+                name={c.name}
                 setCourseName={(name) => this.setCourseName(cId, name)}
                 addCourse={() => this.addCourse(cId)}
                 removeCourse={() => this.removeCourse(cId)}
@@ -225,14 +286,28 @@ export default class Scheduler extends Component {
       ? <p className={s.errorText}>{this.state.errorText}</p>
       : undefined;
 
+    let infoText = "The content of this textbox represents the data " +
+    "entered in the UI above, and visa versa.  Once you have " +
+    "successfully entered all your class information in the above " +
+    "UI, you can copy the contents of this textbox and save it " +
+    "somewhere. You can then at a later time come back to Scheduler " +
+    "and paste your saved date into this text box, and you will " +
+    "instantly have the UI in the exact state that you left it.";
+
     return (
       <div className={s.scheduler}>
         {domCourses}
         {errorText}
 
-        <div>
-          <a className={cx(s.submit, 'hvr-icon-wobble-horizontal')}
-             onClick={() => this.makeSchedules()}>Make Schedules!</a>
+        <a className={cx(s.submit, 'hvr-icon-wobble-horizontal')}
+           onClick={() => this.makeSchedules()}>Make Schedules!</a>
+
+        <div className={s.row} style={{marginTop: '20px'}}>
+          <InfoButton text={infoText} />
+          <TextBox fullWidth={true}
+                   value={JSON.stringify(this.state.courses)}
+                   onChange={(e, val) => this.setStateFromJson(val)}
+                   name='state'/>
         </div>
         <div className={s.outputWrapper}>{this.state.schedules}</div>
       </div>
