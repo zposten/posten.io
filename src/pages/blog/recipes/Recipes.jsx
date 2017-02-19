@@ -2,13 +2,12 @@ import React, {Component, PropTypes} from 'react'
 import cx from 'classnames'
 
 import s from '../Blog.css'
-import mds from '../../../utils/markdown.css'
+import Markdown from '../../../components/Markdown/Markdown.jsx'
 import Card from '../../../components/Card/Card.jsx'
 
 import * as Breakfast from './markdown/breakfast.md'
 import * as omelet from './markdown/recipe-omelet.md'
 import * as frenchToast from './markdown/recipe-french-toast.md'
-
 import * as Dinner from './markdown/dinner.md'
 import * as bbqChicken from './markdown/recipe-bbq-chicken.md'
 import * as chickenAndRice from './markdown/recipe-chicken-and-rice.md'
@@ -83,15 +82,11 @@ export default class BlogMeals extends Component {
     // Create the markdown for the specified recipe!
     let recipe = tree[params.meal].recipes[params.recipe];
     return (
-      <div className={s.wrapper}>
-        <h1 className={s.title}>{recipe.title}</h1>
-        <h3 className={s.subtitle}>{recipe.subtitle}</h3>
-        <div className={s.titleImage} style={{'backgroundImage': `url(${recipe.src})`}}></div>
-
-        <div className={cx(mds.markdown)}>
-          <div dangerouslySetInnerHTML={{ __html: recipe.html }} />
-        </div>
-      </div>
+      <Markdown title={recipe.title}
+                subtitle={recipe.subtitle}
+                src={recipe.src}
+                html={recipe.html}
+                />
     );
 
 
