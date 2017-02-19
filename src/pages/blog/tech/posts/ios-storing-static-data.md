@@ -1,7 +1,8 @@
 ---
-title: What is the preferred way to store static data in iOS?
+title: iOS data storage
+summary: What is the preferred way to store static data in iOS?
 author: Zach Posten
-date: April 15th, 2015
+date: 2015-4-15
 tags: ios
 ---
 

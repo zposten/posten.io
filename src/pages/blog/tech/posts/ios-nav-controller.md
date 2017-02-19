@@ -2,7 +2,7 @@
 title: iOS Nav Controllers
 summary: How can an iOS nav controller be used to transfer the users selection to the previous page?
 author: Zach Posten
-date: April 29th, 2015
+date: 2015-4-19
 tags: ios, ui
 ---
 

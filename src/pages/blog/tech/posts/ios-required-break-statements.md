@@ -1,7 +1,7 @@
 ---
 title: The modern switch statement
 summary: Why do most languages still require breaks in a switch statement?
-date: March 25th, 2015
+date: 2015-3-25
 author: Zach Posten
 tags: ios
 ---

@@ -1,7 +1,7 @@
 ---
 title: What's the best way to create a UI in iOS?
 author: Zach Posten
-date: March 18th, 2015
+date: 2015-3-18
 tags: ios, ui
 ---
 
