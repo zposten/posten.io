@@ -1,5 +1,5 @@
 ---
-title: iOS view controller variable initialization
+title: iOS View Controller Variable Initialization
 summary: Inside of a view controller, how do I initialize one variable to the value of another?
 author: Zach Posten
 date: 2015-5-6

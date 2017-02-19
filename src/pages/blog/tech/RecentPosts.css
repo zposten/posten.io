@@ -3,3 +3,10 @@
   flex-wrap: wrap;
   margin: 20px;
 }
+
+.tile {
+  color: var(--text) !important;
+  & a, & a:visited {
+    color: var(--text) !important;
+  }
+}

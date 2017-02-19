@@ -15,7 +15,9 @@ export default class RecentPosts extends Component {
               author={post.author}
               summary={post.summary}
               key={post.title}
-              tags={post.tags}/>
+              tags={post.tags}
+              to={`/blog/tech/${index}`}
+              className={s.tile}/>
       );
     }, this);
 

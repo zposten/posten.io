@@ -13,6 +13,7 @@ import Error from '../pages/error/index.js'
 import BlogIndex from '../pages/blog/index.jsx'
 import Recipes from '../pages/blog/recipes/Recipes.jsx'
 import RecentPosts from '../pages/blog/tech/RecentPosts.jsx'
+import BlogPost from '../pages/blog/tech/BlogPost.jsx'
 
 import AppChooser from '../pages/applets/AppChooser.jsx'
 import Scheduler from '../pages/applets/Scheduler/SchedulerPage.jsx'
@@ -45,6 +46,7 @@ class App extends Component {
               <Route path="/blog/recipes/meals/:meal/:recipe" component={Recipes} />
               <Route path="/blog/tech">
                 <IndexRoute component={RecentPosts} />
+                <Route path="/blog/tech/:postId" component={BlogPost} />
               </Route>
             </Route>
             <Route path="/photography" component={Photography} />

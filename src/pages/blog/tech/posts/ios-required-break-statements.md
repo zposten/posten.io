@@ -1,5 +1,5 @@
 ---
-title: The modern switch statement
+title: The Modern Switch Statement
 summary: Why do most languages still require breaks in a switch statement?
 date: 2015-3-25
 author: Zach Posten
