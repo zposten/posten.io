@@ -3,6 +3,7 @@ title: Lorem Ipsum
 summary: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
 date: February 18th, 2017
 author: Zach Posten
+tags: awesome, mega, totally, cool
 ---
 
 ### The standard Lorem Ipsum passage, used since the 1500s
