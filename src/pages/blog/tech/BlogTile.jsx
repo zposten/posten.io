@@ -24,15 +24,15 @@ export default class BlogTile extends Component {
 
     return (
       <Link to={this.props.to} className={cx(s.tile, this.props.className, 'hvr-rotate')}>
-          <div>
-            <h3 className={s.title}>{this.up(this.props.title)}</h3>
-            <div className={cx(s.info, s.row)}>
-              <div className={s.date}>{this.up(this.props.date)}</div>
-              <div className={s.author}>BY {this.up(this.props.author)}</div>
-            </div>
-            <div className={s.summary}>{this.props.summary}</div>
+        <div>
+          <h3 className={s.title}>{this.up(this.props.title)}</h3>
+          <div className={cx(s.info, s.row)}>
+            <div className={s.date}>{this.up(this.props.date)}</div>
+            <div className={s.author}>BY {this.up(this.props.author)}</div>
           </div>
-          <div className={s.tags}>{tags}</div>
+          <div className={s.summary}>{this.props.summary}</div>
+        </div>
+        <div className={s.tags}>{tags}</div>
       </Link>
     );
   }

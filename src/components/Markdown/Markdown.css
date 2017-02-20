@@ -8,6 +8,14 @@
 
 .title {
   composes: jumbo-title text-column from "../../utils/text.css";
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.info {
+  composes: text-column from "../../utils/text.css";
+  margin-bottom: 20px;
+  color: var(--primary);
 }
 
 .subtitle {

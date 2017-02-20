@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 
-import posts from './posts/posts'
+import posts from './posts'
 import Markdown from '../../../components/Markdown/Markdown.jsx'
 
 export default class BlogPost extends Component {
@@ -20,7 +20,10 @@ export default class BlogPost extends Component {
     return (
       <Markdown html={post.html}
                 title={post.title}
-                subtitle={post.summary} />
+                subtitle={post.summary}
+                author={post.author}
+                date={post.dateString}
+                />
     );
   }
 }

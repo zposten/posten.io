@@ -3,7 +3,7 @@ import cx from 'classnames'
 import s from './RecentPosts.css'
 
 import Tile from './BlogTile.jsx'
-import posts from './posts/posts'
+import posts from './posts'
 
 
 export default class RecentPosts extends Component {
@@ -22,8 +22,11 @@ export default class RecentPosts extends Component {
     }, this);
 
     return (
-      <div className={s.tiles}>
-        {tiles}
+      <div className={s.wrapper}>
+        <h1 className={s.title}>Recent Posts</h1>
+        <div className={s.tiles}>
+          {tiles}
+        </div>
       </div>
     );
   }

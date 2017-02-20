@@ -15,7 +15,7 @@ My mom's omelets are famous where I come from, and for good reason.  It was diff
 | Potatoes                    | 2 small per omelet                                                   |
 | Vegetable oil               | Most of a bottle                                                     |
 | Eggs                        | 2 per omelet                                                         |
-| Milk                        | 1/16 cup per egg                                                     |
+| Milk                        | 1/8 cup per omelet                                                     |
 | Shredded cheddar cheese     | Enough to coat the entirety of each omelet (will differ by pan size) |
 | Salt and pepper             | To taste                                                             |
 | Yellow onion (optional)     | 1                                                                    |
@@ -34,11 +34,12 @@ My mom's omelets are famous where I come from, and for good reason.  It was diff
     - Too much oil can cause it to overflow when potatoes are added because of the large amount of sizzle
 - [ ] Heat on high until potatoes sizzle when placed in.
     - Oil should be hot enough so that the outside gets crispy while the inside does not.  The burner should be at least as high as 8/10.  
-    - Be careful of splatter when pouring the potatoes into the hot oil. DO NOT START A GREASE FIRE!
+    - Be very careful of splatter when pouring the potatoes into the hot oil. I would suggest using a spoon to drop them in a small amount at a time.  Try not to splash the oil, it's _realllly_ hot.
     - If at any time grease starts to overflow the pan, immediately remove it from heat
+    - It's sometimes easier to cook the potatoes in batches rather than all at once, to ensure that the pan doesn't overflow.
 - [ ] Let sit for two minutes (stir too early and the potatoes will turn to mush).
 - [ ] Stir until potato cuboids are golden brown.
-- [ ] Dump the potatoes in a large bowl lined with paper towel to soak up grease
+- [ ] Place the potatoes in a large bowl lined with paper towel to soak up grease
 
 ### Eggs
 - [ ] 2 eggs/omelet

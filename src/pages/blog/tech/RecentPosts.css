@@ -1,7 +1,14 @@
+.wrapper {
+  margin: 20px;
+}
+
+.title {
+  composes: jumbo-title from "../../../utils/text.css";
+}
+
 .tiles {
   display: flex;
   flex-wrap: wrap;
-  margin: 20px;
 }
 
 .tile {
