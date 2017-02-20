@@ -3,9 +3,9 @@ import s from './Time.css'
 import colors from '../../../../../utils/colors'
 import cx from 'classnames'
 
-import AddButton from '../AddButton.jsx'
-import Close from '../../../../../components/Close/Close.jsx'
-import TimePicker from './TimePicker.jsx'
+import AddButton from '../AddButton.js'
+import Close from '../../../../../components/Close'
+import TimePicker from './TimePicker.js'
 
 import Checkbox from 'material-ui/Checkbox'
 

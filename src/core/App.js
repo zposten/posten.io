@@ -4,19 +4,19 @@ import store from './store'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import injectTapEventPlugin from 'react-tap-event-plugin';
 
-import Layout from '../components/Layout/Layout.jsx'
-import Home from '../pages/home/index.js'
-import Bio from '../pages/bio/index.js'
-import Photography from '../pages/photography/index.js'
-import Error from '../pages/error/index.js'
+import Layout from '../components/Layout'
+import Home from '../pages/home'
+import Bio from '../pages/bio'
+import Photography from '../pages/photography'
+import Error from '../pages/error'
 
-import BlogIndex from '../pages/blog/index.jsx'
-import Recipes from '../pages/blog/recipes/Recipes.jsx'
-import RecentPosts from '../pages/blog/tech/RecentPosts.jsx'
-import BlogPost from '../pages/blog/tech/BlogPost.jsx'
+import BlogIndex from '../pages/blog'
+import Recipes from '../pages/blog/recipes'
+import RecentPosts from '../pages/blog/tech/RecentPosts.js'
+import BlogPost from '../pages/blog/tech/BlogPost.js'
 
-import AppChooser from '../pages/applets/AppChooser.jsx'
-import Scheduler from '../pages/applets/Scheduler/SchedulerPage.jsx'
+import AppChooser from '../pages/applets/AppChooser.js'
+import Scheduler from '../pages/applets/Scheduler/SchedulerPage.js'
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,

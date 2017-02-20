@@ -1,7 +1,7 @@
 import { AppContainer } from 'react-hot-loader';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './core/App.jsx';
+import App from './core/App';
 import deepForceUpdate from 'react-deep-force-update'
 import FastClick from 'fastclick';
 
@@ -17,10 +17,10 @@ let instance = ReactDOM.render(
 global.forceUpdate = () => deepForceUpdate(instance)
 
 if (module.hot) {
-  module.hot.accept('./core/App.jsx', () => {
+  module.hot.accept('./core/App', () => {
     // If you use Webpack 2 in ES modules mode, you can
     // use <App /> here rather than require() a <NextApp />.
-    const NextApp = require('./core/App.jsx').default;
+    const NextApp = require('./core/App').default;
     instance = ReactDOM.render(
       <AppContainer>
          <NextApp />

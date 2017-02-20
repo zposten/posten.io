@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import s from './RecentPosts.css'
 
-import Tile from './BlogTile.jsx'
+import Tile from './BlogTile.js'
 import posts from './posts'
 
 

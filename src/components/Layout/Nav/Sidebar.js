@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Navigation from './Navigation.jsx';
+import Navigation from './index';
 import s from './Sidebar.css';
 import cx from 'classnames';
 

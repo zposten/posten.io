@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import Photoswipe from 'photoswipe'
 import PhotoswipeUI_Default from './photoswipe/photoswipe-ui-default'
-import Thumbnail from './Thumbnail.jsx'
+import Thumbnail from './Thumbnail.js'
 import s from './styles.css'
 
 export default class Gallery extends Component {
@@ -14,8 +14,6 @@ export default class Gallery extends Component {
   openPhotoswipe(e, index) {
     // Don't navigate to the url on the anchor tag to go to flicker
     e.preventDefault();
-
-    console.log("### " + index);
 
     let pswpElement = document.querySelectorAll('.pswp')[0];
     let options = {index, galleryUID: this.props.gid};

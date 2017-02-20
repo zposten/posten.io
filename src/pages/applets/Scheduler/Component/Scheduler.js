@@ -2,11 +2,11 @@ import React, { Component } from 'react'
 import s from './Scheduler.css'
 import cx from 'classnames'
 
-import Course from './Course.jsx'
-import InfoButton from './InfoButton.jsx'
+import Course from './Course.js'
+import InfoButton from './InfoButton.js'
 import ScheduleMaker from './Maker/ScheduleMaker'
-import TableMaker from './Maker/TableMaker.jsx'
-import TextBox from '../../../../components/TextBox/TextBox.jsx';
+import TableMaker from './Maker/TableMaker.js'
+import TextBox from '../../../../components/TextBox';
 
 
 

@@ -1,10 +1,8 @@
-
-
 import React, { Component } from 'react'
 import s from './Layout.css'
-import Sidebar from './Nav/Sidebar.jsx'
-import Footer from './Footer.jsx'
-import TopBar from './TopBar.jsx'
+import Sidebar from './Nav/Sidebar.js'
+import Footer from './Footer.js'
+import TopBar from './TopBar.js'
 import sidebarStyle from './Nav/Sidebar.css'
 
 export default class App extends Component {

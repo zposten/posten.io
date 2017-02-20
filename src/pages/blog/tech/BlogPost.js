@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 
 import posts from './posts'
-import Markdown from '../../../components/Markdown/Markdown.jsx'
+import Markdown from '../../../components/Markdown'
 
 export default class BlogPost extends Component {
   static propTypes = {

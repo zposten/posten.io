@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
 import s from './Course.css'
-import TextBox from '../../../../components/TextBox/TextBox.jsx'
-import AddButton from './AddButton.jsx'
-import Close from '../../../../components/Close/Close.jsx'
+import TextBox from '../../../../components/TextBox'
+import AddButton from './AddButton.js'
+import Close from '../../../../components/Close'
 
-import Section from './Section.jsx'
+import Section from './Section.js'
 
 export default class Course extends Component {
   static propTypes = {

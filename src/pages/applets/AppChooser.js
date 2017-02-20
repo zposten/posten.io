@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import s from './Apps.css'
-import Card from '../../components/Card/Card.jsx'
+import Card from '../../components/Card'
 
 import * as schdMd from './Scheduler/Scheduler.md'
 

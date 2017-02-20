@@ -2,8 +2,8 @@ import React, {Component, PropTypes} from 'react'
 import cx from 'classnames'
 
 import s from '../Blog.css'
-import Markdown from '../../../components/Markdown/Markdown.jsx'
-import Card from '../../../components/Card/Card.jsx'
+import Markdown from '../../../components/Markdown'
+import Card from '../../../components/Card'
 
 import * as Breakfast from './markdown/breakfast.md'
 import * as omelet from './markdown/recipe-omelet.md'

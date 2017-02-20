@@ -2,7 +2,7 @@ import React, { Component, PropTypes} from 'react'
 import s from './Card.css'
 import cx from 'classnames'
 
-import {Link} from 'react-router'
+import { Link } from 'react-router'
 
 
 export default class Card extends Component {
