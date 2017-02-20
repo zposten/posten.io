@@ -1,8 +1,9 @@
 import React, { Component } from 'react'
 import cx from 'classnames'
 import { title, subtitle, html } from './bio.md'
-import s from './bio-style.css'
+import s from './style.css'
 import mds from '../../utils/markdown.css'
+import Markdown from '../../components/Markdown'
 
 export default class Bio extends Component {
 
@@ -12,11 +13,9 @@ export default class Bio extends Component {
 
   render() {
     return (
-      <div className={cx(s.content, mds.markdown)}>
-        <h1>{title}</h1>
-        <h3>{subtitle}</h3>
-        <div dangerouslySetInnerHTML={{ __html: html }} />
-      </div>
+      <Markdown html={html}
+                title={title}
+                subtitle={subtitle} />
     );
   }
 
