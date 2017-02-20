@@ -17,7 +17,7 @@ export default class Footer extends Component {
     );
 
     let twitterLink = (
-      <LinkIcon to={'https://github.com/zposten'} tile={'GitHub'}>
+      <LinkIcon to={'https://github.com/zposten'} title={'GitHub'}>
         <path
           d="M12,2A10,10 0 0,0 2,12C2,16.42 4.87,20.17 8.84,21.5C9.34,21.58
           9.5,21.27 9.5,21C9.5,20.77 9.5,20.14 9.5,19.31C6.73,19.91 6.14,17.97 6.14,

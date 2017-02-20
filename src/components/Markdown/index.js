@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import s from './Markdown.css'
 import mds from '../../utils/markdown.css'
+import colors from '../../utils/colors'
 import u from '../../utils'
 
 export default class Markdown extends Component {
@@ -18,7 +19,8 @@ export default class Markdown extends Component {
 
   generateInfo(author, date) {
     if (author && date) {
-      return `BY ${u.up(author)} ON ${u.up(date)}`
+      let authorSpan = <span style={{color: 'grey'}}>{u.up(author)}</span>
+      return <span>BY {authorSpan} ON {u.up(date)}</span>;
     } else if (author) {
       return 'BY ' + u.up(author);
     } else if (date) {

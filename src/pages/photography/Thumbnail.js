@@ -17,7 +17,7 @@ export default class Thumbnail extends Component {
     let height = tokens[1];
 
     return (
-      <figure style={{width: 200 * width / height}}
+      <figure style={{width: 200 * width / height}}//, maxWidth: '500px'}}
               itemProp="associatedMedia"
               itemScope=""
               itemType="http://schema.org/ImageObject"

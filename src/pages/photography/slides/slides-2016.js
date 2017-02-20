@@ -348,6 +348,24 @@ module.exports = [
     title: 'Can we play?  Please?'
   },
   {
+    src: 'https://c1.staticflickr.com/3/2442/32771762902_f65b7f1079_k.jpg', // k
+    size: '1365x2048',
+    msrc: 'https://c1.staticflickr.com/3/2442/32771762902_2bd60c8638_n.jpg', //n
+    title: 'Christmas tree with frigin laser beams attached to its branches'
+  },
+  {
+    src: 'https://c1.staticflickr.com/3/2782/32771762492_1df1a70a67_k.jpg', // k
+    size: '1365x2048',
+    msrc: 'https://c1.staticflickr.com/3/2782/32771762492_c9388ec8b6_n.jpg', //n
+    title: 'Ornaments'
+  },
+  {
+    src: 'https://c1.staticflickr.com/3/2029/32110466873_d48fec2de3_k.jpg', // k
+    size: '1874x2048',
+    msrc: 'https://c1.staticflickr.com/3/2029/32110466873_5bc57fbfe5_n.jpg', //n
+    title: 'Mom at Christmas'
+  },
+  {
     src: 'https://c1.staticflickr.com/3/2648/32771764692_12f381d513_k.jpg', // k
     size: '1536x2048',
     msrc: 'https://c1.staticflickr.com/3/2648/32771764692_b4037f2d66_n.jpg', //n
@@ -376,23 +394,5 @@ module.exports = [
     size: '2048x1365',
     msrc: 'https://c1.staticflickr.com/3/2950/32771763572_bb8af95320_n.jpg', //n
     title: 'It smells funny'
-  },
-  {
-    src: 'https://c1.staticflickr.com/3/2442/32771762902_f65b7f1079_k.jpg', // k
-    size: '1365x2048',
-    msrc: 'https://c1.staticflickr.com/3/2442/32771762902_2bd60c8638_n.jpg', //n
-    title: 'Christmas tree with frigin laser beams attached to its branches'
-  },
-  {
-    src: 'https://c1.staticflickr.com/3/2782/32771762492_1df1a70a67_k.jpg', // k
-    size: '1365x2048',
-    msrc: 'https://c1.staticflickr.com/3/2782/32771762492_c9388ec8b6_n.jpg', //n
-    title: 'Ornaments'
-  },
-  {
-    src: 'https://c1.staticflickr.com/3/2029/32110466873_d48fec2de3_k.jpg', // k
-    size: '1874x2048',
-    msrc: 'https://c1.staticflickr.com/3/2029/32110466873_5bc57fbfe5_n.jpg', //n
-    title: 'Mom at Christmas'
   },
 ];
