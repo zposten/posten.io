@@ -5,10 +5,14 @@ import * as iosUiCreation from './ios-ui-creation-methods.md'
 import * as iosPopover from './ios-ui-popover-controller.md'
 import * as iosVarCopy from './ios-view-var-copy.md'
 
+import * as gitK from './git-map-to-k.md'
+
 
 
 function parsePosts() {
-  let posts = [iosNav, iosBreak, iosStatic, iosUiCreation, iosPopover, iosVarCopy];
+  let posts = [iosNav, iosBreak, iosStatic, iosUiCreation, iosPopover, iosVarCopy,
+              gitK];
+
   for (let post of posts) {
     parseDate(post);
     splitTags(post);
@@ -35,7 +39,7 @@ function parseDate(md) {
   let d = md.date.split('-');
 
   md.dateObject = new Date(d[0], d[1], d[2]);
-  md.dateString = `${monthStrs[d[1]]} ${d[2]}, ${d[0]}`;
+  md.dateString = `${monthStrs[d[1] - 1]} ${d[2]}, ${d[0]}`;
 }
 
 function splitTags(post) {

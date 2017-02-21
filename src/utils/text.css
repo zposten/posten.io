@@ -1,6 +1,6 @@
 @value mega-font: 5em;
 @value large-font: 4em;
-@value medium-font: 1.5em;
+@value medium-font: 2.5em;
 
 @value subtitle-color: #999;
 
@@ -16,11 +16,12 @@
 }
 
 .jumbo-title {
-  font-size: mega-font;
+  font-size: medium-font;
   padding-top: 15px;
   padding-bottom: 10px;
   line-height: 1.2;
   margin-bottom: 20px;
+  word-wrap: break-word;
 }
 
 .subtitle {
@@ -47,5 +48,12 @@
   .text-margin-column {
     margin-left: layout-large-side-padding;
     margin-right: layout-large-side-padding;
+  }
+}
+
+@media medium {
+  .jumbo-title {
+    font-size: mega-font;
+    word-wrap: normal;
   }
 }
