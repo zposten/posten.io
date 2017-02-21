@@ -291,7 +291,7 @@ export default class Scheduler extends Component {
     "successfully entered all your class information in the above " +
     "UI, you can copy the contents of this textbox and save it " +
     "somewhere. You can then at a later time come back to Scheduler " +
-    "and paste your saved date into this text box, and you will " +
+    "and paste your saved data into this text box, and you will " +
     "instantly have the UI in the exact state that you left it.";
 
     return (
