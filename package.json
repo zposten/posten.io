@@ -1,7 +1,13 @@
 {
-  "name": "app",
-  "version": "0.0.0",
+  "name": "Posten.io",
+  "version": "2.0.0",
   "private": true,
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zposten/posten.io.git"
+  },
+  "author": "Zach Posten",
   "engines": {
     "node": ">=6",
     "npm": ">=3.8"
