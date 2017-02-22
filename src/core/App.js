@@ -6,7 +6,7 @@ import injectTapEventPlugin from 'react-tap-event-plugin';
 
 import Layout from '../components/Layout'
 import Home from '../pages/home'
-import Bio from '../pages/bio'
+import Bio, {SdlArticle} from '../pages/bio'
 import Photography from '../pages/photography'
 import Error from '../pages/error'
 
@@ -38,7 +38,10 @@ class App extends Component {
           <Route path="/" component={Layout}>
             <IndexRedirect to="/home" />
             <Route path="/home" component={Home} />
-            <Route path="/bio" component={Bio} />
+            <Route path="/bio">
+              <IndexRoute component={Bio} />
+              <Route path="/bio/sdl-article" component={SdlArticle} />
+            </Route>
             <Route path="/blog">
               <IndexRoute component={BlogIndex} />
               <Route path="/blog/recipes/meals" component={Recipes} />
