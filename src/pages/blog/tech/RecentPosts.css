@@ -1,0 +1,19 @@
+.wrapper {
+  margin: 20px;
+}
+
+.title {
+  composes: jumbo-title from "../../../utils/text.css";
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.tile {
+  color: var(--text) !important;
+  & a, & a:visited {
+    color: var(--text) !important;
+  }
+}

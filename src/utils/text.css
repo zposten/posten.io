@@ -1,13 +1,14 @@
 @value mega-font: 5em;
 @value large-font: 4em;
-@value medium-font: 1.5em;
+@value medium-font: 2.5em;
 
 @value subtitle-color: #999;
 
 @value layout-small-side-padding from "../components/Layout/sizes.css";
 @value layout-large-side-padding from "../components/Layout/sizes.css";
+@value layout-xlarge-side-padding from "../components/Layout/sizes.css";
 
-@value small, medium, large from "./breakpoints.css";
+@value small, medium, large, xlarge from "./breakpoints.css";
 
 .center-title {
   text-align: center;
@@ -16,11 +17,12 @@
 }
 
 .jumbo-title {
-  font-size: mega-font;
+  font-size: medium-font;
   padding-top: 15px;
   padding-bottom: 10px;
   line-height: 1.2;
   margin-bottom: 20px;
+  word-wrap: break-word;
 }
 
 .subtitle {
@@ -39,6 +41,13 @@
   margin-right: layout-small-side-padding;
 }
 
+@media medium {
+  .jumbo-title {
+    font-size: mega-font;
+    word-wrap: normal;
+  }
+}
+
 @media large {
   .text-column {
     padding-left: layout-large-side-padding;
@@ -47,5 +56,16 @@
   .text-margin-column {
     margin-left: layout-large-side-padding;
     margin-right: layout-large-side-padding;
+  }
+}
+
+@media xlarge {
+  .text-column {
+    padding-left: layout-xlarge-side-padding;
+    padding-right: layout-xlarge-side-padding;
+  }
+  .text-margin-column {
+    margin-left: layout-xlarge-side-padding;
+    margin-right: layout-xlarge-side-padding;
   }
 }

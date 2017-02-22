@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react'
 import s from './styles.css'
 import { title, subtitle, html } from './home.md'
-import Jumbotron from '../../components/Jumbotron/Jumbotron.jsx'
+import Jumbotron from '../../components/Jumbotron'
 
 class HomePage extends React.Component {
 

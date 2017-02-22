@@ -1,10 +1,10 @@
 import React, { Component, PropTypes } from 'react'
-import PhotoViewer from './photoswipe/PhotoViewer.jsx'
-import Gallery from './Gallery.jsx'
+import PhotoViewer from './photoswipe/PhotoViewer.js'
+import Gallery from './Gallery.js'
 import Slides2015 from './slides/slides-2015'
 import Slides2016 from './slides/slides-2016'
 import s from './styles.css'
-import Collapsible from '../../components/Collapsible/Collapsible.jsx'
+import Collapsible from '../../components/Collapsible'
 
 export default class PhotographyPage extends Component {
 

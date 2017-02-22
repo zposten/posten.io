@@ -1,0 +1,47 @@
+@value small, medium, large from "../../../../utils/breakpoints.css";
+
+.section {
+  background-color: #282828;
+  margin: 10px;
+  margin-left: 70px;
+  margin-top: 20px;
+  padding: 10px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+
+  @media small {
+    margin-left: 10px;
+    margin-right: 0;
+  }
+}
+
+.sectionNum {
+  flex-basis: 70px;
+  margin-right: 20px;
+  flex-shrink: 0;
+}
+
+.times {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  flex-shrink: 1;
+  flex-grow: 1;
+}
+
+.row {
+  display: flex;
+  flex-grow: 1;
+  margin-top: 20px;
+
+  &:first-child {
+    margin-top: 0;
+  }
+
+  @media small {
+    flex-direction: column;
+  }
+}
