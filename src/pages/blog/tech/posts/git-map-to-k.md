@@ -14,7 +14,7 @@ When using Git (the CLI of course, don't get me started on Git GUIs), what are t
 
 Well what's the best case?  I need some way of identifying that I want to run a Git command, and not just a terminal command.  Optimally, I could type one letter, and then a space, and then the rest of my Git instruction.  Well I've got good news, as you probably already figured out, that's what this post is supposed to show you!  We're going to write a special kind of alias to map `git` to `k`.
 
-## Choosing a letters
+## Choosing a letter
 You can choose any letter.  You have exactly 26 choices.  You _might_ even be able to use special characters, but I haven't tried that, and you certainly couldn't use all of them.  After a little thought though, I chose `k`.  I tried to figure out what the easiest key to type on the keyboard was.  It needed to of course be on the home row, and with the middle finger being the longest, it seems easiest to press a key with that finger.  So that leaves `d` and `k`, but that selection is somewhat arbitrary, and as I said it's completely up to you!
 
 ## Making the change
