@@ -8,6 +8,7 @@ export default class CategoryTile extends Component {
   static propTypes = {
     text: PropTypes.string,
     setCategory: PropTypes.func,
+    tabIndex: PropTypes.number,
   }
 
   constructor(props) {
@@ -17,27 +18,52 @@ export default class CategoryTile extends Component {
     };
   }
 
+  setEnabled(enabled) {
+    if (!this.props.text) enabled = true;
+    if (!enabled) enabled = !this.state.isEnabled;
+    this.setState({isEnabled: enabled});
+  }
+
   handleClick(e) {
-    this.setState({isEnabled: !this.state.isEnabled})
+    this.setEnabled();
+  }
+
+  handleKeyPress(e) {
+    if (e.key === 'Enter') {
+      this.setEnabled(false);
+    }
+  }
+
+  handleBlur(e) {
+    this.setEnabled(false);
+  }
+
+  handleChange(e) {
+    this.props.setCategory(e.target.value);
   }
 
   render() {
     let textEntry = (
-      <TextBox hintText="Enter a category"
-               multiLine={true}
-               rowsMax={3}
-               defaultValue={this.props.text}
-               onChange={(e, val) => this.props.setCategory(val)}
-               />
+      <input type="text"
+             autoFocus
+             value={this.props.text}
+             onChange={(e) => this.handleChange(e)}
+             onKeyPress={(e) => this.handleKeyPress(e)}
+             onBlur={(e) => this.handleBlur(e)}
+             onFocus={(e) => e.target.select()}
+             tabIndex={this.props.tabIndex}
+             className={s.textbox}
+             />
     );
     let content = (this.state.isEnabled)
       ? textEntry
-      : this.props.text;
+      : <div className={s.category}>{this.props.text}</div>;
 
 
     return (
       <div className={cx(s.tile)}
-           onDoubleClick={(e) => this.handleClick(e)}>
+           onDoubleClick={(e) => this.handleClick(e)}
+           onFocus={() => console.log("focus")}>
         {content}
       </div>
     );

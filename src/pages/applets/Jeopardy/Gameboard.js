@@ -9,6 +9,9 @@ export default class Gameboard extends Component {
     values: PropTypes.array,
     categories: PropTypes.array,
     setValue: PropTypes.func,
+    round: PropTypes.number,
+    score: PropTypes.number,
+    setScore: PropTypes.func,
   }
 
   constructor(props) {
@@ -25,28 +28,24 @@ export default class Gameboard extends Component {
   }
 
   setValue(oldDelta, newDelta) {
-    let newValue = this.state.value - oldDelta + newDelta;
-    this.setState({value: newValue});
+    let newScore = this.props.score - oldDelta + newDelta;
+    this.props.setScore(newScore);
   }
 
   render() {
-    // let ATile = (props) => (
-    //   <Tile text={props.text}
-    //         setValue={(oldVal, newVal) => this.setValue(oldVal, newVal)} />
-    // );
-
     let categoryRow = this.props.categories.map((category, index) => (
-      <th key={index}>
+      <th key={index} style={{height: '100%'}}>
         <CategoryTile
           text={category}
-          setCategory={(c) => this.props.setCategory(index, c)}/>
+          setCategory={(c) => this.props.setCategory(index, c)}
+          tabIndex={index + 500 * this.props.round}/>
       </th>
     ));
-    let valueRows = this.props.values.map(function(value) {
+    let valueRows = this.props.values.map(function(value, vId) {
       let rowData = [];
-      for (let category of this.props.categories) {
+      for (let i=0; i<this.props.categories.length; ++i) {
         rowData.push(
-          <td key={category}>
+          <td key={`${vId}, ${i}`}>
             <Tile value={value} setValue={(o,n) => this.setValue(o,n)} />
           </td>
         );
@@ -60,8 +59,6 @@ export default class Gameboard extends Component {
           <thead><tr>{categoryRow}</tr></thead>
           <tbody>{valueRows}</tbody>
         </table>
-
-        <div>The value currently is {this.state.value}</div>
       </div>
     );
   }

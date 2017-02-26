@@ -1,0 +1,26 @@
+.wrapper {
+  composes: text-column from "../../../utils/text.css";
+}
+
+.score {
+  font-size: 30px;
+  margin: 30px 0 100px 0;
+}
+
+.final-buttons {
+  display: flex;
+  margin-top: 10px;
+}
+
+.final-Score {
+  margin-top: 50px;
+
+  &.hide-final-score {
+    display: none;
+  }
+}
+
+.final-score-value {
+  font-size: 70px;
+  color: var(--primary);
+}

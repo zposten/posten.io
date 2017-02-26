@@ -1,12 +1,21 @@
-.tile {
+.jeopardy-color {
   background-color: #08147e;
-  font-size: 40px;
-  cursor: pointer;
+}
+
+.tile-base {
+  composes: jeopardy-color;
   user-select: none;
-  color: var(--amber);
+  cursor: pointer;
+  border: 0;
+  display: flex;
+}
+
+.tile {
+  composes: tile-base jeopardy-color;
+  font-size: 40px;
+  color: #FFC107;
   font-weight: bold;
   padding: 5px;
-  display: flex;
   justify-content: center;
 
   &:hover {
