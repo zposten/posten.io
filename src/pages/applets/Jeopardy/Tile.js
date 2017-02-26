@@ -41,7 +41,7 @@ export default class Tile extends Component {
   }
 
   render() {
-
+    let dollarSign = (this.state.isValue) ? '$' : undefined;
 
     return (
       <div className={cx(s.tile,
@@ -50,7 +50,7 @@ export default class Tile extends Component {
                        {[s.incorrect]: this.state.isIncorrect})}
            onClick={(e) => this.handleClick(e)}
       >
-        {this.props.text}
+        {dollarSign}{this.props.text}
       </div>
     );
   }

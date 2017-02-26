@@ -1,15 +1,24 @@
 .tile {
   background-color: #08147e;
   font-size: 40px;
+  cursor: pointer;
+  user-select: none;
+  color: var(--amber);
+  font-weight: bold;
 
-  & .category {
+  &.category {
     font-size: 20px;
+    font-weight: normal;
+    color: white;
   }
 
-  & .correct {
+  &.correct {
     background-color: var(--green);
   }
-  & .incorrect {
+  &.incorrect {
     background-color: var(--red);
+  }
+  &.correct, &.incorrect {
+    color: #f2ca51;
   }
 }
