@@ -5,12 +5,9 @@
   user-select: none;
   color: var(--amber);
   font-weight: bold;
-
-  &.category {
-    font-size: 20px;
-    font-weight: normal;
-    color: white;
-  }
+  padding: 5px;
+  display: flex;
+  justify-content: center;
 
   &.correct {
     background-color: var(--green);

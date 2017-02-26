@@ -1,0 +1,7 @@
+.tile {
+  background-color: #08147e;
+  font-size: 20px;
+  color: white;
+  display: flex;
+  justify-content: center;
+}

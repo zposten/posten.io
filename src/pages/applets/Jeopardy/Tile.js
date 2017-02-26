@@ -4,7 +4,7 @@ import s from './Tile.css'
 
 export default class Tile extends Component {
   static propTypes = {
-    text: PropTypes.string,
+    value: PropTypes.number,
     setValue: PropTypes.func,
   }
 
@@ -14,13 +14,11 @@ export default class Tile extends Component {
       clickCount: 0,
       isCorrect: false,
       isIncorrect: false,
-      isValue: Number.isInteger(props.text),
-      value: Number(props.text),
+      lastReportedValue: 0,
     };
   }
 
   handleClick(e) {
-    if (!this.state.isValue) return;
     let clickCount = this.state.clickCount + 1;
 
     const defaultState = 0;
@@ -33,24 +31,26 @@ export default class Tile extends Component {
     let isIncorrect = currentState == incorrectState;
 
     let currentValue = 0;
-    if (isCorrect) currentValue = this.state.value;
-    else if (isIncorrect) currentValue = -1 * this.state.value;
+    if (isCorrect) currentValue = this.props.value;
+    else if (isIncorrect) currentValue = -1 * this.props.value;
 
-    this.props.setValue(currentValue);
-    this.setState({clickCount, isCorrect, isIncorrect})
+    this.props.setValue(this.state.lastReportedValue, currentValue);
+    this.setState({
+      clickCount,
+      isCorrect,
+      isIncorrect,
+      lastReportedValue: currentValue
+    });
   }
 
   render() {
-    let dollarSign = (this.state.isValue) ? '$' : undefined;
-
     return (
       <div className={cx(s.tile,
-                       {[s.category]: !this.state.isValue},
                        {[s.correct]: this.state.isCorrect},
                        {[s.incorrect]: this.state.isIncorrect})}
            onClick={(e) => this.handleClick(e)}
       >
-        {dollarSign}{this.props.text}
+        ${this.props.value}
       </div>
     );
   }

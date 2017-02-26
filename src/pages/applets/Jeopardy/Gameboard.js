@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import s from './Gameboard.css'
 import Tile from './Tile'
+import CategoryTile from './CategoryTile'
 
 export default class Gameboard extends Component {
   static propTypes = {
@@ -23,22 +24,28 @@ export default class Gameboard extends Component {
     }
   }
 
-  setValue(delta) {
-    this.setState({value: this.state.value + delta});
+  setValue(oldDelta, newDelta) {
+    let newValue = this.state.value - oldDelta + newDelta;
+    this.setState({value: newValue});
   }
 
   render() {
-    // let ATile = (text) => <Tile text={text} setValue={(val) => this.setValue(val)} />
+    // let ATile = (props) => (
+    //   <Tile text={props.text}
+    //         setValue={(oldVal, newVal) => this.setValue(oldVal, newVal)} />
+    // );
 
     let categoryRow = this.props.categories.map(category => (
-      <th><Tile text={category} setValue={(val) => this.setValue(val)} /></th>
+      <th key={category}>
+        <CategoryTile text={category} />
+      </th>
     ));
     let valueRows = this.props.values.map(function(value) {
       let rowData = [];
       for (let category of this.props.categories) {
         rowData.push(
           <td key={category}>
-            <Tile text={value} setValue={(val) => this.setValue(val)} />
+            <Tile value={value} setValue={(o,n) => this.setValue(o,n)} />
           </td>
         );
       }
@@ -46,10 +53,14 @@ export default class Gameboard extends Component {
     }, this);
 
     return (
-      <table>
-        <tr>{categoryRow}</tr>
-        {valueRows}
-      </table>
+      <div>
+        <table>
+          <thead><tr>{categoryRow}</tr></thead>
+          <tbody>{valueRows}</tbody>
+        </table>
+
+        <div>The value currently is {this.state.value}</div>
+      </div>
     );
   }
 }
