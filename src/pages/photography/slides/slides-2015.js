@@ -99,7 +99,7 @@ module.exports = [
     src: 'https://farm1.staticflickr.com/687/23039709779_d270aaed05_k.jpg',
     size: '2048x1449',
     msrc: 'https://farm1.staticflickr.com/687/23039709779_ce8df18e24_n.jpg',
-    title: 'Flagpole'
+    title: 'America the Beautiful'
   },
   {
     src: 'https://farm1.staticflickr.com/5667/22779315044_bd520d4f3e_k.jpg',
@@ -142,18 +142,6 @@ module.exports = [
     size: '2048x1166',
     msrc: 'https://farm1.staticflickr.com/5772/22779340844_0b1cc88a15_n.jpg',
     title: 'Lovely Eye'
-  },
-  {
-    src: 'https://farm1.staticflickr.com/601/23039739019_65e91dd364_k.jpg',
-    size: '2048x1536',
-    msrc: 'https://farm1.staticflickr.com/601/23039739019_62f97be5e1_n.jpg',
-    title: 'Dome'
-  },
-  {
-    src: 'https://farm1.staticflickr.com/749/23325159451_23dde49dfd_k.jpg',
-    size: '2048x626',
-    msrc: 'https://farm1.staticflickr.com/749/23325159451_99408cc637_n.jpg',
-    title: 'Horticulture Domes'
   },
   {
     src: 'https://farm1.staticflickr.com/5676/23039741019_6961e4b701_k.jpg',
@@ -242,7 +230,7 @@ module.exports = [
   {
     src: 'https://farm1.staticflickr.com/5760/23039809719_4e7690032c_k.jpg',
     size: '2048x1365',
-    msrc: 'https://farm1.staticflickr.com/5760/23039809719_32046ce5a1_n.jpg',
+    msrc: 'https://c1.staticflickr.com/6/5760/23039809719_32046ce5a1_z.jpg',
     title: 'Sparklers'
   },
 ];
