@@ -9,15 +9,7 @@
   justify-content: center;
   flex-direction: column;
   margin-top: -20px;
-  margin-left: calc(-1 * layout-small-side-padding);
-  margin-right: calc(-1 * layout-small-padding);
-  margin-right: -10px;
   margin-bottom: 40px;
-
-  @media show-sidebar {
-    margin-left: calc(-1 * layout-large-side-padding);
-    margin-right: calc(-1 * layout-large-side-padding);
-  }
 }
 
 .title {

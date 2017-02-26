@@ -1,8 +1,8 @@
 module.exports = [
   {
-    src: 'https://c1.staticflickr.com/3/2125/32771761142_243f667fd0_k.jpg', // k
+    src: 'https://c1.staticflickr.com/3/2125/32771761142_af83e395e3_k.jpg', // k
     size: '2048x1365',
-    msrc: 'https://c1.staticflickr.com/3/2125/32771761142_c68b120663_n.jpg', //n
+    msrc: 'https://c1.staticflickr.com/3/2125/32771761142_eb53458777_n.jpg', //n
     title: 'Birthday girl'
   },
   {
@@ -96,9 +96,9 @@ module.exports = [
     title: 'I waited so long to do this'
   },
   {
-    src: 'https://c1.staticflickr.com/1/680/32082251834_46d6fc8409_k.jpg', // k
+    src: 'https://c1.staticflickr.com/1/680/32082251834_596cd008e8_k.jpg', // k
     size: '2048x1365',
-    msrc: 'https://c1.staticflickr.com/1/680/32082251834_6982737452_n.jpg', //n
+    msrc: 'https://c1.staticflickr.com/1/680/32082251834_ce5e591fcf_n.jpg', //n
     title: 'A coupla hooligans'
   },
   {
@@ -108,9 +108,9 @@ module.exports = [
     title: 'Smidge\'s graduation!'
   },
   {
-    src: 'https://c1.staticflickr.com/3/2219/32110490063_29f814d21c_k.jpg', // k
+    src: 'https://c1.staticflickr.com/3/2219/32110490063_ba72a44d28_k.jpg', // k
     size: '2048x1365',
-    msrc: 'https://c1.staticflickr.com/3/2219/32110490063_9d38d66f9d_n.jpg', //n
+    msrc: 'https://c1.staticflickr.com/3/2219/32110490063_f61c7e9ca5_n.jpg', //n
     title: 'The graduate'
   },
   {
@@ -392,7 +392,7 @@ module.exports = [
   {
     src: 'https://c1.staticflickr.com/3/2950/32771763572_6be3a6d1aa_k.jpg', // k
     size: '2048x1365',
-    msrc: 'https://c1.staticflickr.com/3/2950/32771763572_bb8af95320_n.jpg', //n
+    msrc: 'https://c1.staticflickr.com/3/2950/32771763572_bb8af95320_z.jpg', //n
     title: 'It smells funny'
   },
 ];
