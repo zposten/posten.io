@@ -10,15 +10,29 @@ export default class Jeopardy extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      categories: {
+        1: ['these', 'are', 'six', 'diferent', 'jeopardy', 'categories'],
+        2: [],
+      }
+    };
+  }
+
+  setCategory(round, index, value) {
+    this.state.categories[round][index] = value;
+    this.setState({categories: this.state.categories});
   }
 
   render() {
-    let categories = ['these', 'are', 'six', 'diferent', 'jeopardy', 'categories'];
-    let values = [200, 400, 600, 800, 1000];
+    const values = {
+      1: [200, 400, 600, 800, 1000],
+      2: [400, 800, 1200, 1600, 2000]
+    }
 
     return (
-      <Gameboard categories={categories} values={values} />
+      <Gameboard categories={this.state.categories[1]}
+                 values={values[1]}
+                 setCategory={(i, val) => this.setCategory(1, i, val)}/>
     );
   }
 }

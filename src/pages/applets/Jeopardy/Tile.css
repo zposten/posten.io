@@ -9,13 +9,23 @@
   display: flex;
   justify-content: center;
 
+  &:hover {
+    background-color: blue;
+  }
+
   &.correct {
     background-color: var(--green);
+    &:hover {
+      background-color: green;
+    }
   }
   &.incorrect {
     background-color: var(--red);
+    &:hover {
+      background-color: red;
+    }
   }
   &.correct, &.incorrect {
-    color: #f2ca51;
+    color: white;
   }
 }

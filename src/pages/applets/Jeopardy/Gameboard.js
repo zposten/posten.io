@@ -14,14 +14,14 @@ export default class Gameboard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      cols: {},
+      // cols: {},
       value: 0,
     };
 
     //props.values.sort((a, b) => a - b);
-    for (let category of props.categories) {
-      this.state.cols[category] = props.values.slice();
-    }
+    // for (let category of props.categories) {
+    //   this.state.cols[category] = props.values.slice();
+    // }
   }
 
   setValue(oldDelta, newDelta) {
@@ -35,9 +35,11 @@ export default class Gameboard extends Component {
     //         setValue={(oldVal, newVal) => this.setValue(oldVal, newVal)} />
     // );
 
-    let categoryRow = this.props.categories.map(category => (
-      <th key={category}>
-        <CategoryTile text={category} />
+    let categoryRow = this.props.categories.map((category, index) => (
+      <th key={index}>
+        <CategoryTile
+          text={category}
+          setCategory={(c) => this.props.setCategory(index, c)}/>
       </th>
     ));
     let valueRows = this.props.values.map(function(value) {
