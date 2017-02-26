@@ -14,6 +14,10 @@ export default class AppChooser extends Component {
                 title={schdMd.title}
                 summary={schdMd.subtitle}
                 to="/apps/scheduler" />
+          <Card src=""
+                title={'Jeopardy'}
+                summary={'It\'s awesome, trust me'}
+                to="/apps/jeopardy" />
         </div>
       </div>
     );
