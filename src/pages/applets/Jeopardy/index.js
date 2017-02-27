@@ -79,7 +79,11 @@ export default class Jeopardy extends Component {
         <h3 className={s.subtitle}>{subtitle}</h3>
 
         {boards}
-        <h1>Final Jeopardy</h1>
+
+        <h1 className={s.finalTitle}>Final Jeopardy</h1>
+        <div className={s.totalScore}>
+          Total score from both rounds: ${this.state.scores[1] + this.state.scores[2]}
+        </div>
         <TextBox label="Wajor" onChange={(e, val) => this.handleWajor(val)}/>
         <div className={s.finalButtons}>
           <FlatButton label="I got it right!"

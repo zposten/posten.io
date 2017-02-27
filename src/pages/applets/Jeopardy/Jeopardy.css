@@ -1,5 +1,3 @@
-@value small, medium, large from "../../../utils/breakpoints.css";
-
 .wrapper {
   composes: text-column from "../../../utils/text.css";
 }
@@ -14,7 +12,7 @@
 }
 
 .score {
-  font-size: 12px;
+  font-size: 30px;
   margin: 30px 0 100px 0;
 }
 
@@ -32,15 +30,6 @@
 }
 
 .final-score-value {
-  font-size: 20px;
+  font-size: 70px;
   color: var(--primary);
-}
-
-@media medium {
-  .score { font-size: 20px; }
-  .final-score-value { font-size: 30px; }
-}
-@media large {
-  .score { font-size: 30px; }
-  .final-score-value { font-size: 70px; }
 }
