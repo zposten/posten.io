@@ -1,7 +1,9 @@
 import React, { Component, PropTypes } from 'react'
 import cx from 'classnames'
 import s from './Jeopardy.css'
+import {title, subtitle} from './Jeopardy.md'
 import colors from '../../../utils/colors'
+
 import Gameboard from './Gameboard'
 import TextBox from '../../../components/TextBox'
 import FlatButton from 'material-ui/FlatButton';
@@ -66,13 +68,16 @@ export default class Jeopardy extends Component {
                    setScore={(score) => this.setScore(round, score)}
                    />
         <div className={s.score}>
-          Score for round {round} is: {this.state.scores[round]}
+          Score for the {round == 2 ? 'Double ' : ''}Jeopardy round is: ${this.state.scores[round]}
         </div>
       </div>
     ))
 
     return (
       <div className={s.wrapper}>
+        <h1 className={s.title}>{title}</h1>
+        <h3 className={s.subtitle}>{subtitle}</h3>
+
         {boards}
         <h1>Final Jeopardy</h1>
         <TextBox label="Wajor" onChange={(e, val) => this.handleWajor(val)}/>
