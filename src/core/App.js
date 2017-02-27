@@ -12,11 +12,12 @@ import Error from '../pages/error'
 
 import BlogIndex from '../pages/blog'
 import Recipes from '../pages/blog/recipes'
-import RecentPosts from '../pages/blog/tech/RecentPosts.js'
-import BlogPost from '../pages/blog/tech/BlogPost.js'
+import RecentPosts from '../pages/blog/tech/RecentPosts'
+import BlogPost from '../pages/blog/tech/BlogPost'
 
-import AppChooser from '../pages/applets/AppChooser.js'
-import Scheduler from '../pages/applets/Scheduler/SchedulerPage.js'
+import AppChooser from '../pages/applets/AppChooser'
+import Scheduler from '../pages/applets/Scheduler/SchedulerPage'
+import Jeopardy from '../pages/applets/Jeopardy'
 
 // If you use React Router, make this component
 // render <Router> with your routes. Currently,
@@ -57,6 +58,7 @@ class App extends Component {
             <Route path="/apps">
               <IndexRoute component={AppChooser} />
               <Route path="/apps/scheduler" component={Scheduler}/>
+              <Route path="/apps/jeopardy" component={Jeopardy}/>
             </Route>
           </Route>
           <Route path="/error" component={Error} />

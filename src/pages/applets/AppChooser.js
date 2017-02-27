@@ -4,6 +4,7 @@ import s from './Apps.css'
 import Card from '../../components/Card'
 
 import * as schdMd from './Scheduler/Scheduler.md'
+import * as jeopMd from './Jeopardy/Jeopardy.md'
 
 export default class AppChooser extends Component {
   render() {
@@ -14,6 +15,12 @@ export default class AppChooser extends Component {
                 title={schdMd.title}
                 summary={schdMd.subtitle}
                 to="/apps/scheduler" />
+        </div>
+        <div className={s.card}>
+          <Card src="http://www.okayplayer.com/wp-content/uploads/2016/07/Jeopardy-690.jpg"
+                title={jeopMd.title}
+                summary={jeopMd.subtitle}
+                to="/apps/jeopardy" />
         </div>
       </div>
     );
