@@ -1,3 +1,5 @@
+@value small, medium, large from "../../../utils/breakpoints.css";
+
 .jeopardy-color {
   background-color: #08147e;
 }
@@ -11,8 +13,8 @@
 }
 
 .tile {
-  composes: tile-base jeopardy-color;
-  font-size: 40px;
+  composes: tile-base;
+  font-size: 12px;
   color: #FFC107;
   font-weight: bold;
   padding: 5px;
@@ -37,4 +39,16 @@
   &.correct, &.incorrect {
     color: white;
   }
+
+}
+
+@media medium {
+  .tile { font-size: 20px; }
+}
+@media large {
+  .tile { font-size: 30px; }
+}
+
+@media (min-width: 1200px) {
+  .tile { font-size: 40px; }
 }

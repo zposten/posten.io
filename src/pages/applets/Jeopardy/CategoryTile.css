@@ -1,7 +1,7 @@
 .tile {
   composes: tile-base from "./Tile.css";
   background-color: #08147e;
-  font-size: 20px;
+  font-size: 10px;
   color: white;
   display: flex;
   justify-content: center;
@@ -16,6 +16,7 @@
   composes: jeopardy-color from "./Tile.css";
   width: 100%;
   color: white;
+  font-size: 12px;
 
   &:focus {
     background-color: var(--primary);
@@ -24,4 +25,14 @@
 
 .category {
   padding: 10px;
+}
+
+
+@media medium {
+  .tile { font-size: 15px; }
+  .textbox { font-size: 15px; }
+}
+@media large {
+  .tile { font-size: 20px; }
+  .textbox { font-size: 20px; }
 }

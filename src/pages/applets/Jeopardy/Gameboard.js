@@ -55,7 +55,7 @@ export default class Gameboard extends Component {
 
     return (
       <div>
-        <table>
+        <table className={s.board}>
           <thead><tr>{categoryRow}</tr></thead>
           <tbody>{valueRows}</tbody>
         </table>
